@@ -12,6 +12,7 @@ import Asistencia from './components/Pages/Private/Asistencia/Asistencia';
 import Constancias from './components/Pages/Private/Constancias/Constancias';
 import Pagos from './components/Pages/Private/Pagos/Pagos';
 import AdminRoute from './components/Routes/AdminRoute';
+import {Constants} from "./Constants";
 
 export interface ILoading {
   loading: boolean;
@@ -28,7 +29,7 @@ function App() {
       <Container>
         <PublicRoute restricted={true} component={Login} path="/login" exact />
         <PrivateRoute component={Home} path="/" exact />
-        <PrivateRoute component={Home} path="/home" exact />
+        <PrivateRoute component={() => <Home title={Constants.Title}/> } path="/home" exact />
         <AdminRoute component={Alumnos} path="/alumnos" />
         <AdminRoute component={Tutores} path="/tutores" />
         <AdminRoute component={Docentes} path="/docentes" />

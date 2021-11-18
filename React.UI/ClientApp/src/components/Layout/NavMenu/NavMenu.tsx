@@ -3,6 +3,7 @@ import {Container, Navbar} from 'react-bootstrap';
 import LogoutButton from './LogoutButton';
 import "./NavMenu.css";
 import DarkModeButton from "./DarkModeButton";
+import {Constants} from "../../../Constants";
 
 const NavMenu = () => {
     const history = useHistory();
@@ -13,7 +14,7 @@ const NavMenu = () => {
             <Navbar collapseOnSelect expand="sm" bg="danger" variant="dark">
                 <Container>
                     <button className="unset">
-                        <Navbar.Brand onClick={() => goTo("/home")}>Creciendo Juntos</Navbar.Brand>
+                        <Navbar.Brand onClick={() => goTo("/home")}>{Constants.Title}</Navbar.Brand>
                     </button>
                     <DarkModeButton />
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

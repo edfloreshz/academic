@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { Button, Container, Navbar } from 'react-bootstrap';
 import { BsCardChecklist, BsDownload } from "react-icons/bs";
-import {FaChalkboardTeacher, FaMoneyBill, FaUserTie} from "react-icons/fa";
+import {FaChalkboardTeacher, FaMoneyBill, FaUserTie, FaClipboardList} from "react-icons/fa";
 import { IoMdSchool } from "react-icons/io";
 import "./NavigationMenu.css"
 
@@ -20,7 +20,7 @@ const NavigationMenu = () => {
                             <Button className="btn-block" variant="danger" onClick={() => goTo("/tutores")}><FaUserTie /> Tutores</Button>
                             <Button className="btn-block" variant="danger" onClick={() => goTo("/docentes")}><FaChalkboardTeacher /> Docentes</Button>
                             <Button className="btn-block" variant="danger" onClick={() => goTo("/pagos")}><FaMoneyBill /> Pagos</Button>
-                            <Button className="btn-block" variant="danger" onClick={() => goTo("/asistencia")}><BsCardChecklist /> Asistencia</Button>
+                            <Button className="btn-block" variant="danger" onClick={() => goTo("/asistencia")}><FaClipboardList /> Asistencia</Button>
                             <Button className="btn-block" variant="danger" onClick={() => goTo("/constancias")}><BsDownload /> Constancias</Button>
                         </Navbar.Collapse>
                     </Container>

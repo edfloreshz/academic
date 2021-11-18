@@ -14,16 +14,17 @@ builder.Services.AddCors(options =>
 });
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddScoped<IUserService, UserService>();
-// var tokenParams = new TokenValidationParameters()
-// {
-//     ValidateIssuer = true,
-//     ValidateAudience = true,
-//     ValidateLifetime = true,
-//     ValidateIssuerSigningKey = true,
-//     ValidIssuer = builder.Configuration["JWT:issuer"],
-//     ValidAudience = builder.Configuration["JWT:audience"],
-//     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:key"]))
-// };
+var JWTKey = builder.Configuration["JWT:key"];
+var tokenParams = new TokenValidationParameters()
+{
+    ValidateIssuer = true,
+    ValidateAudience = true,
+    ValidateLifetime = true,
+    ValidateIssuerSigningKey = true,
+    ValidIssuer = builder.Configuration["JWT:issuer"],
+    ValidAudience = builder.Configuration["JWT:audience"],
+    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey))
+};
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromHours(4);
