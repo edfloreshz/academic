@@ -13,13 +13,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="116cea91-234a-4690-8f0d-91ba1bb7862c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicAPI/AcademicAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/AcademicAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/AcademicAPI/Controllers/AlumnoController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -57,7 +66,7 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/Vue.UI/ClientApp/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.React.UI">
+  <component name="RunManager" selected=".NET Launch Settings Profile.AcademicAPI">
     <configuration name="AcademicAPI" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/AcademicAPI/AcademicAPI.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -157,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637257980469</updated>
-      <workItem from="1637257987343" duration="5996000" />
+      <workItem from="1637257987343" duration="7574000" />
     </task>
     <servers />
   </component>

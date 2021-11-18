@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddDbContext<creciendojuntosContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("CreciendoJuntos")));
+    options.UseMySQL(builder.Configuration["ConnectionStrings:CreciendoJuntos"]));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
