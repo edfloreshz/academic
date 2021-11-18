@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace AcademicAPI.Models.Kinder
+{
+    public partial class Asistencium
+    {
+        public int IdAsistencia { get; set; }
+        public int IdAlumno { get; set; }
+        public bool Asistio { get; set; }
+        public DateTime Fecha { get; set; }
+
+        public virtual Alumno IdAlumnoNavigation { get; set; }
+    }
+}

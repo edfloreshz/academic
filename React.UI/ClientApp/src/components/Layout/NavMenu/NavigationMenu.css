@@ -1,0 +1,10 @@
+#responsive-navbar-nav button {
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #d13241;
+  color: white;
+}
+
+.btn-block {
+  margin-top: 0rem !important;
+}

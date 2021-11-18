@@ -1,0 +1,90 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #282c34;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #7eeea1;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #7eeea1;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Make the sliders round */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+table,
+td,
+th {
+  border-top: none;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow: hidden;
+}
+
+th {
+  background-color: #dc3545;
+  color: white;
+}
+
+th,
+td {
+  padding: 11px;
+}
+
+.nameCol {
+  width: 25%;
+}
+
+.switchCol {
+  width: 30%;
+}

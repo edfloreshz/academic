@@ -1,0 +1,69 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr 2.8fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "NavMenu NavMenu NavMenu"
+    "NavigationMenu NavigationMenu NavigationMenu"
+    "Content Content Content";
+}
+
+.NavMenu {
+  grid-area: NavMenu;
+}
+
+.NavigationMenu {
+  grid-area: NavigationMenu;
+}
+
+.Content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 2fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Spacer Spacer Spacer"
+    "Childs Childs Childs"
+    "Childs Childs Childs";
+  grid-area: Content;
+}
+
+.Spacer {
+  grid-area: Spacer;
+}
+
+.Childs {
+  grid-area: Childs;
+}
+
+#root {
+  height: 100%;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+  margin: 0;
+}
+
+/* For presentation only, no need to copy the code below */
+
+.wrapper * {
+  position: relative;
+}
+
+.wrapper *:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}

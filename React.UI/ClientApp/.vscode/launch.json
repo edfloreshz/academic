@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "React",
+            "type": "firefox",
+            "request": "launch",
+            "url": "https://localhost:5001",
+            "webRoot": "${workspaceRoot}/src",
+            "pathMappings": [
+                {
+                    "url": "file:///Users/eduardo/Developer/GitHub/eduardoflhz/creciendojuntos/client_app/src",
+                    "path": "${workspaceFolder}/src"
+                },
+            ]
+        }
+    ]
+}
