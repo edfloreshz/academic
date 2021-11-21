@@ -121,7 +121,7 @@ class Lista extends Component<Props, State> {
                             </Col>
                         </Row>
                     </Card.Header>
-                    <Card.Body className="center">
+                    <Card.Body className="center-text">
                         <Card.Img src={Asistencia} />
                         <Card.Text>
                             <h4>
