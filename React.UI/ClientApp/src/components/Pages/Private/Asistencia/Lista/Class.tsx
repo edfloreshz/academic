@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { IAlumno } from '../../../../models/Alumno';
+import { IAlumno } from '../../../../../models/Alumno';
 import Student from './Student';
-import "./Asistencia.css"
+import "./Lista.css"
 
 export interface Props {
     alumnos: IAlumno[];

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { IAlumno } from '../../../../models/Alumno';
-import "./Asistencia.css"
+import { IAlumno } from '../../../../../models/Alumno';
+import "./Lista.css"
 
 export interface Props {
     alumno: IAlumno;
@@ -9,9 +9,14 @@ export interface Props {
 
 export class Student extends Component<Props> {
     getStyle = () => {
+        let mode = localStorage.getItem("TYPE_OF_THEME");
         return {
-            backgroundColor: this.props.alumno.presente ? '#49B66E' : '#fff',
-            color: this.props.alumno.presente ? '#fff' : '#3b3b3b'
+            backgroundColor: this.props.alumno.presente 
+                ? '#49B66E' 
+                : mode === "light" ? '#fff' : "#0d1117",
+            color: this.props.alumno.presente 
+                ? mode === "light" ? '#fff' : "#0d1117" 
+                : '#3b3b3b'
         }
     }
 

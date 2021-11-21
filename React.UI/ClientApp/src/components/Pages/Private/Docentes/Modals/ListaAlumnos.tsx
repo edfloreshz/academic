@@ -3,7 +3,7 @@ import { Table, Modal } from 'react-bootstrap';
 import { FaUser } from 'react-icons/fa';
 import { IAlumno } from '../../../../../models/Alumno'
 import { RequestType, send } from '../../../../../utils/RequestManager';
-import Spinning from '../../../../Layout/Spinning';
+import Spinning from "../../../../Layout/Navigation/Spinning/Spinning";
 
 export interface Props {
     show: boolean,

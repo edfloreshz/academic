@@ -397,7 +397,7 @@ async function generatePDFRecomendacion(
     }
   );
   page.drawText(
-    `titular del grupo de ${docente.aulaAsignadaNavigation.nombre}, y de quien puedo decir es, una persona responsable, honesta, entusiasta`,
+    `titular del grupo de ${docente.aulaAsignadaNavigation?.nombre}, y de quien puedo decir es, una persona responsable, honesta, entusiasta`,
     {
       x: X,
       y: (height / 48) * 26,

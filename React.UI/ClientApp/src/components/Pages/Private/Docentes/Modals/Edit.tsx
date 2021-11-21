@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Col, Form, Modal, Row} from "react-bootstrap";
-import { RequestType, send } from "../../../../../utils/RequestManager";
+import {RequestType, send} from "../../../../../utils/RequestManager";
 import {docenteSchema, IDocente} from "../../../../../models/Docente";
 import {setKeyValue} from "../../../../../models/Functions";
 import {validate} from "../../../../../utils/ValidationManager";
@@ -41,13 +41,35 @@ class Edit extends Component<Props, State> {
     }
 
     async handleInputChange(event: React.FormEvent<HTMLInputElement>) {
-        let docente = setKeyValue(this.state.docente, event.currentTarget.name as keyof IDocente, event.currentTarget.value);
+        const name = event.currentTarget.name;
+        const value = event.currentTarget.value;
+        if (this.isAdminTryToKillItself(event))
+            return;
+        let isAulaTaken;
+        if (name === "aulaAsignada")
+            isAulaTaken = await send<boolean>(RequestType.GET, "isAulaTaken", null, value);
+        if (isAulaTaken) {
+            await Swal.fire({
+                title: "Aula ocupada",
+                text: "La aula seleccionada está ocupada, por favor seleccione otra",
+                icon: "error",
+                confirmButtonText: "Ok"
+            });
+            return;
+        }
+        let docente = setKeyValue(this.state.docente, name as keyof IDocente, value);
         this.setState({
-            errors: await validate(event.currentTarget.name, docente, docenteSchema)
+            errors: await validate(name, docente, docenteSchema)
         })
         this.setState({ docente })
     }
-
+    
+    isAdminTryToKillItself = (event: React.FormEvent<HTMLInputElement>) => {
+        const idDocente = (sessionStorage.getItem("idDocente") != null) ? parseInt(sessionStorage.getItem("idDocente") as string) : 0;
+        return sessionStorage.getItem("administrador") === "true" && this.state.docente.idDocente === idDocente
+            && (event.currentTarget.name === "activo" || event.currentTarget.name === "administrador");
+    }
+    
     async updateDocente() {
         if (this.state.errors.length === 0) { 
             await send(RequestType.PUT, "updateUser", this.state.docente, this.state.docente.idDocente, "", this.props.handleClose);

@@ -5,7 +5,7 @@ import { generatePDFRecomendacion } from "../../../../../utils/PDFManager";
 import { ILoading, IPagination } from "../../../../../App";
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 import { IDocente } from "../../../../../models/Docente";
-import Spinning from '../../../../Layout/Spinning';
+import Spinning from "../../../../Layout/Navigation/Spinning/Spinning";
 import "./Docentes.css"
 import {RequestType, send} from "../../../../../utils/RequestManager";
 
@@ -102,7 +102,7 @@ class Docentes extends Component<Props, State> {
                     }
                 </Card.Body>
                 <Card.Footer >
-                    <Pagination className="center red" size="lg">
+                    <Pagination className="center" size="lg">
                         {items}
                     </Pagination>
                 </Card.Footer>

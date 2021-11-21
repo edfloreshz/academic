@@ -4,7 +4,7 @@ import { BsDownload } from "react-icons/bs";
 import { IAlumno } from "../../../../../models/Alumno";
 import { generatePDFAdeudo, generatePDFConducta } from "../../../../../utils/PDFManager";
 import { ILoading, IPagination } from "../../../../../App";
-import Spinning from '../../../../Layout/Spinning';
+import Spinning from "../../../../Layout/Navigation/Spinning/Spinning";
 import "./Alumnos.css"
 import {RequestType, send} from "../../../../../utils/RequestManager";
 

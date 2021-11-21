@@ -1,5 +1,4 @@
 import {ZodIssue, ZodObject} from "zod";
-import {log} from "util";
 
 async function validate(field: string, data: any, schema: ZodObject<any>): Promise<ZodIssue[]> {
     const result = await schema.safeParseAsync(data);

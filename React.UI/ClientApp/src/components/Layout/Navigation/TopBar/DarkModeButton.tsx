@@ -18,7 +18,7 @@ class DarkModeButton extends Component<Props, State> {
     }
     render() {
         return (
-            <Button type="button" className="btn btn-danger" onClick={() => {
+            <Button id="dark-mode-btn" type="button" className="btn btn-danger" onClick={() => {
                 this.setState({ isDarkMode: !this.state.isDarkMode})
                 localStorage.setItem("TYPE_OF_THEME", this.state.isDarkMode ? "dark" : "light")
             }}>

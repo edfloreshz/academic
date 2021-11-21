@@ -1,5 +1,5 @@
 import React from 'react';
-import '../indexDark.css';
+import './css/dark.css';
 
 const Theme = () => (<React.Fragment></React.Fragment>);
 

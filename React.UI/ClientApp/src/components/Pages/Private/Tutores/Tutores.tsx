@@ -5,10 +5,9 @@ import Edit from './Modals/Edit';
 import Add from './Modals/Add';
 import "./Tutores.css"
 import { FaEdit, FaUser } from "react-icons/fa";
-import Spinning from "../../../Layout/Spinning";
+import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import { ILoading, IPagination } from "../../../../App";
 import {RequestType, send} from "../../../../utils/RequestManager";
-import {IAlumno} from "../../../../models/Alumno";
 
 export interface Props {
 

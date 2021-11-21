@@ -13,18 +13,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="116cea91-234a-4690-8f0d-91ba1bb7862c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/Constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/img/alumnos.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/img/asistencia.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/img/constancias.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/img/docente.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/img/pagos.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Lista/Lista.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Registro/Registro.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Home/Section/Section.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/css/dark.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/AsistenciaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/AsistenciaController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/NavMenu/NavMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/NavMenu/NavMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/NavMenu/NavigationMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/NavMenu/NavigationMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/Menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/TopBar/DarkModeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/TopBar/DarkModeButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/TopBar/LogoutButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/TopBar/LogoutButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/TopBar/TopBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/TopBar/TopBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Alumnos/Alumnos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Alumnos/Alumnos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Alumnos/Modals/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Alumnos/Modals/Edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Asistencia.css" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Lista/Lista.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Asistencia.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Asistencia.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Class.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Lista/Class.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Student.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Lista/Student.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Alumnos/Alumnos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Alumnos/Alumnos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Constancias.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Constancias.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Docentes/Docentes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Docentes/Docentes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Docentes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Docentes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Modals/Add.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Modals/Add.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Modals/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Modals/Edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Modals/ListaAlumnos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Docentes/Modals/ListaAlumnos.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Home/Section/Section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Home/Section/Section.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Pagos/Pagos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Pagos/Pagos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Tutores/Tutores.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Tutores/Tutores.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/css/light.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/indexDark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Asistencia.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Asistencia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Docente.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Docente.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Functions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/darkTheme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/darkTheme.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/lightTheme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/lightTheme.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/PDFManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/PDFManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/RequestManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/RequestManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/ValidationManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/ValidationManager.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +67,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -82,12 +115,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.83073497" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/Vue.UI/ClientApp/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -191,7 +225,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637257980469</updated>
-      <workItem from="1637257987343" duration="10697000" />
+      <workItem from="1637257987343" duration="20181000" />
+      <workItem from="1637462385306" duration="3182000" />
+      <workItem from="1637520159002" duration="8973000" />
     </task>
     <servers />
   </component>
@@ -199,7 +235,7 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -12,7 +12,6 @@ const setKeyValue = function <T extends object, U extends keyof T>(
 function parse(currentValue: any, newValue: any): any {
   switch (typeof currentValue) {
     case "number":
-      console.log(currentValue, newValue)
       if (newValue !== "") {
         return parseInt(newValue);
       } else {

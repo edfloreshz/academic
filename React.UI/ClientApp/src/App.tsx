@@ -35,7 +35,7 @@ function App() {
         <AdminRoute component={Docentes} path="/docentes" />
         <PrivateRoute component={Asistencia} path="/asistencia" />
         <AdminRoute component={Pagos} path="/pagos" />
-        <AdminRoute component={Constancias} path="/constancias" />
+        <AdminRoute component={Constancias} path="/constancias" />  
       </Container>
     </Layout>
   );

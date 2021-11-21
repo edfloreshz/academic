@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import NavMenu from './NavMenu/NavMenu'
-import "./Layout.css"
 import { isLogin } from "../../utils/LoginManager";
-import NavigationMenu from './NavMenu/NavigationMenu';
+import Menu from "./Navigation/Menu/Menu";
+import TopBar from "./Navigation/TopBar/TopBar";
+import "./Layout.css"
 
 class Layout extends Component {
 
     renderNavigationMenu() {
         if (isLogin()) {
             return (
-                <NavigationMenu />
+                <Menu />
             );
         } else {
             return <></>;
@@ -20,7 +20,7 @@ class Layout extends Component {
             <>
                 <div className="wrapper">
                     <div className="NavMenu">
-                        <NavMenu />
+                        <TopBar />
                     </div>
                     <div className="NavigationMenu">
                         {this.renderNavigationMenu()}

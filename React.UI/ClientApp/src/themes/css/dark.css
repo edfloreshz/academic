@@ -1,0 +1,100 @@
+body {
+  background-color: #010409;
+}
+
+.navbar {
+  background-color: #161b22!important;
+}
+
+th, .card, .card-header {
+  background-color: #0d1117 !important;
+  border-color: #30363d!important;
+  color: wheat;
+}
+
+.btn-warning, .btn-info, .btn-primary {
+  background-color: #21262d !important;
+  border-color: #373b42!important;
+  color: wheat;
+}
+
+.btn-warning:hover, .btn-info:hover {
+  color: wheat!important;
+  border-color: #c9d1d9!important;
+}
+
+.slider {
+  background-color: #23b152;
+}
+
+.card .table {
+  color: wheat;
+}
+
+#menu-btn, #logout-button {
+  background-color: #0d1117 !important;
+  border-color: rgba(13, 17, 23, 0.65);
+  color: white;
+}
+
+#menu-btn:hover {
+  background-color: #1a222e !important;
+  border-color: rgba(26, 34, 46, 0.42);
+  color: white;
+}
+
+#logged-in, #dark-mode-btn {
+  background-color: unset!important;
+  border-color: #161b22!important;
+  color: white;
+}
+
+.table td, .table th {
+  border-top: none!important;
+}
+
+.table thead th {
+  border-bottom: none!important;
+}
+
+.contain table tr td {
+  color: wheat;
+}
+
+.nav-link {
+  background-color: #282c34!important;
+  color: wheat;
+}
+
+#datePicker {
+  background-color: #282c34!important;
+  color: wheat;
+}
+
+.modal-content, .modal-footer, .modal-header {
+  background-color: #0d1117;
+  border-color: #30363d;
+  color: wheat;
+}
+
+.page-item.active .page-link {
+  background-color: #0d1117 !important;
+  border-color: #373b42 !important;
+  color: wheat !important;
+}
+
+.page-link {
+  background-color: #282c34!important;
+  border-color: #373b42 !important;
+  color: wheat !important;
+}
+
+.page-link:hover {
+  color: white !important;
+}
+
+.form-control, .form-select, .dropdown-container, .dropdown-content * {
+  background-color: #282c34!important;
+  border-color: #373b42!important;
+  color: wheat;
+}

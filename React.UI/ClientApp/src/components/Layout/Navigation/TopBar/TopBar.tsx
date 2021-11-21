@@ -1,11 +1,11 @@
 import { useHistory } from 'react-router-dom';
 import {Container, Navbar} from 'react-bootstrap';
 import LogoutButton from './LogoutButton';
-import "./NavMenu.css";
 import DarkModeButton from "./DarkModeButton";
-import {Constants} from "../../../Constants";
+import {Constants} from "../../../../Constants";
+import "./TopBar.css";
 
-const NavMenu = () => {
+const TopBar = () => {
     const history = useHistory();
     const goTo = (path: string) => history.push(path);
 
@@ -20,7 +20,7 @@ const NavMenu = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                         <Navbar.Text>
-                            Inicio sesión: <button className="unset" onClick={() => goTo("/home")}>
+                            Inicio sesión: <button id="logged-in" className="unset" onClick={() => goTo("/home")}>
                                 {sessionStorage.getItem('usuario') ?? "Nadie"}
                             </button>
                         </Navbar.Text>
@@ -33,4 +33,4 @@ const NavMenu = () => {
     );
 }
 
-export default NavMenu;
+export default TopBar;

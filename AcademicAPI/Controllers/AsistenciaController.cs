@@ -12,9 +12,15 @@ public class AsistenciaController : ControllerBase
     }
 
     // GET: api/Asistencia
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Asistencium>>> GetAsistencia()
+    [HttpGet("{fecha}/{idAula}")]
+    public async Task<ActionResult<IEnumerable<Asistencium>>> GetAsistencia(string? fecha, int? idAula)
     {
+        if (fecha != null && idAula != null)
+            return await _context.Asistencia
+                .Where(a => a.Fecha == Convert.ToDateTime(fecha) && a.IdAlumnoNavigation.Aula == idAula)
+                .Include(x => x.IdAlumnoNavigation)
+                .Include(x => x .IdAlumnoNavigation.AulaNavigation)
+                .ToListAsync();
         return await _context.Asistencia.OrderBy(a => a.Fecha).ToListAsync();
     }
 

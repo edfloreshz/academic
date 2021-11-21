@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col, Form, FormText, Modal, Row, Table } from "react-bootstrap";
+import { Button, Col, Form, Modal, Row, Table } from "react-bootstrap";
 import { IAula } from "../../../../../models/Aula";
 import { alumnoSchema, IAlumno } from "../../../../../models/Alumno";
 import { setKeyValue } from "../../../../../models/Functions";

@@ -3,10 +3,10 @@ import {Nav, Tab} from "react-bootstrap";
 import {IAlumno} from "../../../../models/Alumno";
 import {RequestType, send} from "../../../../utils/RequestManager";
 import {ILoading} from "../../../../App";
-import Spinning from '../../../Layout/Spinning';
 import "./Constancias.css"
 import Alumnos from "./Alumnos/Alumnos";
 import Docentes from "./Docentes/Docentes";
+import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 
 interface Props {
 }

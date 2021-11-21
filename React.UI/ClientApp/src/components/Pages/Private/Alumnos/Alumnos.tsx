@@ -6,7 +6,7 @@ import Edit from './Modals/Edit';
 import Add from './Modals/Add';
 import "./Alumnos.css"
 import { FaEdit, FaUser } from "react-icons/fa";
-import Spinning from "../../../Layout/Spinning";
+import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import { ILoading, IPagination } from "../../../../App";
 
 export interface Props {

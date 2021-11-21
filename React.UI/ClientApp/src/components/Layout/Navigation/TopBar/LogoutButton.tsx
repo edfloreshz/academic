@@ -19,7 +19,7 @@ class LogoutButton extends Component<Props, State> {
         return (
             sessionStorage.getItem('token') ?
                 (<Navbar.Collapse className="justify-content-end">
-                    <Button className="btn btn-warning" onClick={this.handleLogout}>Salir</Button>
+                    <Button id="logout-button" className="btn btn-warning" onClick={this.handleLogout}>Salir</Button>
                 </Navbar.Collapse>)
                 : (<div></div>)
         )

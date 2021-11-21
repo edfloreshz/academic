@@ -12,7 +12,7 @@ const docenteSchema = z.object({
   activo: z.boolean().optional().default(true),
   administrador: z.boolean(),
   aulaAsignada: numeric,
-  aulaAsignadaNavigation: aulaSchema,
+  aulaAsignadaNavigation: aulaSchema.optional(),
 });
 
 type IDocente = z.TypeOf<typeof docenteSchema>;

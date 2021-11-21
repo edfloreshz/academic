@@ -4,7 +4,7 @@ import {Button, Card, Col, Pagination, Row, Table} from 'react-bootstrap';
 import Add from './Modals/Add';
 import {RequestType, send} from '../../../../utils/RequestManager';
 import {FaMoneyBill} from 'react-icons/fa';
-import Spinning from '../../../Layout/Spinning';
+import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import {ILoading, IPagination} from '../../../../App';
 
 export interface Props {

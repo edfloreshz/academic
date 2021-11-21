@@ -7,6 +7,7 @@ import { RequestType, send} from '../../../../../utils/RequestManager';
 import {IAula} from '../../../../../models/Aula';
 import {ZodIssue} from "zod";
 import ErrorMessage from "../../Error/ErrorMessage";
+import Swal from 'sweetalert2';
 
 
 export interface Props {
@@ -58,7 +59,14 @@ class Add extends Component<Props, State> {
 
     async saveDocente() {
         if (this.state.errors.length === 0) {
-            await send(RequestType.POST, "Docente", this.state.docente);
+            await send(RequestType.POST, "register", this.state.docente, null, "", this.props.handleClose);
+        } else {
+            await Swal.fire({
+                title: "Error",
+                text: "Revise los campos en rojo",
+                icon: "error",
+                confirmButtonText: "Ok"
+            })
         }
     }
 

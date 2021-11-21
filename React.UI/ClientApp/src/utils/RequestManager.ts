@@ -13,7 +13,7 @@ export enum RequestType {
 export async function send<T>(
     method: RequestType,
     controller: string,
-    data?: T | null,
+    data?: any | null,
     parameter?: any,
     filters?: string,
     handle?: () => void,

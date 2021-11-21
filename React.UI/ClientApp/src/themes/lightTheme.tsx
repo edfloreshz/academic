@@ -1,5 +1,5 @@
 import React from 'react';
-import '../index.css';
+import './css/light.css';
 
 const Theme = () => (<React.Fragment></React.Fragment>);
 

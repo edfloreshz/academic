@@ -6,9 +6,9 @@ import Edit from './Modals/Edit';
 import Add from './Modals/Add';
 import "./Docentes.css"
 import { FaChalkboardTeacher, FaEdit, FaList } from 'react-icons/fa';
-import Spinning from '../../../Layout/Spinning';
 import ListaAlumnos from "./Modals/ListaAlumnos";
 import { ILoading, IPagination } from "../../../../App";
+import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 
 export interface Props {
 
