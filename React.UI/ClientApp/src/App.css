@@ -38,7 +38,7 @@
 }
 
 .center {
-    justify-content: center;
+    text-align: center!important;
 }
 
 .lds-ring {
