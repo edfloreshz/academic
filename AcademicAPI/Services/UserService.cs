@@ -52,7 +52,7 @@ public class UserService : IUserService
 
     public Docente GetById(int id)
     {
-        return _docentes.FirstOrDefault(x => x.IdDocente == id);
+        return _docentes.FirstOrDefault(x => x.IdDocente == id) ?? throw new InvalidOperationException();
     }
 
     // helper methods

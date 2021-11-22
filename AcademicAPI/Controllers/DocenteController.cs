@@ -14,11 +14,13 @@ public class DocenteController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Docente>>> GetDocentes([FromQuery] bool? activo)
     {
-        return await _context.Docentes
-            .Include(s => s.AulaAsignadaNavigation)
-            .OrderBy(a => a.Nombres)
-            .AsNoTracking()
-            .ToListAsync();
+        if (activo == null)
+            return await _context.Docentes
+                .Include(s => s.AulaAsignadaNavigation)
+                .OrderByDescending(a => a.Activo)
+                .AsNoTracking()
+                .ToListAsync();
+        return await _context.Docentes.Where(d => d.Activo == activo).ToListAsync();
     }
 
     // GET: api/Docente/5

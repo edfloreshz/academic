@@ -15,7 +15,7 @@ public class TutorController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Tutor>>> GetTutors()
     {
-        return await _context.Tutors.ToListAsync();
+        return await _context.Tutors.OrderByDescending(a => a.Activo).ToListAsync();
     }
 
     // GET: api/Tutor/5

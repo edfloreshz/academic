@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 #nullable disable
-
 namespace AcademicAPI.Models.Kinder
 {
     public partial class Pago

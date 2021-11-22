@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Card, Col, Row} from 'react-bootstrap';
+import React from 'react';
+import {Button, Card} from 'react-bootstrap';
 import { IconType } from 'react-icons';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
@@ -34,9 +34,9 @@ const Section = (props: Props) => {
                     <Card.Img src={image} />
                 </Card.Body>
                 <Card.Footer>
-                    <a className="btn btn-danger" onClick={() => goTo(path)} >
+                    <Button variant="danger" onClick={() => goTo(path)} >
                         Abrir <FaArrowCircleRight/>
-                    </a>
+                    </Button>
                 </Card.Footer>
             </Card>
         </div>

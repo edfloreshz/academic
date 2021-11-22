@@ -1,6 +1,7 @@
 using System.Data.Common;
 
 namespace AcademicAPI.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 public class PagoController : ControllerBase
@@ -54,13 +55,52 @@ public class PagoController : ControllerBase
         var pago = await _context.Pagos.FindAsync(id);
 
         if (pago == null)
-        {
             return NotFound();
-        }
 
         return pago;
     }
-
+    
+    [HttpGet("/api/Pago/isDeudor/{id}")]
+    public async Task<ActionResult<bool>> IsDeudor(int id)
+    {
+        var currentYear = DateTime.Now.Year;
+        var currentMonth = DateTime.Now.Month;
+        var pagos = await _context.Pagos
+            .Where(s => s.IdAlumno == id)
+            .Select(s => new Pago() { Fecha = s.Fecha, Concepto = s.Concepto})
+            .ToListAsync();
+        // Checa si el alumno tiene pago de inscripcion, seguro, libros, uniforme en este año.
+        var basics = pagos.Count(s => 
+            (s.Fecha.Month is >= 8 and <= 9) 
+            && (s.Fecha.Day is >= 1 and <= 5 or >= 20 and <= 31) 
+            && s.Fecha.Year == currentYear 
+            && s.Concepto > 1);
+        var isBasicCovered = basics == 4;
+        // Checa si el alumno tiene pago de mensualidades en este año.
+        bool isMonthlyPaymentsCovered;
+        if (currentMonth > 7)
+        {
+            var monthlyPayments = pagos.Count(s => 
+                (s.Fecha.Month is > 7 and <= 12) 
+                && (s.Fecha.Day is >= 1 and <= 15)
+                && (s.Fecha.Year == currentYear)
+                && s.Concepto == 1);
+            isMonthlyPaymentsCovered = monthlyPayments == currentMonth - 7;
+        }
+        else if (currentMonth is not 6)
+        {
+            var monthlyPayments = pagos.Count(s =>
+                (s.Fecha.Month is > 7 and <= 12 or >= 1 and <= 6)
+                && (s.Fecha.Day is >= 1 and <= 15)
+                && (s.Fecha.Year == currentYear || s.Fecha.Year == currentYear + 1)
+                && s.Concepto == 1) ;
+            isMonthlyPaymentsCovered = monthlyPayments == 4 + currentMonth;
+        }
+        else
+            isMonthlyPaymentsCovered = true;
+        return !(isBasicCovered && isMonthlyPaymentsCovered);
+    }
+    
     // PUT: api/Pago/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]

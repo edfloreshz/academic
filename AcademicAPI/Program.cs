@@ -69,13 +69,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
 app.UseRouting();
 app.UseCookiePolicy();
 app.UseSession();
 
 app.UseCors("CorsPolicy");
+app.UseAuthorization();
 
 app.UseAuthentication();
 app.UseMiddleware<JwtMiddleware>();

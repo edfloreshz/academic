@@ -12,6 +12,7 @@ const alumnoSchema = z.object({
   activo: z.boolean().optional().default(true),
   aulaNavigation: aulaSchema.optional(),
   presente: z.boolean().optional(),
+  isDeudor: z.boolean().optional(),
 });
 
 type IAlumno = z.TypeOf<typeof alumnoSchema>;

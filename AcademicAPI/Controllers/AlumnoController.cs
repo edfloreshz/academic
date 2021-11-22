@@ -16,9 +16,15 @@ public class AlumnoController : ControllerBase
     public async Task<ActionResult<IEnumerable<Alumno>>> GetAlumnos([FromQuery] bool? activo)
     {
         if (activo.HasValue) {
-            return await _context.Alumnos.OrderBy(a => a.IdAlumno).Include(a => a.AulaNavigation).Where(x => x.Activo == activo).ToListAsync();
+            return await _context.Alumnos
+                .Include(a => a.AulaNavigation)
+                .Where(x => x.Activo == activo)
+                .ToListAsync();
         }
-        return await _context.Alumnos.OrderBy(a => a.IdAlumno).Include(a => a.AulaNavigation).ToListAsync();
+        return await _context.Alumnos
+            .OrderByDescending(a => a.Activo)
+            .Include(a => a.AulaNavigation)
+            .ToListAsync();
     }
 
     // GET: api/GetAlumnosByTutor

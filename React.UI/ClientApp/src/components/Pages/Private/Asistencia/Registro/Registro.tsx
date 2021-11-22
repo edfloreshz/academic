@@ -1,16 +1,10 @@
 import React, {Component} from 'react';
-import {aulaSchema, IAula} from "../../../../../models/Aula";
-import {Button, Card, Col, Form, FormControl, InputGroup, Row, Table} from "react-bootstrap";
-import Select from "react-select/base";
+import {IAula} from "../../../../../models/Aula";
+import {Button, Card, Col, Form, Row, Table} from "react-bootstrap";
 import {RequestType, send} from "../../../../../utils/RequestManager";
 import ErrorMessage from "../../Error/ErrorMessage";
-import {setKeyValue} from "../../../../../models/Functions";
-import {docenteSchema, IDocente} from "../../../../../models/Docente";
-import {validate} from "../../../../../utils/ValidationManager";
 import {ZodIssue} from "zod";
-import Asistencia from "../Asistencia";
 import {IAsistencia} from "../../../../../models/Asistencia";
-import {IAlumno} from "../../../../../models/Alumno";
 
 interface Props {
 }

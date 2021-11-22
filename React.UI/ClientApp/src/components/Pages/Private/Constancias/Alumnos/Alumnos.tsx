@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Button, Card, Col, Pagination, Row } from "react-bootstrap";
-import { BsDownload } from "react-icons/bs";
-import { IAlumno } from "../../../../../models/Alumno";
-import { generatePDFAdeudo, generatePDFConducta } from "../../../../../utils/PDFManager";
-import { ILoading, IPagination } from "../../../../../App";
+import React, {Component} from "react";
+import {Button, Card, Col, Pagination, Row} from "react-bootstrap";
+import {BsDownload} from "react-icons/bs";
+import {IAlumno} from "../../../../../models/Alumno";
+import {generatePDFAdeudo, generatePDFConducta} from "../../../../../utils/PDFManager";
+import {ILoading, IPagination} from "../../../../../App";
 import Spinning from "../../../../Layout/Navigation/Spinning/Spinning";
 import "./Alumnos.css"
 import {RequestType, send} from "../../../../../utils/RequestManager";
@@ -29,9 +29,14 @@ class Alumnos extends Component<Props, State> {
     changePage(index: number) {
         this.setState({ paginaActual: index })
     }
-
+    
     async componentDidMount() {
-        this.setState({ alumnos: await send<IAlumno[]>(RequestType.GET, "Alumno").finally(() => this.setState({ loading: false })) })
+        let response = await send<IAlumno[]>(RequestType.GET, "Alumno");
+        let alumnos = response.map(async (alumno: IAlumno) => {
+            alumno.isDeudor = await send<boolean>(RequestType.GET, "Pago/isDeudor", null, `${alumno.idAlumno}`);
+            return alumno;
+        });
+        this.setState({ alumnos: await Promise.all(alumnos), loading: false });
         this.setState({ totalPaginas: Math.ceil(this.state.alumnos.length / 6) })
     }
 
@@ -68,10 +73,14 @@ class Alumnos extends Component<Props, State> {
                                         <td>{alumno.idAlumno}</td>
                                         <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
                                         <td>
-                                            <Button className="btn-danger" onClick={() => generatePDFAdeudo(alumno)}><BsDownload /></Button>
+                                            {
+                                                alumno.isDeudor
+                                                    ? <Button variant="danger" disabled={true}><BsDownload /></Button>
+                                                    : <Button variant="danger" onClick={() => generatePDFAdeudo(alumno)}><BsDownload /></Button>
+                                            }
                                         </td>
                                         <td>
-                                            <Button className="btn-warning" onClick={() => generatePDFConducta(alumno)}><BsDownload /></Button>
+                                            <Button variant="warning" onClick={() => generatePDFConducta(alumno)}><BsDownload /></Button>
                                         </td>
                                     </tr>
                                 })}

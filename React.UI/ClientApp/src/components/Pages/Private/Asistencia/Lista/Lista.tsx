@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button, Card, Col, Image, Row} from "react-bootstrap";
+import {Button, Card, Col, Row} from "react-bootstrap";
 import { IAlumno } from "../../../../../models/Alumno";
 import { RequestType, send } from "../../../../../utils/RequestManager";
 import { IAsistencia } from "../../../../../models/Asistencia";

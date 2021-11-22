@@ -73,7 +73,7 @@ public class LoginController : ControllerBase
             await _context.SaveChangesAsync();
             return CreatedAtAction("GetDocente", new { id = docente.IdDocente }, docente);
         }
-        else if (docente.Activo == true) return Ok("El docente ya esta activado.");
+        if (docente.Activo == true) return Ok("El docente ya esta activado.");
         return Unauthorized();
     }
 
