@@ -13,20 +13,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="116cea91-234a-4690-8f0d-91ba1bb7862c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Shared/Database/creation.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/AlumnoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/AlumnoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/DocenteController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/DocenteController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/LoginController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/PagoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/PagoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/TutorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/TutorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Models/Kinder/Pago.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Models/Kinder/Pago.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Lista/Lista.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Lista/Lista.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Registro/Registro.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Asistencia/Registro/Registro.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Alumnos/Alumnos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Constancias/Alumnos/Alumnos.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Home/Section/Section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Home/Section/Section.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Alumno.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Alumno.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +80,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.83073497" />
+    <property name="database.data.extractors.current.export.id" value="SQL-Insert-Multirow.sql.groovy" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -193,6 +183,13 @@
       </method>
     </configuration>
   </component>
+  <component name="SQLScriptSettings">
+    <option name="matrix">
+      <map>
+        <entry key="MARIADB.CreateComplete" value="CreateIfNotExists=1" />
+      </map>
+    </option>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -205,7 +202,7 @@
       <workItem from="1637462385306" duration="3182000" />
       <workItem from="1637520159002" duration="11040000" />
       <workItem from="1637597310357" duration="949000" />
-      <workItem from="1637598711422" duration="16403000" />
+      <workItem from="1637598711422" duration="17044000" />
     </task>
     <servers />
   </component>
