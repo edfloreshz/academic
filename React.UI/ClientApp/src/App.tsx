@@ -13,6 +13,7 @@ import Constancias from './components/Pages/Private/Constancias/Constancias';
 import Pagos from './components/Pages/Private/Pagos/Pagos';
 import AdminRoute from './components/Routes/AdminRoute';
 import {Constants} from "./Constants";
+import Aulas from "./components/Pages/Private/Aulas/Aulas";
 
 export interface ILoading {
   loading: boolean;
@@ -34,6 +35,7 @@ function App() {
         <AdminRoute component={Tutores} path="/tutores" />
         <AdminRoute component={Docentes} path="/docentes" />
         <PrivateRoute component={Asistencia} path="/asistencia" />
+        <AdminRoute component={Aulas} path="/aulas" />
         <AdminRoute component={Pagos} path="/pagos" />
         <AdminRoute component={Constancias} path="/constancias" />  
       </Container>
