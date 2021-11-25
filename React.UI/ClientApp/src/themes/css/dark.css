@@ -98,3 +98,7 @@ th, .card, .card-header {
   border-color: #373b42!important;
   color: wheat;
 }
+
+.table {
+  color: wheat;
+}

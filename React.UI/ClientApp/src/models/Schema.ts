@@ -24,6 +24,12 @@ const text = z.string({
     message: "Solo se permiten 255 letras."
 }).min(1, {
     message: "El campo no debe estar vacio."
+}).refine(value => {
+    if (/\S/.test(value)) {
+        return value.toString().trim();
+    }
+}, {
+    message: "No se permiten espacios en blanco."
 });
 
 const file = z.string({

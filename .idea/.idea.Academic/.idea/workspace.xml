@@ -13,14 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="116cea91-234a-4690-8f0d-91ba1bb7862c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Aulas/Aulas.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Aulas/Modals/Add.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Aulas/Modals/Edit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/Menu/Menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Alumnos/Alumnos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Alumnos/Alumnos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/models/Schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/css/dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/themes/css/dark.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +50,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/081b069c44f448f4b31a74d80c76c1061cc400/c4/dbc41f0f/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/React.UI/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/be7290f365ccb78fcf24f7369b26497d7cc04ff349b57733a33ebc7ba39aaaa/DateTime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/React.UI/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/938451c5b6533f9735e3b49a511f654a35443bc73eecd2d434f10d8c2ba1a/Encoding.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bcae882191178c8bf44c9add4cdeffa874a7afe629e3e56e9280f5896e953425/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4191080e79784280a1b0bcf098dfd5156e00/38/439e69d4/IConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
@@ -91,7 +87,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="HotReloadSettingsPage" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/React.UI/ClientApp/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/Vue.UI/ClientApp/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.AcademicAPI">
@@ -206,7 +202,9 @@
       <workItem from="1637520159002" duration="11040000" />
       <workItem from="1637597310357" duration="949000" />
       <workItem from="1637598711422" duration="17278000" />
-      <workItem from="1637625455019" duration="2146000" />
+      <workItem from="1637625455019" duration="2292000" />
+      <workItem from="1637869962523" duration="10000" />
+      <workItem from="1637869985660" duration="2608000" />
     </task>
     <servers />
   </component>
