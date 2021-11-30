@@ -77,10 +77,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseDeveloperExceptionPage();
-
-if (app.Environment.IsProduction())
+else
 {
     var host = builder.WebHost;
     host.UseUrls("http://localhost:5000");
