@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddDbContext<academicContext>(options =>
-    options.UseMySQL(builder.Configuration["ConnectionStrings:Academic"]));
+    options.UseMySQL(builder.Configuration["ConnectionStrings:AcademicAPIConnection"]));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
@@ -65,7 +65,8 @@ var config = builder.Configuration;
 
 config
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables();
 
 
 
