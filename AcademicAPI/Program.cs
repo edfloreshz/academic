@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddDbContext<academicContext>(options =>
-    options.UseMySQL(builder.Configuration["ConnectionStrings:CreciendoJuntos"]));
+    options.UseMySQL(builder.Configuration["ConnectionStrings:Academic"]));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
@@ -76,6 +76,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseDeveloperExceptionPage();
 
 if (app.Environment.IsProduction())
 {
