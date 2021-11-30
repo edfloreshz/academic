@@ -13,26 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="116cea91-234a-4690-8f0d-91ba1bb7862c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AcademicAPI/appsettings.Release.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources/2fd87028-05de-4e22-b93d-f6ad0f444ab4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/dataSources/2fd87028-05de-4e22-b93d-f6ad0f444ab4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Academic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/AlumnoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/AlumnoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/AlumnoTutorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/AlumnoTutorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/AsistenciaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/AsistenciaController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/AulaController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/AulaController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/ConceptoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/ConceptoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/DocenteController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/DocenteController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/LoginController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/PagoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/PagoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Controllers/TutorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Controllers/TutorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Helpers/JwtMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Helpers/JwtMiddleware.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/RequestManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/RequestManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicAPI/appsettings.Release.json" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/appsettings.Production.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +203,7 @@
       <workItem from="1637625455019" duration="2292000" />
       <workItem from="1637869962523" duration="10000" />
       <workItem from="1637869985660" duration="2749000" />
-      <workItem from="1638292594271" duration="4733000" />
+      <workItem from="1638292594271" duration="5066000" />
     </task>
     <servers />
   </component>
