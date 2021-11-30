@@ -12,9 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116cea91-234a-4690-8f0d-91ba1bb7862c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AcademicAPI/appsettings.Release.json" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/appsettings.Production.json" afterDir="false" />
-    </list>
+    <list default="true" id="116cea91-234a-4690-8f0d-91ba1bb7862c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -203,7 +201,7 @@
       <workItem from="1637625455019" duration="2292000" />
       <workItem from="1637869962523" duration="10000" />
       <workItem from="1637869985660" duration="2749000" />
-      <workItem from="1638292594271" duration="5066000" />
+      <workItem from="1638292594271" duration="5723000" />
     </task>
     <servers />
   </component>

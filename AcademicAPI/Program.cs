@@ -27,19 +27,18 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 var JWTKey = builder.Configuration["JWT:key"];
-var tokenParams = new TokenValidationParameters()
-{
-    ValidateIssuer = true,
-    ValidateAudience = true,
-    ValidateLifetime = true,
-    ValidateIssuerSigningKey = true,
-    ValidIssuer = builder.Configuration["JWT:issuer"],
-    ValidAudience = builder.Configuration["JWT:audience"],
-    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey))
-};
 builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
-    options.TokenValidationParameters = tokenParams;
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["JWT:issuer"],
+        ValidAudience = builder.Configuration["JWT:audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey))
+    };
 });
 
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
