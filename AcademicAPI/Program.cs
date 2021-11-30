@@ -83,7 +83,7 @@ if (app.Environment.IsDevelopment())
 if (app.Environment.IsProduction())
 {
     var host = builder.WebHost;
-    host.UseUrls("http://localhost:5000");
+    host.UseUrls("http://45.79.81.186:5000");
 }
 
 app.UseHttpsRedirection();
