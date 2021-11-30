@@ -30,6 +30,9 @@
       <change beforePath="$PROJECT_DIR$/AcademicAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AcademicAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Properties/launchSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AcademicAPI/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicAPI/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Layout/Navigation/Menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Aulas/Aulas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Aulas/Aulas.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Aulas/Modals/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/components/Pages/Private/Aulas/Modals/Edit.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/LoginManager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/LoginManager.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/RequestManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/React.UI/ClientApp/src/utils/RequestManager.ts" afterDir="false" />
     </list>
