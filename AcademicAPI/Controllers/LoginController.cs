@@ -18,6 +18,7 @@ public class LoginController : ControllerBase
     }
 
     [HttpPost("/api/register")]
+    [Authorize]
     public async Task<ActionResult<Docente>> Register(Docente docente)
     {
         if (await _context.Docentes.FirstOrDefaultAsync(a => a.Email == docente.Email) != null)
@@ -29,6 +30,7 @@ public class LoginController : ControllerBase
     }
 
     [HttpPut("/api/updateUser/{id}")]
+    [Authorize]
     public async Task<ActionResult<Docente>> UpdateUser(int id, Docente docente)
     {
         var encryptedPassword = Hasher.Encrypt(docente.Password, _configuration["JWT:key"], Rijndael256.KeySize.Aes256);
@@ -62,6 +64,7 @@ public class LoginController : ControllerBase
     }
 
     [HttpPost("/api/activate/{idDocente}")]
+    [Authorize]
     public async Task<ActionResult<Docente>> Activate(int idDocente)
     {
         var docente = await _context.Docentes.FirstOrDefaultAsync(a => a.IdDocente == idDocente);

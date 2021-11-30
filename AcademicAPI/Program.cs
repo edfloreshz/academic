@@ -1,3 +1,6 @@
+using System.Net;
+using Microsoft.AspNetCore.HttpOverrides;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +17,15 @@ builder.Services.AddCors(options =>
 });
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(4);
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 var JWTKey = builder.Configuration["JWT:key"];
 var tokenParams = new TokenValidationParameters()
 {
@@ -25,16 +37,10 @@ var tokenParams = new TokenValidationParameters()
     ValidAudience = builder.Configuration["JWT:audience"],
     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey))
 };
-builder.Services.AddSession(options =>
+builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
-    options.IdleTimeout = TimeSpan.FromHours(4);
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-    options.Cookie.SameSite = SameSiteMode.Strict;
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
+    options.TokenValidationParameters = tokenParams;
 });
-
-builder.Services.AddAuthentication().AddJwtBearer();
 
 builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -52,12 +58,20 @@ builder.Services.AddSwaggerGen(c =>
         {
             Name = "Creciendo Juntos",
             Email = string.Empty,
-            Url = new Uri("https://creciendojuntos.com/"),
+            Url = new Uri("https://kindercreciendojuntos.com/"),
         },
     });
 });
 
 var app = builder.Build();
+var env = builder.Environment;
+var config = builder.Configuration;
+
+config
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -65,6 +79,12 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+if (app.Environment.IsProduction())
+{
+    var host = builder.WebHost;
+    host.UseUrls("http://localhost:5000");
 }
 
 app.UseHttpsRedirection();
@@ -79,6 +99,11 @@ app.UseAuthorization();
 
 app.UseAuthentication();
 app.UseMiddleware<JwtMiddleware>();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 app.UseEndpoints(endpoints =>
 {

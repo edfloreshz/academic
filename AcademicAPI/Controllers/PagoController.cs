@@ -4,6 +4,7 @@ namespace AcademicAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class PagoController : ControllerBase
 {
     private readonly creciendojuntosContext _context;

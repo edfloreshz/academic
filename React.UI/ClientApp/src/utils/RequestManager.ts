@@ -26,6 +26,7 @@ export async function send<T>(
         method: method,
         headers: {
             "Content-Type": "application/json",
+            "Authorization": `Bearer ${sessionStorage.getItem("token")}`
         },
         data: data,
     });

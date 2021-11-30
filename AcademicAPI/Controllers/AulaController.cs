@@ -2,6 +2,7 @@ namespace AcademicAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class AulaController : ControllerBase
 {
     private readonly creciendojuntosContext _context;

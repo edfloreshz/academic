@@ -20,12 +20,10 @@ public class UserService : IUserService
 
     private List<Docente> _docentes = null;
 
-    private readonly AppSettings _appSettings;
     private readonly IConfiguration _configuration;
 
     public UserService(IOptions<AppSettings> appSettings, creciendojuntosContext context, IConfiguration configuration)
     {
-        _appSettings = appSettings.Value;
         _context = context;
         _docentes = _context.Docentes.ToList();
         _configuration = configuration;
