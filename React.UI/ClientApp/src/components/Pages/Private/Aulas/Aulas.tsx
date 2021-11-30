@@ -4,7 +4,7 @@ import {RequestType, send} from "../../../../utils/RequestManager";
 import {IAula} from "../../../../models/Aula";
 import {Button, Card, Col, Pagination, Row, Table} from "react-bootstrap";
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
-import {FaCube, FaEdit, FaUser} from "react-icons/fa";
+import {FaCube, FaEdit} from "react-icons/fa";
 import Edit from "./Modals/Edit";
 import Add from "./Modals/Add";
 

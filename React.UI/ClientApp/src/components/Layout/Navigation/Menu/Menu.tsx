@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { Button, Container, Navbar } from 'react-bootstrap';
 import { BsCardChecklist, BsDownload } from "react-icons/bs";
-import {FaChalkboardTeacher, FaMoneyBill, FaUserTie, FaClipboardList, FaHome, FaCube} from "react-icons/fa";
+import {FaChalkboardTeacher, FaMoneyBill, FaUserTie, FaClipboardList, FaCube} from "react-icons/fa";
 import { IoMdSchool } from "react-icons/io";
 import "./Menu.css"
 

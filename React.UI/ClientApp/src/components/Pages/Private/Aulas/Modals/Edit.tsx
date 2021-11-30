@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col, Form, Modal, Row, Table } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import { aulaSchema, IAula } from "../../../../../models/Aula";
 import { setKeyValue } from "../../../../../models/Functions";
 import { validate } from "../../../../../utils/ValidationManager";

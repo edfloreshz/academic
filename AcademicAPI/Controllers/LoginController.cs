@@ -8,9 +8,9 @@ public class LoginController : ControllerBase
 {
     private readonly IConfiguration _configuration;
     private IUserService _userService;
-    private readonly creciendojuntosContext _context;
+    private readonly academicContext _context;
 
-    public LoginController(creciendojuntosContext context, IConfiguration configuration, IUserService userService)
+    public LoginController(academicContext context, IConfiguration configuration, IUserService userService)
     {
         _context = context;
         _configuration = configuration;
@@ -76,7 +76,7 @@ public class LoginController : ControllerBase
             await _context.SaveChangesAsync();
             return CreatedAtAction("GetDocente", new { id = docente.IdDocente }, docente);
         }
-        if (docente.Activo == true) return Ok("El docente ya esta activado.");
+        if (docente is {Activo: true}) return Ok("El docente ya esta activado.");
         return Unauthorized();
     }
 

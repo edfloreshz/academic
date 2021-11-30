@@ -6,15 +6,19 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AcademicAPI.Models.Kinder
 {
-    public partial class creciendojuntosContext : DbContext
+    public partial class academicContext : DbContext
     {
-        public creciendojuntosContext()
+        
+        private readonly IConfiguration _configuration;
+
+        public academicContext()
         {
         }
 
-        public creciendojuntosContext(DbContextOptions<creciendojuntosContext> options)
+        public academicContext(DbContextOptions<academicContext> options, IConfiguration configuration)
             : base(options)
         {
+            _configuration = configuration;
         }
 
         public virtual DbSet<Alumno> Alumnos { get; set; }
@@ -30,7 +34,7 @@ namespace AcademicAPI.Models.Kinder
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL("Server=127.0.0.1;User=eduardo;Password=macosx;Database=creciendojuntos");
+                optionsBuilder.UseMySQL(_configuration["ConnectionStrings:DefaultConnection"]);
             }
         }
 

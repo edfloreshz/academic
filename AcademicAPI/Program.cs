@@ -1,11 +1,10 @@
-using System.Net;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddDbContext<creciendojuntosContext>(options =>
+builder.Services.AddDbContext<academicContext>(options =>
     options.UseMySQL(builder.Configuration["ConnectionStrings:CreciendoJuntos"]));
 builder.Services.AddCors(options =>
 {
@@ -15,7 +14,6 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
     );
 });
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddSession(options =>
@@ -26,7 +24,6 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-var JWTKey = builder.Configuration["JWT:key"];
 builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters()
@@ -37,7 +34,7 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["JWT:issuer"],
         ValidAudience = builder.Configuration["JWT:audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTKey))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:key"]))
     };
 });
 
@@ -88,12 +85,10 @@ if (app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 
-
 app.UseRouting();
 app.UseCookiePolicy();
 app.UseSession();
 
-app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.UseAuthentication();
@@ -103,6 +98,8 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
+
+app.UseCors("CorsPolicy");
 
 app.UseEndpoints(endpoints =>
 {

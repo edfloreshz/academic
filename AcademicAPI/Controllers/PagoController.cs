@@ -7,9 +7,9 @@ namespace AcademicAPI.Controllers;
 [Authorize]
 public class PagoController : ControllerBase
 {
-    private readonly creciendojuntosContext _context;
+    private readonly academicContext _context;
 
-    public PagoController(creciendojuntosContext context)
+    public PagoController(academicContext context)
     {
         _context = context;
     }

@@ -5,9 +5,9 @@ namespace AcademicAPI.Controllers;
 [Authorize]
 public class AlumnoTutorController : ControllerBase
 {
-    private readonly creciendojuntosContext _context;
+    private readonly academicContext _context;
     
-    public AlumnoTutorController(creciendojuntosContext context)
+    public AlumnoTutorController(academicContext context)
     {
         _context = context;
     }

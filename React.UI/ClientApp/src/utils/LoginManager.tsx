@@ -2,7 +2,6 @@ import axios from 'axios';
 import {APIUri} from "./RequestManager";
 
 async function login(email: string, password: string) {
-    console.log({ email: email, password: password });
     await axios({
         method: 'post',
         url: `${APIUri}/authenticate`,

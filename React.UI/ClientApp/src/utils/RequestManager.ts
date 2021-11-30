@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const APIUri = "https://localhost:7124/api";
+export const APIUri = "https://localhost:5000/api";
 
 export enum RequestType {
     GET = "get",
@@ -26,7 +26,8 @@ export async function send<T>(
         method: method,
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${sessionStorage.getItem("token")}`
+            "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
+            "Access-Control-Allow-Origin": "*"
         },
         data: data,
     });

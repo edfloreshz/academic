@@ -8,7 +8,7 @@ namespace AcademicAPI.Services;
 
 public interface IUserService
 {
-    AuthenticateResponse Authenticate(AuthenticateRequest model);
+    AuthenticateResponse? Authenticate(AuthenticateRequest model);
     IEnumerable<Docente> GetAll();
     Docente GetById(int id);
 }
@@ -16,20 +16,20 @@ public interface IUserService
 public class UserService : IUserService
 {
 
-    private readonly creciendojuntosContext _context;
+    private readonly academicContext _context;
 
-    private List<Docente> _docentes = null;
+    private List<Docente> _docentes;
 
     private readonly IConfiguration _configuration;
 
-    public UserService(IOptions<AppSettings> appSettings, creciendojuntosContext context, IConfiguration configuration)
+    public UserService(academicContext context, IConfiguration configuration)
     {
         _context = context;
         _docentes = _context.Docentes.ToList();
         _configuration = configuration;
     }
 
-    public AuthenticateResponse Authenticate(AuthenticateRequest model)
+    public AuthenticateResponse? Authenticate(AuthenticateRequest model)
     {
         var docente = _docentes.SingleOrDefault(x => x.Email == model.Email);
         // return null if user not found
