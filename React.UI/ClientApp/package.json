@@ -18,6 +18,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-daterangepicker": "^3.1.0",
     "file-base64": "^1.0.0",
+    "gh-pages": "^3.2.3",
     "js-cookie": "^2.2.1",
     "pdf-lib": "^1.16.0",
     "react": "^17.0.2",
@@ -40,7 +41,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b page -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +66,7 @@
   "description": "Aplicacion de cliente para kinder",
   "main": "index.js",
   "repository": "https://github.com/eduardoflhz/creciendojuntos",
+  "homepage": ".",
   "author": "Eduardo Flores",
   "license": "MIT"
 }
