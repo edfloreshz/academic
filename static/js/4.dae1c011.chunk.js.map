@@ -1,0 +1,1 @@
+{"version":3,"sources":["themes/lightTheme.tsx"],"names":["Theme","Fragment"],"mappings":"gIAAA,2CAKeA,UAFD,kBAAO,cAAC,IAAMC,SAAP","file":"static/js/4.dae1c011.chunk.js","sourcesContent":["import React from 'react';\nimport './css/light.css';\n\nconst Theme = () => (<React.Fragment></React.Fragment>);\n\nexport default Theme;"],"sourceRoot":""}

@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.299bb7c7.chunk.css",
+    "main.js": "/static/js/main.44db5f3a.chunk.js",
+    "main.js.map": "/static/js/main.44db5f3a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e2ba2436.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e2ba2436.js.map",
+    "static/css/2.bbef91db.chunk.css": "/static/css/2.bbef91db.chunk.css",
+    "static/js/2.125afe2e.chunk.js": "/static/js/2.125afe2e.chunk.js",
+    "static/js/2.125afe2e.chunk.js.map": "/static/js/2.125afe2e.chunk.js.map",
+    "static/css/3.d2e4f367.chunk.css": "/static/css/3.d2e4f367.chunk.css",
+    "static/js/3.68e18edc.chunk.js": "/static/js/3.68e18edc.chunk.js",
+    "static/js/3.68e18edc.chunk.js.map": "/static/js/3.68e18edc.chunk.js.map",
+    "static/css/4.97803e03.chunk.css": "/static/css/4.97803e03.chunk.css",
+    "static/js/4.dae1c011.chunk.js": "/static/js/4.dae1c011.chunk.js",
+    "static/js/4.dae1c011.chunk.js.map": "/static/js/4.dae1c011.chunk.js.map",
+    "static/js/5.291784d9.chunk.js": "/static/js/5.291784d9.chunk.js",
+    "static/js/5.291784d9.chunk.js.map": "/static/js/5.291784d9.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.bbef91db.chunk.css.map": "/static/css/2.bbef91db.chunk.css.map",
+    "static/css/3.d2e4f367.chunk.css.map": "/static/css/3.d2e4f367.chunk.css.map",
+    "static/css/4.97803e03.chunk.css.map": "/static/css/4.97803e03.chunk.css.map",
+    "static/css/main.299bb7c7.chunk.css.map": "/static/css/main.299bb7c7.chunk.css.map",
+    "static/js/2.125afe2e.chunk.js.LICENSE.txt": "/static/js/2.125afe2e.chunk.js.LICENSE.txt",
+    "static/media/alumnos.c8422430.svg": "/static/media/alumnos.c8422430.svg",
+    "static/media/asistencia.20cdb076.svg": "/static/media/asistencia.20cdb076.svg",
+    "static/media/constancias.4f169baa.svg": "/static/media/constancias.4f169baa.svg",
+    "static/media/docente.8031ce7d.svg": "/static/media/docente.8031ce7d.svg",
+    "static/media/logo.ddde4466.jpg": "/static/media/logo.ddde4466.jpg",
+    "static/media/pagos.f82047ef.svg": "/static/media/pagos.f82047ef.svg",
+    "static/media/tutores.623b32a3.svg": "/static/media/tutores.623b32a3.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e2ba2436.js",
+    "static/css/2.bbef91db.chunk.css",
+    "static/js/2.125afe2e.chunk.js",
+    "static/css/main.299bb7c7.chunk.css",
+    "static/js/main.44db5f3a.chunk.js"
+  ]
+}
