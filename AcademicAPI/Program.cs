@@ -9,7 +9,8 @@ builder.Services.AddDbContext<academicContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
-        policy => policy.AllowAnyOrigin()
+        policy => policy
+            .AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader()
     );

@@ -6,6 +6,7 @@ import {RequestType, send} from '../../../../utils/RequestManager';
 import {FaMoneyBill} from 'react-icons/fa';
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import {ILoading, IPagination} from '../../../../App';
+import {generateReceipt} from "../../../../utils/PDFManager";
 
 export interface Props {
 
@@ -97,6 +98,7 @@ export default class Pagos extends Component<Props, State> {
                                             <th>Alumno</th>
                                             <th>Cantidad</th>
                                             <th>Concepto</th>
+                                            <th>Recibo</th>
                                             <th>Comprobante</th>
                                         </tr>
                                     </thead>
@@ -110,6 +112,9 @@ export default class Pagos extends Component<Props, State> {
                                                     <td>{pago.idAlumnoNavigation?.nombres} {pago.idAlumnoNavigation?.apellidoPaterno} {pago.idAlumnoNavigation?.apellidoMaterno}</td>
                                                     <td>${pago.cantidad}</td>
                                                     <td>{pago.conceptoNavigation?.concepto}</td>
+                                                    <td>
+                                                        <Button variant="primary" onClick={async () => await generateReceipt(pago)} target="_blank">Ver</Button>
+                                                    </td>
                                                     <td>
                                                         <Button variant="info" onClick={async () => await this.getComprobante(pago.idPago)} target="_blank">Ver</Button>
                                                     </td>
