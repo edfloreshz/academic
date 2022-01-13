@@ -2,7 +2,6 @@ import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { IAlumno } from "../models/Alumno";
 import { IDocente } from "../models/Docente";
 import {IPago} from "../models/Pago";
-import recibo from "../img/recibo.jpg";
 
 async function generatePDFAdeudo(alumno: IAlumno) {
   // Create a new PDFDocument
@@ -23,8 +22,11 @@ async function generatePDFAdeudo(alumno: IAlumno) {
   const jpgImageBytes = await fetch(
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe14FjZbUhI9_TkDDeKlX3nwlODaNRw2kN95v5D3ixphPjy9csIIj96JxTKNYjQEDOhNE&usqp=CAU"
   ).then((res) => res.arrayBuffer());
+  const reciboBytes = await fetch(
+    "https://raw.githubusercontent.com/edfloreshz/academic/main/React.UI/ClientApp/src/img/recibo.jpg"
+  ).then((res) => res.arrayBuffer());
   const jpgImage = await pdfDoc.embedJpg(jpgImageBytes);
-  const reciboImage = await pdfDoc.embedJpg(recibo);
+  const reciboImage = await pdfDoc.embedJpg(reciboBytes);
   const jpgDims = jpgImage.scale(0.5);
   const X = width / 10;
   page.drawImage(jpgImage, {
@@ -485,42 +487,44 @@ async function generateReceipt(pago: IPago) {
   // Get the width and height of the page
   const { width, height } = page.getSize();
   
-  const fontSize = 16;
+  const fontSize = 10;
 
-  const jpgImageBytes = await fetch(
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe14FjZbUhI9_TkDDeKlX3nwlODaNRw2kN95v5D3ixphPjy9csIIj96JxTKNYjQEDOhNE&usqp=CAU"
-  ).then((res) => res.arrayBuffer());
-  const jpgImage = await pdfDoc.embedJpg(jpgImageBytes);
-  const jpgDims = jpgImage.scale(0.5);
-  const X = width / 12;
+    const reciboBytes = await fetch(
+        "https://raw.githubusercontent.com/edfloreshz/academic/main/React.UI/ClientApp/src/img/recibo.jpg"
+    ).then((res) => res.arrayBuffer());
+    const reciboImage = await pdfDoc.embedJpg(reciboBytes);
+    const reciboDims = reciboImage.scale(0.25);
+    const X = width / 20;
   const Y = height / 64;
-  page.drawImage(jpgImage, {
-    x: X,
-    y: Y * 49,
-    width: jpgDims.width,
-    height: jpgDims.height,
-  }); // Logo
+  
 
+    page.drawImage(reciboImage, {
+        x: X,
+        y: Y * 29,
+        width: reciboDims.width,
+        height: reciboDims.height,
+    }); // Recibo
+  
     // TUTOR
   page.drawText(`${pago.idTutorNavigation?.nombres.trim().toUpperCase()} ${pago.idTutorNavigation?.apellidoPaterno.trim().toUpperCase()} ${pago.idTutorNavigation?.apellidoMaterno.trim().toUpperCase()}`, {
-    x: X*5.1,
-    y: (height / 16) * 13,
-    size: fontSize,
-    font: helvetica,
-    color: rgb(0, 0, 0),
+      x: X * 3,
+      y: (height / 20) * 14.9,
+      size: fontSize,
+      font: helvetica,
+      color: rgb(0, 0, 0),
   });
     // ALUMNO
   page.drawText(`${pago.idAlumnoNavigation?.nombres.trim().toUpperCase()} ${pago.idAlumnoNavigation?.apellidoPaterno.trim().toUpperCase()} ${pago.idAlumnoNavigation?.apellidoMaterno.trim().toUpperCase()}`, {
-    x: X*5.4,
-    y: (height / 16) * 12,
+      x: X * 3.3,
+      y: (height / 20) * 14.3,
     size: fontSize,
     font: helvetica,
     color: rgb(0, 0, 0),
   });
     // CONCEPTO
   page.drawText(`${pago.conceptoNavigation?.concepto.trim().toUpperCase()}`, {
-    x: X*5.9,
-    y: (height / 16) * 11,
+      x: X * 1.4,
+      y: (height / 20) * 13,
     size: fontSize,
     font: helvetica,
     color: rgb(0, 0, 0),
@@ -530,13 +534,32 @@ async function generateReceipt(pago: IPago) {
     year: "numeric",
     month: "long",
     day: "numeric",
-  })}`, {
-    x: X*5.2,
-    y: (height / 16) * 10,
+  }).slice(0,10)}`, {
+    x: X*16.25,
+    y: (height / 20) * 17,
     size: fontSize,
     font: helvetica,
     color: rgb(0, 0, 0),
   });
+
+    // CANTIDAD
+    page.drawText(`$${pago.cantidad}`, {
+        x: X * 17,
+        y: (height / 20) * 13,
+        size: fontSize,
+        font: helvetica,
+        color: rgb(0, 0, 0),
+    });
+
+    // CANTIDAD
+    page.drawText(`$${pago.cantidad}`, {
+        x: X * 17,
+        y: (height / 20) * 10.3,
+        size: fontSize,
+        font: helvetica,
+        color: rgb(0, 0, 0),
+    });
+  
   // Serialize the PDFDocument to bytes (a Uint8Array)
   const pdfBytes = await pdfDoc.save();
   const url = window.URL.createObjectURL(new Blob([pdfBytes]));
