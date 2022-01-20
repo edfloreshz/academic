@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const APIUri = "http://45.79.81.186:8080/api";
+export const APIUri = (process.env.NODE_ENV === "development") ? "http://45.79.81.186:8080/api" : "https://localhost:5000/api";
 
 export enum RequestType {
     GET = "get",
@@ -19,6 +19,7 @@ export async function send<T>(
     handle?: () => void,
     skipAlert?: boolean
 ): Promise<T> {
+    console.log()
     let response = await axios.request({
         url: `${APIUri}/${controller}${parameter ? `/${parameter}` : ""}${
             filters ? `/${filters}` : ""

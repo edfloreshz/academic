@@ -10,6 +10,17 @@ export interface Props {
 export class Student extends Component<Props> {
     getStyle = () => {
         let mode = localStorage.getItem("TYPE_OF_THEME");
+        console.log(mode)
+        if (mode === null) {
+            return {
+                backgroundColor: this.props.alumno.presente
+                    ? '#49B66E'
+                    : '#fff',
+                color: this.props.alumno.presente
+                    ? "#fff"
+                    : '#3b3b3b'
+            }
+        }
         return {
             backgroundColor: this.props.alumno.presente 
                 ? '#49B66E' 

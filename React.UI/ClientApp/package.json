@@ -41,9 +41,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b page -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -65,7 +63,7 @@
   },
   "description": "Aplicacion de cliente para kinder",
   "main": "index.js",
-  "repository": "https://github.com/eduardoflhz/creciendojuntos",
+  "repository": "https://github.com/eduardoflhz/academic",
   "homepage": ".",
   "author": "Eduardo Flores",
   "license": "MIT"

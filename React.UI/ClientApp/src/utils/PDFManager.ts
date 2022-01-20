@@ -479,7 +479,6 @@ async function generateReceipt(pago: IPago) {
 
   // Embed the Times Roman font
   const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
   // Add a blank page to the document
   const page = pdfDoc.addPage();
@@ -513,8 +512,8 @@ async function generateReceipt(pago: IPago) {
       font: helvetica,
       color: rgb(0, 0, 0),
   });
-    // ALUMNO
-  page.drawText(`${pago.idAlumnoNavigation?.nombres.trim().toUpperCase()} ${pago.idAlumnoNavigation?.apellidoPaterno.trim().toUpperCase()} ${pago.idAlumnoNavigation?.apellidoMaterno.trim().toUpperCase()}`, {
+    // DIRECCION
+  page.drawText(`${pago.idTutorNavigation?.calle.toUpperCase()} #${pago.idTutorNavigation?.numero}, COL. ${pago.idTutorNavigation?.colonia.toUpperCase()}, CP. ${pago.idTutorNavigation?.cp}, ${pago.idTutorNavigation?.estado.toUpperCase()}, ${pago.idTutorNavigation?.pais.toUpperCase()}`, {
       x: X * 3.3,
       y: (height / 20) * 14.3,
     size: fontSize,
