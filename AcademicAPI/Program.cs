@@ -87,6 +87,7 @@ else
     host.UseUrls("http://localhost:5000");
 }
 
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 
 app.UseRouting();
@@ -103,7 +104,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
 
-app.UseCors("CorsPolicy");
 
 app.UseEndpoints(endpoints =>
 {

@@ -34,7 +34,7 @@ namespace AcademicAPI.Models.Kinder
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL(_configuration["ConnectionStrings:AcademicAPIConnection"]);
+                optionsBuilder.UseMySQL(_configuration["ConnectionStrings:AcademicProductionAPIConnection"]);
             }
         }
 
