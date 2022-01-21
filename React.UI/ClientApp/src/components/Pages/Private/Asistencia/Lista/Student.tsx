@@ -8,43 +8,36 @@ export interface Props {
 }
 
 export class Student extends Component<Props> {
-    getStyle = () => {
-        let mode = localStorage.getItem("TYPE_OF_THEME");
-        console.log(mode)
-        if (mode === null) {
-            return {
-                backgroundColor: this.props.alumno.presente
-                    ? '#49B66E'
-                    : '#fff',
-                color: this.props.alumno.presente
-                    ? "#fff"
-                    : '#3b3b3b'
-            }
-        }
+    getBackground = () => {
         return {
-            backgroundColor: this.props.alumno.presente 
-                ? '#49B66E' 
-                : mode === "light" ? '#fff' : "#0d1117",
-            color: this.props.alumno.presente 
-                ? mode === "light" ? '#fff' : "#0d1117" 
-                : '#3b3b3b'
+            backgroundColor: this.props.alumno.presente
+                ? '#49B66E'
+                : "unset",
+        }
+    }
+    
+    getColor = () => {
+        return {
+            color: this.props.alumno.presente
+                ? '#fff'
+                : "unset"
         }
     }
 
     render() {
         const { idAlumno, nombres, apellidoMaterno, apellidoPaterno } = this.props.alumno;
         return (
-            <div style={this.getStyle()} className="contain">
+            <div style={this.getBackground()} className="contain">
                 <table>
                     <tr>
-                        <td className="">{idAlumno}</td>
-                        <td className="nameCol">{nombres} {apellidoPaterno} {apellidoMaterno}</td>
-                        <td className="nameCol">{new Date().toLocaleDateString('es-mx', { 
+                        <td style={this.getColor()} className="">{idAlumno}</td>
+                        <td style={this.getColor()} className="nameCol">{nombres} {apellidoPaterno} {apellidoMaterno}</td>
+                        <td style={this.getColor()} className="nameCol">{new Date().toLocaleDateString('es-mx', { 
                             weekday:"long", 
                             year:"numeric", 
                             month:"short", 
                             day:"numeric"}) }</td>
-                        <td className="switchCol">
+                        <td style={this.getColor()} className="switchCol">
                             {this.props.alumno.presente ? 'Presente ' : 'Ausente '}
                             <label className="switch">
                                 <input type="checkbox" onChange={this.props.studentPresent.bind(this, idAlumno)} defaultChecked={this.props.alumno.presente} />

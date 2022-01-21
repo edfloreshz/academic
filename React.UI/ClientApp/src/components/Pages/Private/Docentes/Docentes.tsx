@@ -102,7 +102,7 @@ class Docentes extends Component<Props, State> {
                         </Col>
                     </Row>
                 </Card.Header>
-                {this.state.showAdd && <Add show={this.state.showAdd} handleClose={this.handleClose} />}
+                <Add show={this.state.showAdd} handleClose={this.handleClose} />
                 <Card.Body>
                     {
                         <div className="table-responsive">

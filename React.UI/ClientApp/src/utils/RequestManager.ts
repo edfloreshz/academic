@@ -19,7 +19,6 @@ export async function send<T>(
     handle?: () => void,
     skipAlert?: boolean
 ): Promise<T> {
-    console.log()
     let response = await axios.request({
         url: `${APIUri}/${controller}${parameter ? `/${parameter}` : ""}${
             filters ? `/${filters}` : ""

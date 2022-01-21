@@ -5,27 +5,24 @@ import DarkModeButton from "./DarkModeButton";
 import {Constants} from "../../../../Constants";
 import "./TopBar.css";
 
-const TopBar = () => {
+const TopBar = (props: any) => {
     const history = useHistory();
     const goTo = (path: string) => history.push(path);
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="sm" bg="danger" variant="dark">
+            <Navbar collapseOnSelect expand="sm" className="top-bar">
                 <Container>
                     <button className="unset">
                         <Navbar.Brand onClick={() => goTo("/home")}>{Constants.Title}</Navbar.Brand>
                     </button>
-                    <DarkModeButton />
+                    <DarkModeButton theme={props.theme} switchTheme={props.switchTheme} />
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                         <Navbar.Text>
-                            Inicio sesión: <button id="logged-in" className="unset" onClick={() => goTo("/home")}>
-                                {sessionStorage.getItem('usuario') ?? "Nadie"}
-                            </button>
+                            {sessionStorage.getItem('usuario') ?? "Debe iniciar sesión"}
                         </Navbar.Text>
                     </Navbar.Collapse>
-                    
                     <LogoutButton />
                 </Container>
             </Navbar>

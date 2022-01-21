@@ -37,7 +37,8 @@ export default class ListaAlumnos extends Component<Props, State> {
     render() {
         return (
             <>
-                <Modal show={this.props.show} onHide={this.props.handleClose}>
+                
+                <Modal show={this.props.show} onHide={this.props.handleClose} className={"modal"}>
                     <Modal.Header closeButton>
                         <Modal.Title>Lista de alumnos</Modal.Title>
                     </Modal.Header>

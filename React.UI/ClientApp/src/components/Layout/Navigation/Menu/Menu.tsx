@@ -11,17 +11,17 @@ const Menu = () => {
     if (sessionStorage.getItem("administrador") === "true") {
         return (
             <div>
-                <Navbar collapseOnSelect expand="sm" bg="danger" variant="dark">
+                <Navbar collapseOnSelect expand="sm" className="top-bar">
                     <Container>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-                            <Button id="menu-btn" className="btn-block" variant="danger" onClick={() => goTo("/alumnos")}><IoMdSchool /> Alumnos</Button>
-                            <Button id="menu-btn" className="btn-block" variant="danger" onClick={() => goTo("/tutores")}><FaUserTie /> Tutores</Button>
-                            <Button id="menu-btn" className="btn-block" variant="danger" onClick={() => goTo("/docentes")}><FaChalkboardTeacher /> Docentes</Button>
-                            <Button id="menu-btn" className="btn-block" variant="danger" onClick={() => goTo("/pagos")}><FaMoneyBill /> Pagos</Button>
-                            <Button id="menu-btn" className="btn-block" variant="danger" onClick={() => goTo("/aulas")}><FaCube /> Aulas</Button>
-                            <Button id="menu-btn" className="btn-block" variant="danger" onClick={() => goTo("/asistencia")}><FaClipboardList /> Asistencia</Button>
-                            <Button id="menu-btn" className="btn-block" variant="danger" onClick={() => goTo("/constancias")}><BsDownload /> Constancias</Button>
+                        <Navbar.Collapse className="unset responsive-navbar">
+                            <Button className="menu-btn" onClick={() => goTo("/alumnos")}><IoMdSchool /> Alumnos</Button>
+                            <Button className="menu-btn" onClick={() => goTo("/tutores")}><FaUserTie /> Tutores</Button>
+                            <Button className="menu-btn" onClick={() => goTo("/docentes")}><FaChalkboardTeacher /> Docentes</Button>
+                            <Button className="menu-btn" onClick={() => goTo("/pagos")}><FaMoneyBill /> Pagos</Button>
+                            <Button className="menu-btn" onClick={() => goTo("/aulas")}><FaCube /> Aulas</Button>
+                            <Button className="menu-btn" onClick={() => goTo("/asistencia")}><FaClipboardList /> Asistencia</Button>
+                            <Button className="menu-btn" onClick={() => goTo("/constancias")}><BsDownload /> Constancias</Button>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>

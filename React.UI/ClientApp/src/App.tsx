@@ -1,7 +1,7 @@
 import Layout from './components/Layout/Layout';
 import Home from './components/Pages/Private/Home/Home';
 import './App.css';
-import { Container } from 'react-bootstrap';
+import {Button, Container} from 'react-bootstrap';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import PublicRoute from './components/Routes/PublicRoute';
 import Login from './components/Pages/Public/Login/Login';
@@ -14,6 +14,9 @@ import Pagos from './components/Pages/Private/Pagos/Pagos';
 import AdminRoute from './components/Routes/AdminRoute';
 import {Constants} from "./Constants";
 import Aulas from "./components/Pages/Private/Aulas/Aulas";
+import useLocalStorage from 'use-local-storage'
+import {FaMoon, FaSun} from "react-icons/all";
+import React from "react";
 
 export interface ILoading {
   loading: boolean;
@@ -25,21 +28,29 @@ export interface IPagination {
 }
 
 function App() {
+  const defaultDark = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+  const switchTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme)
+  }
   return (
-    <Layout>
-      <Container>
-        <PublicRoute restricted={true} component={Login} path="/login" exact />
-        <PrivateRoute component={Home} path="/" exact />
-        <PrivateRoute component={() => <Home title={Constants.Title}/> } path="/home" exact />
-        <AdminRoute component={Alumnos} path="/alumnos" />
-        <AdminRoute component={Tutores} path="/tutores" />
-        <AdminRoute component={Docentes} path="/docentes" />
-        <PrivateRoute component={Asistencia} path="/asistencia" />
-        <AdminRoute component={Aulas} path="/aulas" />
-        <AdminRoute component={Pagos} path="/pagos" />
-        <AdminRoute component={Constancias} path="/constancias" />  
-      </Container>
-    </Layout>
+    <div data-theme={theme} className={"App"}>
+      <Layout theme={theme} switchTheme={switchTheme}>
+        <Container>
+          <PublicRoute restricted={true} component={Login} path="/login" exact />
+          <PrivateRoute component={Home} path="/" exact />
+          <PrivateRoute component={() => <Home title={Constants.Title}/> } path="/home" exact />
+          <AdminRoute component={Alumnos} path="/alumnos" />
+          <AdminRoute component={Tutores} path="/tutores" />
+          <AdminRoute component={Docentes} path="/docentes" />
+          <PrivateRoute component={Asistencia} path="/asistencia" />
+          <AdminRoute component={Aulas} path="/aulas" />
+          <AdminRoute component={Pagos} path="/pagos" />
+          <AdminRoute component={Constancias} path="/constancias" />
+        </Container>
+      </Layout>
+    </div>
   );
 }
 

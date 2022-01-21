@@ -1,5 +1,7 @@
 .App {
     text-align: center;
+    background-color: var(--background) !important;
+    height: 100%;
 }
 
 .App-logo {
@@ -79,4 +81,94 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.top-bar {
+    background-color: var(--accent);
+    color: var(--nav-text);
+}
+
+.navbar-brand, .navbar-text {
+    color: var(--nav-text) !important;
+}
+
+#dark-mode-btn {
+    background-color: unset;
+    border-color: var(--accent);
+    color: var(--nav-text);
+}
+
+/* Navbar */
+.responsive-navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--accent);
+}
+
+.menu-btn {
+    background-color: var(--button-accent) !important;
+    border-color: var(--button-accent) !important;
+    color: var(--nav-text) !important;
+    flex-basis: 150px;
+}
+
+.menu-btn:hover {
+    background-color: var(--button-hover-accent) !important;
+    border-color: var(--button-hover-accent) !important;
+}
+
+/*Cards*/
+
+th {
+    background-color: var(--accent) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid  var(--card-border-color) !important;
+}
+
+td {
+    color: var(--text-primary);
+    border: unset!important;
+}
+
+/*Card*/
+
+.card {
+    background-color: var(--background) !important;
+    border-color: var(--card-border-color) !important;
+    color: var(--text-primary);
+}
+
+.card-header, .card-footer {
+    background-color: var(--accent) !important;
+    border-color: var(--card-border-color) !important;
+    color: var(--text-secondary);
+}
+
+.page-link {
+    background-color: var(--button-accent) !important;
+    border-color: var(--button-accent) !important;
+}
+
+/*Date Picker*/
+#datePicker {
+    background-color: var(--background)!important;
+    color: var(--text-primary);
+    border-color: var(--card-border-color);
+}
+
+.modal-content, .modal-footer, .modal-header, .modal-body {
+    background-color: var(--background) !important;
+    border-color: var(--card-border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme='light'].modal .modal-dialog .modal-content .modal-header {
+    background-color: aqua!important;
+}
+
+[data-theme='dark'] .modal .modal-dialog .modal-content .modal-header {
+    background-color: #a71d2a!important;
 }

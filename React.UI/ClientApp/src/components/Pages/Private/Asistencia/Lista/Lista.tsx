@@ -96,7 +96,7 @@ class Lista extends Component<Props, State> {
                                 <th className="">ID</th>
                                 <th className="nameCol">Nombre</th>
                                 <th className="nameCol">Fecha</th>
-                                <th className="switchCol">Asistencia</th>
+                                <th className="nameCol">Asistencia</th>
                             </tr>
                             </tbody>
                         </table>
