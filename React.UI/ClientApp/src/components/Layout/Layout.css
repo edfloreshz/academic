@@ -1,43 +1,20 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0fr 0fr 0fr;
-  grid-auto-rows: 1fr;
+  grid-template-rows: 0fr 0fr 2.6fr;
   gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "NavMenu NavMenu NavMenu"
-    "NavigationMenu NavigationMenu NavigationMenu"
+  grid-template-areas: 
+    "Menu-Bar Menu-Bar Menu-Bar"
+    "NavigationBar NavigationBar NavigationBar"
     "Content Content Content";
 }
 
-.NavMenu {
-  grid-area: NavMenu;
-}
-
-.NavigationMenu {
-  grid-area: NavigationMenu;
-}
-
-.Content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 2fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "Spacer Spacer Spacer"
-    "Childs Childs Childs"
-    "Childs Childs Childs";
+.Menu-Bar { grid-area: Menu-Bar; }
+.NavigationBar { grid-area: NavigationBar; }
+.Content { 
   grid-area: Content;
-}
-
-.Spacer {
-  grid-area: Spacer;
-}
-
-.Childs {
-  grid-area: Childs;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #root {

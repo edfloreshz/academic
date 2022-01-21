@@ -31,12 +31,12 @@ class Home extends Component<Props> {
                     </Card.Header>
                     <Card.Body>
                         <div className="displayGrid">
-                            <Section title="Alumnos" logo={IoMdSchool} image={Alumnos} path="/alumnos" description="Aqui puede administrar a los alumnos"  />
-                            <Section title="Tutores" logo={FaUserTie} image={Tutores} path="/tutores" description="" />
-                            <Section title="Docentes" logo={FaChalkboardTeacher} image={Docentes} path="/docentes" description="" />
-                            <Section title="Pagos" logo={FaMoneyBill} image={Pagos} path="/pagos" description="" />
-                            <Section title="Asistencia" logo={FaClipboardList} image={Asistencia} path="/asistencia" description="" />
-                            <Section title="Constancias" logo={BsDownload} image={Constancias} path="/constancias" description="" />
+                            <Section title="Alumnos" logo={IoMdSchool} image={Alumnos} path="/alumnos" description="Administracion de alumnos"  />
+                            <Section title="Tutores" logo={FaUserTie} image={Tutores} path="/tutores" description="Administracion de tutores" />
+                            <Section title="Docentes" logo={FaChalkboardTeacher} image={Docentes} path="/docentes" description="Administracion de docentes" />
+                            <Section title="Pagos" logo={FaMoneyBill} image={Pagos} path="/pagos" description="Administracion de pagos" />
+                            <Section title="Asistencia" logo={FaClipboardList} image={Asistencia} path="/asistencia" description="Administracion de asistencia" />
+                            <Section title="Constancias" logo={BsDownload} image={Constancias} path="/constancias" description="Emision de contancias" />
                         </div>
                     </Card.Body>
                 </Card>

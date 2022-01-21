@@ -68,9 +68,30 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 5px; 
+    background-color: var(--accent);
+}
+
+.responsive-topbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     gap: 5px;
     background-color: var(--accent);
 }
+
+#controls {
+    display: flex;
+    gap: 10px;
+}
+
+#dark-mode-btn {
+    outline: none;
+    box-shadow: none;
+    border: none !important;
+}
+
+
 
 .menu-btn {
     background-color: var(--button-accent) !important;
@@ -143,12 +164,17 @@ td {
 .login-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .login-form {
-    flex: 0 50%;
+    flex-basis: 600px;
 }
 
 .login-form .card-header {
     color: var(--nav-text)
+}
+
+.Childs {
+    
 }

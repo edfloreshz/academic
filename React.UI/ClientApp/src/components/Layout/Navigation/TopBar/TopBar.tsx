@@ -11,19 +11,21 @@ const TopBar = (props: any) => {
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="sm" className="top-bar navbar-dark">
+            <Navbar collapseOnSelect expand="sm" variant="dark" className="top-bar">
                 <Container>
-                    <button className="unset">
-                        <Navbar.Brand onClick={() => goTo("/home")}>{Constants.Title}</Navbar.Brand>
-                    </button>
-                    <DarkModeButton theme={props.theme} switchTheme={props.switchTheme} />
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-                        <Navbar.Text>
-                            {sessionStorage.getItem('usuario') ?? "Debe iniciar sesión"}
-                        </Navbar.Text>
+                    <Navbar.Collapse id="responsive-navbar-nav" className="responsive-topbar">
+                        <div id="brand">
+                            <Navbar.Brand onClick={() => goTo("/home")}>{Constants.Title}</Navbar.Brand>
+                            <Navbar.Text>
+                                {sessionStorage.getItem('usuario') ?? "Debe iniciar sesión"}
+                            </Navbar.Text>
+                        </div>
+                        <div id="controls">
+                            <DarkModeButton id="dark-mode-btn" theme={props.theme} switchTheme={props.switchTheme} />
+                            <LogoutButton />
+                        </div>
                     </Navbar.Collapse>
-                    <LogoutButton />
                 </Container>
             </Navbar>
         </div>

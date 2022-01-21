@@ -24,17 +24,14 @@ class Layout extends Component<Props> {
         return (
             <div>
                 <div className="wrapper">
-                    <div className="NavMenu">
+                    <div className="Menu-Bar">
                         <TopBar theme={this.props.theme} switchTheme={this.props.switchTheme} />
                     </div>
-                    <div className="NavigationMenu">
+                    <div className="NavigationBar">
                         {this.renderNavigationMenu()}
                     </div>
                     <div className="Content">
-                        <div className="Spacer"/>
-                        <div className="Childs">
-                            {this.props.children}
-                        </div>
+                        {this.props.children}
                     </div>
                 </div>
             </div>
