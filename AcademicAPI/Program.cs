@@ -7,7 +7,7 @@ var config = builder.Configuration;
 // Add services to the container.
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddDbContext<academicContext>(options =>
-    options.UseMySQL(!env.IsDevelopment() 
+    options.UseMySQL(env.IsDevelopment() 
         ? builder.Configuration["ConnectionStrings:AcademicDevelopmentAPIConnection"] 
         : builder.Configuration["ConnectionStrings:AcademicProductionAPIConnection"]
     ));
