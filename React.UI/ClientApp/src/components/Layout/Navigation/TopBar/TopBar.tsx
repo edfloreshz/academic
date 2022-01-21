@@ -11,7 +11,7 @@ const TopBar = (props: any) => {
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="sm" className="top-bar">
+            <Navbar collapseOnSelect expand="sm" className="top-bar navbar-dark">
                 <Container>
                     <button className="unset">
                         <Navbar.Brand onClick={() => goTo("/home")}>{Constants.Title}</Navbar.Brand>

@@ -51,12 +51,6 @@ body,
   margin: 0;
 }
 
-/* For presentation only, no need to copy the code below */
-
-.wrapper * {
-  position: relative;
-}
-
 .wrapper *:after {
   position: absolute;
   top: 0;

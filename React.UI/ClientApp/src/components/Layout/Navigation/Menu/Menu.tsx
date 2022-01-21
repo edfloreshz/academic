@@ -11,7 +11,7 @@ const Menu = () => {
     if (sessionStorage.getItem("administrador") === "true") {
         return (
             <div>
-                <Navbar collapseOnSelect expand="sm" className="top-bar">
+                <Navbar collapseOnSelect expand="sm" className="top-bar navbar-dark">
                     <Container>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse className="unset responsive-navbar">
