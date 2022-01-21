@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Col, Row, Table, Pagination } from "react-bootstrap";
+import { Card, Button, Table, Pagination } from "react-bootstrap";
 import {RequestType, send} from "../../../../utils/RequestManager";
 import { IDocente } from '../../../../models/Docente';
 import Edit from './Modals/Edit';

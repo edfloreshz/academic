@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {IPago} from '../../../../models/Pago'
-import {Button, Card, Col, Pagination, Row, Table} from 'react-bootstrap';
+import {Button, Card, Pagination, Table} from 'react-bootstrap';
 import Add from './Modals/Add';
 import {RequestType, send} from '../../../../utils/RequestManager';
 import {FaMoneyBill} from 'react-icons/fa';

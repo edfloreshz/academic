@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Card, Row, Col } from 'react-bootstrap';
-import Logo from '../../../../img/logo.jpg';
+import { Form, Button, Card } from 'react-bootstrap';
 import { login, isLogin } from '../../../../utils/LoginManager';
 
 export interface Props {

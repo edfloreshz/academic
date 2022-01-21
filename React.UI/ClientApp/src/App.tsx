@@ -1,7 +1,7 @@
 import Layout from './components/Layout/Layout';
 import Home from './components/Pages/Private/Home/Home';
 import './App.css';
-import {Button, Container} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import PublicRoute from './components/Routes/PublicRoute';
 import Login from './components/Pages/Public/Login/Login';
@@ -12,10 +12,9 @@ import Asistencia from './components/Pages/Private/Asistencia/Asistencia';
 import Constancias from './components/Pages/Private/Constancias/Constancias';
 import Pagos from './components/Pages/Private/Pagos/Pagos';
 import AdminRoute from './components/Routes/AdminRoute';
-import {Constants} from "./Constants";
+import {Constants} from "./constants/Constants";
 import Aulas from "./components/Pages/Private/Aulas/Aulas";
 import useLocalStorage from 'use-local-storage'
-import {FaMoon, FaSun} from "react-icons/all";
 import React from "react";
 
 export interface ILoading {
@@ -28,7 +27,7 @@ export interface IPagination {
 }
 
 function App() {
-  let localTheme = localStorage.getItem("theme") == '\"dark\"' ? 'light' : 'dark';
+  let localTheme = localStorage.getItem("theme") === '"dark"' ? 'light' : 'dark';
   const defaultDark = window.matchMedia(`(prefers-color-scheme: ${localTheme})`).matches;
   const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
   

@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom';
 import {Container, Navbar} from 'react-bootstrap';
 import LogoutButton from './LogoutButton';
 import DarkModeButton from "./DarkModeButton";
-import {Constants} from "../../../../Constants";
+import {Constants} from "../../../../constants/Constants";
 import "./TopBar.css";
 
 const TopBar = (props: any) => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Col, Row, Table, Pagination } from "react-bootstrap";
+import { Card, Button, Table, Pagination } from "react-bootstrap";
 import { ITutor } from '../../../../models/Tutor';
 import Edit from './Modals/Edit';
 import Add from './Modals/Add';

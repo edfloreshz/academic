@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import {ILoading, IPagination} from "../../../../App";
 import {RequestType, send} from "../../../../utils/RequestManager";
 import {IAula} from "../../../../models/Aula";
-import {Button, Card, Col, Pagination, Row, Table} from "react-bootstrap";
+import {Button, Card, Pagination, Table} from "react-bootstrap";
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import {FaCube, FaEdit} from "react-icons/fa";
 import Edit from "./Modals/Edit";
 import Add from "./Modals/Add";
-import Asistencia from "../../../../img/alumnos.svg";
 import AsistenciaImg from "../../../../img/asistencia.svg";
 import NotFound from "../../../Layout/NotFound/NotFound";
 
@@ -97,7 +96,7 @@ class Aulas extends Component<Props, State> {
                             <Table>
                                 <thead>
                                 <tr>
-                                    <th></th>
+                                    <th> </th>
                                     <th>Nombre</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -121,7 +120,7 @@ class Aulas extends Component<Props, State> {
                             : <NotFound
                                 title="Lista de aulas"
                                 warning="No se encontraron aulas"
-                                recommendation="Agregue nuevas aulas con el boton amarillo"
+                                recommendation="Agregue nuevas aulas con el botón amarillo"
                                 picture={AsistenciaImg}
                             />
                     }

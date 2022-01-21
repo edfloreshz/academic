@@ -40,6 +40,8 @@
 
     <ItemGroup>
       <TypeScriptCompile Remove="ClientApp\src\themes\darkTheme.tsx" />
+      <TypeScriptCompile Remove="ClientApp\src\Constants.ts" />
+      <TypeScriptCompile Include="ClientApp\src\constants\Constants.ts" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
