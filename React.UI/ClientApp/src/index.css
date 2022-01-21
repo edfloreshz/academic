@@ -18,6 +18,7 @@ code {
     --background: white;
     --text-primary: black;
     --text-secondary: white;
+    --input-background: white;
     --accent: #dc3545;
     --button-accent: #c93140;
     --button-hover-accent: #ba2d3b;
@@ -29,7 +30,8 @@ code {
 [data-theme='dark'] {
     --background: #010409;
     --text-primary: wheat;
-    --text-secondary: grey;
+    --text-secondary: wheat;
+    --input-background: #161b22;
     --accent: #161b22;
     --button-accent: #010409;
     --button-border: wheat;
@@ -37,5 +39,5 @@ code {
     --nav-text: wheat;
     --card-border-color: #30363d;
     --card-header: #0d1117;
-
 }
+

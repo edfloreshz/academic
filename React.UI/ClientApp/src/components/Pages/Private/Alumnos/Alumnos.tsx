@@ -88,7 +88,6 @@ class Alumnos extends Component<Props, State> {
                 <Card.Header as="h5">
                     <Row>
                         <Col>
-                            Pagina {this.state.paginaActual + 1}
                         </Col>
                         <Col style={{ textAlign: "center" }}>
                             Alumnos

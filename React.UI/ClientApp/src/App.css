@@ -159,16 +159,26 @@ td {
     border-color: var(--card-border-color);
 }
 
-.modal-content, .modal-footer, .modal-header, .modal-body {
-    background-color: var(--background) !important;
-    border-color: var(--card-border-color) !important;
+.nav-link {
+    background-color: var(--card-border-color)!important;
+    color: wheat!important;
+}
+
+.form-control, .form-select, .dropdown-container, .dropdown-content * {
+    background-color: var(--input-background)!important;
+    border-color: var(--card-border-color)!important;
     color: var(--text-primary) !important;
 }
 
-[data-theme='light'].modal .modal-dialog .modal-content .modal-header {
-    background-color: aqua!important;
+.login-container {
+    display: flex;
+    justify-content: center;
 }
 
-[data-theme='dark'] .modal .modal-dialog .modal-content .modal-header {
-    background-color: #a71d2a!important;
+.login-form {
+    flex: 0 50%;
+}
+
+.login-form .card-header {
+    color: var(--nav-text)
 }

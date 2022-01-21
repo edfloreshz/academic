@@ -1,4 +1,18 @@
-.modal-content, .modal-footer, .modal-header, modal-body {
+.slider {
+  background-color: #23b152;
+}
+
+.nav-link {
+  background-color: #282c34!important;
+  color: wheat;
+}
+
+#datePicker {
+  background-color: #282c34!important;
+  color: wheat;
+}
+
+.modal-content, .modal-footer, .modal-header {
   background-color: #0d1117;
   border-color: #30363d;
   color: wheat;

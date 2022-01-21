@@ -59,7 +59,7 @@ export default class Pagos extends Component<Props, State> {
     }
 
     async componentDidMount() {
-        this.updateState()
+        await this.updateState()
     }
 
     render() {
@@ -74,7 +74,7 @@ export default class Pagos extends Component<Props, State> {
         return (
             <div>
                 <Card>
-                    <Card.Header>
+                    <Card.Header as="h5">
                         <Row>
                             <Col>
                             </Col>
