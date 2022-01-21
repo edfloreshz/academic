@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const APIUri = (process.env.NODE_ENV === "development") ? "http://45.79.81.186:8080/api" : "https://localhost:5000/api";
+export const APIUri = (process.env.NODE_ENV !== "development") ? "http://45.79.81.186:8080/api" : "https://localhost:5000/api";
 
 export enum RequestType {
     GET = "get",
