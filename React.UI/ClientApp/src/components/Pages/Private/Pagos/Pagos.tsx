@@ -7,6 +7,9 @@ import {FaMoneyBill} from 'react-icons/fa';
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import {ILoading, IPagination} from '../../../../App';
 import {generateReceipt} from "../../../../utils/PDFManager";
+import NotFound from "../../../Layout/NotFound/NotFound";
+import PagosImg from '../../../../img/pagos.svg';
+
 
 export interface Props {
 
@@ -88,6 +91,7 @@ export default class Pagos extends Component<Props, State> {
                     </Card.Header>
                     <Card.Body>
                         {
+                            (this.state.pagos.length > 0) ?
                             <div className="table-responsive table-responsive-sm">
                                 <Table>
                                     <thead>
@@ -124,6 +128,12 @@ export default class Pagos extends Component<Props, State> {
                                     </tbody>
                                 </Table>
                             </div>
+                            : <NotFound
+                                    title="Lista de pagos"
+                                    warning="No se encontraron pagos"
+                                    recommendation="Agregue nuevos pagos con el boton amarillo"
+                                    picture={PagosImg}
+                                />
                         }
                     </Card.Body>
                     <Card.Footer>

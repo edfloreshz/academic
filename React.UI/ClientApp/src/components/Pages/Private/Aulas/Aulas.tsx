@@ -7,6 +7,9 @@ import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import {FaCube, FaEdit} from "react-icons/fa";
 import Edit from "./Modals/Edit";
 import Add from "./Modals/Add";
+import Asistencia from "../../../../img/alumnos.svg";
+import AsistenciaImg from "../../../../img/asistencia.svg";
+import NotFound from "../../../Layout/NotFound/NotFound";
 
 export interface Props {
 
@@ -92,9 +95,10 @@ class Aulas extends Component<Props, State> {
                         </Col>
                     </Row>
                 </Card.Header>
-                {this.state.showAdd && <Add show={this.state.showAdd} handleClose={this.handleClose} />}
+                <Add show={this.state.showAdd} handleClose={this.handleClose} />
                 <Card.Body>
                     {
+                        (this.state.aulas.length > 0) ?
                         <div className="table-responsive">
                             <Table>
                                 <thead>
@@ -120,6 +124,12 @@ class Aulas extends Component<Props, State> {
                                 {this.state.showEdit && <Edit show={this.state.showEdit} aula={this.state.aula} handleClose={this.handleClose} />}
                             </Table>
                         </div>
+                            : <NotFound
+                                title="Lista de aulas"
+                                warning="No se encontraron aulas"
+                                recommendation="Agregue nuevas aulas con el boton amarillo"
+                                picture={AsistenciaImg}
+                            />
                     }
                 </Card.Body>
                 <Card.Footer >
@@ -128,7 +138,7 @@ class Aulas extends Component<Props, State> {
                     </Pagination>
                 </Card.Footer>
             </Card >
-        );
+        )
     }
 }
 

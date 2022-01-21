@@ -7,6 +7,8 @@ import {ILoading, IPagination} from "../../../../../App";
 import Spinning from "../../../../Layout/Navigation/Spinning/Spinning";
 import "./Alumnos.css"
 import {RequestType, send} from "../../../../../utils/RequestManager";
+import AlumnosImg from '../../../../../img/alumnos.svg';
+import NotFound from "../../../../Layout/NotFound/NotFound";
 
 interface Props { }
 
@@ -60,32 +62,40 @@ class Alumnos extends Component<Props, State> {
                 </Card.Header>
                 <Card.Body>
                     {
+                        (this.state.alumnos.length > 0) ?
                         <table>
                             <tbody>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>No adeudo</th>
-                                    <th>Conducta</th>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>No adeudo</th>
+                                <th>Conducta</th>
+                            </tr>
+                            {this.state.alumnos.slice(startIndex, endIndex).map((alumno: IAlumno) => {
+                                return <tr>
+                                    <td>{alumno.idAlumno}</td>
+                                    <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
+                                    <td>
+                                        {
+                                            alumno.isDeudor
+                                                ? <Button variant="danger" disabled={true}><BsDownload /></Button>
+                                                : <Button variant="danger" onClick={() => generatePDFAdeudo(alumno)}><BsDownload /></Button>
+                                        }
+                                    </td>
+                                    <td>
+                                        <Button variant="warning" onClick={() => generatePDFConducta(alumno)}><BsDownload /></Button>
+                                    </td>
                                 </tr>
-                                {this.state.alumnos.slice(startIndex, endIndex).map((alumno: IAlumno) => {
-                                    return <tr>
-                                        <td>{alumno.idAlumno}</td>
-                                        <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
-                                        <td>
-                                            {
-                                                alumno.isDeudor
-                                                    ? <Button variant="danger" disabled={true}><BsDownload /></Button>
-                                                    : <Button variant="danger" onClick={() => generatePDFAdeudo(alumno)}><BsDownload /></Button>
-                                            }
-                                        </td>
-                                        <td>
-                                            <Button variant="warning" onClick={() => generatePDFConducta(alumno)}><BsDownload /></Button>
-                                        </td>
-                                    </tr>
-                                })}
+                            })}
                             </tbody>
-                        </table>
+                        </table> 
+                            :
+                            <NotFound
+                                title="Lista de alumnos"
+                                warning="No se encontraron alumnos"
+                                recommendation="Agregue nuevos alumnos con el boton amarillo"
+                                picture={AlumnosImg}
+                            />
                     }
                 </Card.Body>
                 <Card.Footer >

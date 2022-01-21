@@ -8,6 +8,8 @@ import { FaEdit, FaUser } from "react-icons/fa";
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import { ILoading, IPagination } from "../../../../App";
 import {RequestType, send} from "../../../../utils/RequestManager";
+import TutoresImg from "../../../../img/tutores.svg";
+import NotFound from "../../../Layout/NotFound/NotFound";
 
 export interface Props {
 
@@ -78,6 +80,7 @@ class Tutores extends Component<Props, State> {
                 <Spinning />
             )
         }
+        
         return (
             <Card>
                 <Card.Header as="h5">
@@ -92,20 +95,21 @@ class Tutores extends Component<Props, State> {
                         </Col>
                     </Row>
                 </Card.Header>
-                {this.state.showAdd && <Add show={this.state.showAdd} handleClose={this.handleClose} />}
+                <Add show={this.state.showAdd} handleClose={this.handleClose} />
                 <Card.Body>
                     {
-                        <div className="table-responsive">
-                            <Table>
-                                <thead>
+                        (this.state.tutores.length > 0)
+                            ? <div className="table-responsive">
+                                <Table>
+                                    <thead>
                                     <tr>
                                         <th></th>
                                         <th>Tutor</th>
                                         <th>Estatus</th>
                                         <th>Acciones</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     {
                                         this.state.tutores.slice(startIndex, endIndex).map((tutor) => (
                                             <tr key={tutor.idTutor}>
@@ -118,10 +122,16 @@ class Tutores extends Component<Props, State> {
                                             </tr>
                                         ))
                                     }
-                                </tbody>
-                                {this.state.showEdit && <Edit show={this.state.showEdit} tutor={this.state.tutor} handleClose={this.handleClose} />}
-                            </Table>
-                        </div>
+                                    </tbody>
+                                    {this.state.showEdit && <Edit show={this.state.showEdit} tutor={this.state.tutor} handleClose={this.handleClose} />}
+                                </Table>
+                            </div>
+                            : <NotFound
+                                title="Lista de tutores"
+                                warning="No se encontraron tutores"
+                                recommendation="Agregue nuevos tutores con el boton amarillo"
+                                picture={TutoresImg}
+                            />
                     }
                 </Card.Body>
                 <Card.Footer >

@@ -87,6 +87,7 @@ class Docentes extends Component<Props, State> {
             items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
         }
         if (this.state.loading) { return (<Spinning />) }
+        if (this.state.docentes.length > 0) {} else {}
         return (
             <Card>
                 <Card.Header as="h5">

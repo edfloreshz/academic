@@ -6,8 +6,9 @@ import { IAsistencia } from "../../../../../models/Asistencia";
 import Spinning from "../../../../Layout/Navigation/Spinning/Spinning";
 import { ILoading } from "../../../../../App";
 import Class from "./Class";
-import Asistencia from "../../../../../img/alumnos.svg";
 import "./Lista.css"
+import NotFound from "../../../../Layout/NotFound/NotFound";
+import AsistenciaImg from '../../../../../img/asistencia.svg';
 
 export interface Props {
 
@@ -79,62 +80,55 @@ class Lista extends Component<Props, State> {
                 <Spinning />
             )
         }
-        if (this.state.alumnos.length > 0) {
-            return (
-                <Card>
-                    <Card.Header as="h5">
-                        <Row>
-                            <Col>
-                                Lista de asistencia
-                            </Col>
-                        </Row>
-                    </Card.Header>
-                    <Card.Body>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <th className="">ID</th>
-                                <th className="nameCol">Nombre</th>
-                                <th className="nameCol">Fecha</th>
-                                <th className="nameCol">Asistencia</th>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <Class alumnos={this.state.alumnos} studentPresent={this.studentPresent} />
-                    </Card.Body>
-                    <Card.Footer>
-                        <Row>
-                            <Col>
-                                <Button variant="warning" onClick={this.postAsistencia}>Guardar</Button>
-                            </Col>
-                        </Row>
-                    </Card.Footer>
-                </Card >
-            )
-        } else {
-            return (
-                <Card>
-                    <Card.Header as="h5">
-                        <Row>
-                            <Col>
-                                Lista de asistencia
-                            </Col>
-                        </Row>
-                    </Card.Header>
-                    <Card.Body className="center-text">
-                        <Card.Img src={Asistencia} />
-                        <Card.Text>
-                            <h4>
-                                <b>Asistencia tomada</b>
-                            </h4>
-                            <h5>
-                                Espere hasta mañana para poder tomar asistencia.
-                            </h5>
-                        </Card.Text>
-                    </Card.Body>
-                </Card >
-            )
-        }
+        return (
+            <Card>
+                <Card.Header as="h5">
+                    <Row>
+                        <Col>
+                            Lista de asistencia
+                        </Col>
+                    </Row>
+                </Card.Header>
+                <Card.Body>
+                    {
+                        (this.state.alumnos.length > 0) 
+                        ?
+                            <>
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <th className="">ID</th>
+                                        <th className="nameCol">Nombre</th>
+                                        <th className="nameCol">Fecha</th>
+                                        <th className="nameCol">Asistencia</th>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <Class alumnos={this.state.alumnos} studentPresent={this.studentPresent} />
+                            </>
+                        :
+                            <NotFound
+                                title="Lista de asistencia"
+                                warning="Asistencia tomada"
+                                recommendation="Espere hasta mañana para poder tomar asistencia"
+                                picture={AsistenciaImg}
+                            />
+                    }
+                </Card.Body>
+                <Card.Footer>
+                    <Row>
+                        {
+                            (this.state.alumnos.length > 0) ?
+                                <Col>
+                                    <Button variant="warning" onClick={this.postAsistencia}>Guardar</Button>
+                                </Col>
+                                : <div style={{height: '15px'}}></div>
+                        }
+                        
+                    </Row>
+                </Card.Footer>
+            </Card >
+        )
     }
 }
 

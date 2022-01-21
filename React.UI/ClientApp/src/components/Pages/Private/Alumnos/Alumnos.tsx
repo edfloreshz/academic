@@ -8,6 +8,8 @@ import "./Alumnos.css"
 import { FaEdit, FaUser } from "react-icons/fa";
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import { ILoading, IPagination } from "../../../../App";
+import NotFound from "../../../Layout/NotFound/NotFound";
+import AlumnosImg from '../../../../img/alumnos.svg';
 
 export interface Props {
 
@@ -86,23 +88,18 @@ class Alumnos extends Component<Props, State> {
         return (
             <Card>
                 <Card.Header as="h5">
-                    <Row>
-                        <Col>
-                        </Col>
-                        <Col style={{ textAlign: "center" }}>
-                            Alumnos
-                        </Col>
-                        <Col>
-                            <Button className="headerButton btn-sm" variant="warning" onClick={() => this.handleShow()}>Agregar</Button>
-                        </Col>
-                    </Row>
+                    <div className="flex-titlebar">
+                        Alumnos
+                        <Button className="btn-sm" variant="warning" onClick={() => this.handleShow()}>Agregar</Button>
+                    </div>
                 </Card.Header>
                 {this.state.showAdd && <Add show={this.state.showAdd} handleClose={this.handleClose} />}
                 <Card.Body>
                     {
-                        <div className="table-responsive">
-                            <Table>
-                                <thead>
+                        (this.state.alumnos.length > 0)
+                            ? <div className="table-responsive">
+                                <Table>
+                                    <thead>
                                     <tr>
                                         <th></th>
                                         <th>Alumno</th>
@@ -110,8 +107,8 @@ class Alumnos extends Component<Props, State> {
                                         <th>Estatus</th>
                                         <th>Acciones</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     {
                                         this.state.alumnos.slice(startIndex, endIndex).map((alumno) => (
                                             <tr key={alumno.idAlumno}>
@@ -125,10 +122,17 @@ class Alumnos extends Component<Props, State> {
                                             </tr>
                                         ))
                                     }
-                                </tbody>
-                                {this.state.showEdit && <Edit show={this.state.showEdit} alumno={this.state.alumno} handleClose={this.handleClose} />}
-                            </Table>
-                        </div>
+                                    </tbody>
+                                    {this.state.showEdit && <Edit show={this.state.showEdit} alumno={this.state.alumno} handleClose={this.handleClose} />}
+                                </Table>
+                            </div>
+                            : <NotFound
+                                title="Lista de alumnos"
+                                warning="No se encontraron alumnos"
+                                recommendation="Agregue nuevos alumnos con el boton amarillo"
+                                picture={AlumnosImg}
+                            />
+                        
                     }
                 </Card.Body>
                 <Card.Footer >

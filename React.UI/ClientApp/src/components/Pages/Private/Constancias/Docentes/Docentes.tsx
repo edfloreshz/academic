@@ -8,6 +8,8 @@ import { IDocente } from "../../../../../models/Docente";
 import Spinning from "../../../../Layout/Navigation/Spinning/Spinning";
 import "./Docentes.css"
 import {RequestType, send} from "../../../../../utils/RequestManager";
+import TutoresImg from "../../../../../img/tutores.svg";
+import NotFound from "../../../../Layout/NotFound/NotFound";
 
 interface Props { }
 
@@ -55,8 +57,9 @@ class Docentes extends Component<Props, State> {
             items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
         }
         if (this.state.loading) { return (<Spinning />) }
-        var startDate = this.state.startDate ? this.state.startDate : new Date();
-        var endDate = this.state.endDate ? this.state.endDate : new Date();
+        let startDate = this.state.startDate ? this.state.startDate : new Date();
+        let endDate = this.state.endDate ? this.state.endDate : new Date();
+        if (this.state.docentes.length > 0) {} else {}
         return (
             <Card>
                 <Card.Header as="h5">
@@ -68,6 +71,8 @@ class Docentes extends Component<Props, State> {
                 </Card.Header>
                 <Card.Body>
                     {
+                        (this.state.docentes.length > 0)
+                        ?
                         <table>
                             <tbody>
                                 <tr>
@@ -99,6 +104,13 @@ class Docentes extends Component<Props, State> {
                                 })}
                             </tbody>
                         </table>
+                            :
+                            <NotFound
+                                title="Lista de docentes"
+                                warning="No se encontraron docentes"
+                                recommendation="Agregue nuevos docentes con el boton amarillo"
+                                picture={TutoresImg}
+                            />
                     }
                 </Card.Body>
                 <Card.Footer >

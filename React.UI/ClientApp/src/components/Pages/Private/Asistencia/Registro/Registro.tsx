@@ -5,6 +5,8 @@ import {RequestType, send} from "../../../../../utils/RequestManager";
 import ErrorMessage from "../../Error/ErrorMessage";
 import {ZodIssue} from "zod";
 import {IAsistencia} from "../../../../../models/Asistencia";
+import AsistenciaImg from "../../../../../img/asistencia.svg";
+import NotFound from "../../../../Layout/NotFound/NotFound";
 
 interface Props {
 }
@@ -58,22 +60,17 @@ class Registro extends Component<Props, State> {
         );
         this.setState({asistencia})
         this.setState({loaded: true})
-        console.log(asistencia);
     }
     
     render() {
         return (
             <div>
                 <Card>
-                    <Card.Header>
-                        <Row>
-                            <Col>
-                                <Card.Title>Registro de Asistencia</Card.Title>
-                            </Col>
-                            <Col>
-                                <Button className="headerButton"  variant="warning" onClick={this.queryRegistro}>Buscar</Button>
-                            </Col>
-                        </Row>
+                    <Card.Header as="h5">
+                        <div className="flex-titlebar">
+                            Registro de Asistencia
+                            <Button className="btn-sm"  variant="warning" onClick={this.queryRegistro}>Buscar</Button>
+                        </div>
                     </Card.Header>
                     <Card.Body>
                         <Row>
@@ -138,15 +135,17 @@ class Registro extends Component<Props, State> {
                             </Table>
                         </Card>
                         : this.state.loaded ?
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        No se encontraron registros
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                            <NotFound
+                                title="Registro de asistencia"
+                                warning="No se encontraron registros"
+                                recommendation="Trate cambiando la fecha"
+                                picture={AsistenciaImg}
+                            />
                             : null
                     }
+                    <Card.Footer>
+                        <div style={{height: '15px'}}></div>
+                    </Card.Footer>
                 </Card>
             </div>
         );
