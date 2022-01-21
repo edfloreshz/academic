@@ -28,15 +28,26 @@ export interface IPagination {
 }
 
 function App() {
-  const defaultDark = window.matchMedia('(prefers-color-scheme: light)').matches;
+  let localTheme = localStorage.getItem("theme") == '\"dark\"' ? 'light' : 'dark';
+  const defaultDark = window.matchMedia(`(prefers-color-scheme: ${localTheme})`).matches;
   const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+  
   const switchTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme)
+    let body = document.body;
+    body.setAttribute("data-theme", newTheme);
+    setTheme(newTheme);
   }
+
+  const setInitialTheme = () => {
+    let body = document.body;
+    body.setAttribute("data-theme", theme);
+    setTheme(theme);
+  }
+  
   return (
-    <div data-theme={theme} className={"App"}>
-      <Layout theme={theme} switchTheme={switchTheme}>
+    <div className={"App"}>
+      <Layout theme={theme} switchTheme={switchTheme} setInitialTheme={setInitialTheme}>
         <Container>
           <PublicRoute restricted={true} component={Login} path="/login" exact />
           <PrivateRoute component={Home} path="/" exact />

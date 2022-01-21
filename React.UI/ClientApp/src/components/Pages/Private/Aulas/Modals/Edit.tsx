@@ -66,7 +66,7 @@ class Edit extends Component<Props, State> {
                         </Form.Group>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button className="btn-block" variant="primary" onClick={this.saveAula}>Guardar</Button>
+                        <Button className="btn-block" variant="warning" onClick={this.saveAula}>Guardar</Button>
                     </Modal.Footer>
                 </Modal>
             </>

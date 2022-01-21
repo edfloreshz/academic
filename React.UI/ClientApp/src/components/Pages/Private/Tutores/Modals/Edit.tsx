@@ -175,7 +175,7 @@ class Edit extends Component<Props, State> {
                                 <Button className="btn-block" variant="danger" onClick={async () => await this.confirmDeactivation()}>Desactivar</Button>
                             </Col>
                             <Col>
-                                <Button className="btn-block" variant="primary" onClick={this.saveTutor}>Guardar</Button>
+                                <Button className="btn-block" variant="warning" onClick={this.saveTutor}>Guardar</Button>
                             </Col>
                         </Row>
                     </Modal.Footer>

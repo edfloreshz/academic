@@ -128,7 +128,7 @@ class Docentes extends Component<Props, State> {
                                                     <Button className="btn-block" variant="warning" onClick={() => this.handleShow(docente)}><FaEdit /></Button>
                                                 </td>
                                                 <td width="20%">
-                                                    <Button className="btn-block" variant="info" onClick={() => this.handleShow("list", docente.idDocente)}><FaList /></Button>
+                                                    <Button className="btn-block" variant="warning" onClick={() => this.handleShow("list", docente.idDocente)}><FaList /></Button>
                                                 </td>
                                             </tr>
                                         ))

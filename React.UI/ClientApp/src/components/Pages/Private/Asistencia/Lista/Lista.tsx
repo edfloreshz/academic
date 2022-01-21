@@ -105,7 +105,7 @@ class Lista extends Component<Props, State> {
                     <Card.Footer>
                         <Row>
                             <Col>
-                                <Button onClick={this.postAsistencia}>Guardar</Button>
+                                <Button variant="warning" onClick={this.postAsistencia}>Guardar</Button>
                             </Col>
                         </Row>
                     </Card.Footer>

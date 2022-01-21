@@ -113,7 +113,7 @@ export default class Pagos extends Component<Props, State> {
                                                     <td>${pago.cantidad}</td>
                                                     <td>{pago.conceptoNavigation?.concepto}</td>
                                                     <td>
-                                                        <Button variant="primary" onClick={async () => await generateReceipt(pago)} target="_blank">Ver</Button>
+                                                        <Button variant="warning" onClick={async () => await generateReceipt(pago)} target="_blank">Ver</Button>
                                                     </td>
                                                     <td>
                                                         <Button variant="info" onClick={async () => await this.getComprobante(pago.idPago)} target="_blank">Ver</Button>

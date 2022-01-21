@@ -71,7 +71,7 @@ class Add extends Component<Props, State> {
                     <Modal.Footer>
                         <Row>
                             <Col>
-                                <Button className="btn-block" variant="primary" type="submit" onClick={this.saveAula}>Guardar</Button>
+                                <Button className="btn-block" variant="warning" type="submit" onClick={this.saveAula}>Guardar</Button>
                             </Col>
                         </Row>
                     </Modal.Footer>

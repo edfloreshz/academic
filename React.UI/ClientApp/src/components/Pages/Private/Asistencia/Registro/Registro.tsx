@@ -71,7 +71,7 @@ class Registro extends Component<Props, State> {
                                 <Card.Title>Registro de Asistencia</Card.Title>
                             </Col>
                             <Col>
-                                <Button className="headerButton" onClick={this.queryRegistro}>Buscar</Button>
+                                <Button className="headerButton"  variant="warning" onClick={this.queryRegistro}>Buscar</Button>
                             </Col>
                         </Row>
                     </Card.Header>

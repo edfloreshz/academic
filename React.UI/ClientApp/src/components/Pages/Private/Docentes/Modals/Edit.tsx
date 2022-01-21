@@ -164,7 +164,7 @@ class Edit extends Component<Props, State> {
                     <Modal.Footer>
                         <Row>
                             <Col>
-                                <Button className="btn-block" variant="primary" onClick={this.updateDocente}>Guardar</Button>
+                                <Button className="btn-block" variant="warning" onClick={this.updateDocente}>Guardar</Button>
                             </Col>
                         </Row>
                     </Modal.Footer>

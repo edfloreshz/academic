@@ -7,9 +7,13 @@ import "./Layout.css"
 interface Props {
     theme: string,
     switchTheme: () => void
+    setInitialTheme: () => void
 }
 
 class Layout extends Component<Props> {
+    componentDidMount() {
+        this.props.setInitialTheme()
+    }
 
     renderNavigationMenu() {
         if (isLogin()) {

@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+.Content {
+    background-color: var(--background) !important;
+}
+
 .center {
     justify-content: center;
 }
@@ -175,6 +179,15 @@ td {
     color: var(--nav-text)
 }
 
-.Childs {
-    
+/*Modal*/
+
+.modal-content {
+    background-color: var(--background) !important;
+    color: var(--text-primary);
+}
+
+.modal-header, .modal-footer {
+    background-color: var(--accent);
+    color: var(--nav-text);
+    border-color: var(--card-border-color)!important;
 }

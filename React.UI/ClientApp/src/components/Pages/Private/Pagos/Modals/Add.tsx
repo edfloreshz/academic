@@ -68,38 +68,6 @@ class Add extends Component<Props, State> {
             await this.fetchAlumnos(value);
         }
     }
-    
-    // async validateFile() {
-    //     const file = document.getElementById("comprobante") as HTMLInputElement;
-    //     const fileName = file.value;
-    //     const fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
-    //     if (fileExtension !== "pdf") {
-    //         Swal.fire({
-    //             title: "Error",
-    //             text: "El archivo debe ser un PDF",
-    //             icon: "error",
-    //             confirmButtonText: "Aceptar"
-    //         })
-    //         return false;
-    //     }
-    //     return true;
-    // }
-    //
-    // async validateFileSize() {
-    //     const file = document.getElementById("comprobante") as HTMLInputElement;
-    //     if (file == null) return;
-    //     const fileSize = file.files[0].size;
-    //     if (fileSize > 5242880) {
-    //         await Swal.fire({
-    //             title: "Error",
-    //             text: "El archivo no debe pesar más de 5MB",
-    //             icon: "error",
-    //             confirmButtonText: "Aceptar"
-    //         })
-    //         return false;
-    //     }
-    //     return true;
-    // }
 
     async handleInputFiles(event: React.ChangeEvent<any>) {
         const file = event!.currentTarget!.files![0];
@@ -209,7 +177,7 @@ class Add extends Component<Props, State> {
                     <Modal.Footer>
                         <Row>
                             <Col>
-                                <Button className="btn-block" variant="primary" type="submit" onClick={this.savePago}>Guardar</Button>
+                                <Button className="btn-block" variant="warning" type="submit" onClick={this.savePago}>Guardar</Button>
                             </Col>
                         </Row>
                     </Modal.Footer>
