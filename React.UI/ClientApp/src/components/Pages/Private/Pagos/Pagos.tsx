@@ -78,16 +78,10 @@ export default class Pagos extends Component<Props, State> {
             <div>
                 <Card>
                     <Card.Header as="h5">
-                        <Row>
-                            <Col>
-                            </Col>
-                            <Col style={{ textAlign: "center" }}>
-                                Control de Pagos
-                            </Col>
-                            <Col>
-                                <Button className="headerButton btn-sm" variant="warning" onClick={this.handleShow}>Agregar</Button>
-                            </Col>
-                        </Row>
+                        <div className="flex-titlebar">
+                            Control de Pagos
+                            <Button className="btn-sm" variant="warning" onClick={this.handleShow}>Agregar</Button>
+                        </div>
                     </Card.Header>
                     <Card.Body>
                         {

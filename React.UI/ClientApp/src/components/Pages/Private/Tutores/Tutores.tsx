@@ -84,16 +84,10 @@ class Tutores extends Component<Props, State> {
         return (
             <Card>
                 <Card.Header as="h5">
-                    <Row>
-                        <Col>
-                        </Col>
-                        <Col style={{ textAlign: "center" }}>
-                            Tutores
-                        </Col>
-                        <Col>
-                            <Button className="headerButton btn-sm" variant="warning" onClick={() => this.handleShow()}>Agregar</Button>
-                        </Col>
-                    </Row>
+                    <div className="flex-titlebar">
+                        Tutores
+                        <Button className="btn-sm" variant="warning" onClick={() => this.handleShow()}>Agregar</Button>
+                    </div>
                 </Card.Header>
                 <Add show={this.state.showAdd} handleClose={this.handleClose} />
                 <Card.Body>
