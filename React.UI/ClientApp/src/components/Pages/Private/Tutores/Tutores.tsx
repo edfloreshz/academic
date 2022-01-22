@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Table, Pagination } from "react-bootstrap";
+import { Card, Button,  Pagination } from "react-bootstrap";
 import { ITutor } from '../../../../models/Tutor';
 import Edit from './Modals/Edit';
 import Add from './Modals/Add';
@@ -73,7 +73,7 @@ class Tutores extends Component<Props, State> {
             ? { startIndex: 0, endIndex: 6 }
             : { startIndex: this.state.paginaActual * 6, endIndex: this.state.paginaActual * 6 + 6 };
         for (let i = 0; i < this.state.totalPaginas; i++) {
-            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} activeLabel={" ⦿"} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
+            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} activeLabel={" "} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
         }
         if (this.state.loading) {
             return (
@@ -97,7 +97,7 @@ class Tutores extends Component<Props, State> {
                                 <table>
                                     <thead>
                                     <tr>
-                                        <th></th>
+                                        <th/>
                                         <th>Tutor</th>
                                         <th>Email</th>
                                         <th>Dirección</th>
@@ -109,7 +109,7 @@ class Tutores extends Component<Props, State> {
                                     {
                                         this.state.tutores.slice(startIndex, endIndex).map((tutor) => (
                                             <tr key={tutor.idTutor}>
-                                                <td><FaUser></FaUser></td>
+                                                <td><FaUser/></td>
                                                 <td>{tutor.nombres} {tutor.apellidoPaterno} {tutor.apellidoMaterno}</td>
                                                 <td>{tutor.email}</td>
                                                 <td>{tutor.calle} #{tutor.numero} Col. {tutor.colonia}, CP. {tutor.cp}, {tutor.localidad}, {tutor.estado}, {tutor.pais}</td>
@@ -132,7 +132,7 @@ class Tutores extends Component<Props, State> {
                             />
                     }
                 </Card.Body>
-                <Card.Footer >
+                <Card.Footer>
                     <Pagination className="center red" size="lg">
                         {items}
                     </Pagination>

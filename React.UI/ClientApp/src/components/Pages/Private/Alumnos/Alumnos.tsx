@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Table, Pagination } from "react-bootstrap";
+import { Card, Button,  Pagination } from "react-bootstrap";
 import {send, RequestType} from "../../../../utils/RequestManager";
 import { IAlumno } from '../../../../models/Alumno';
 import Edit from './Modals/Edit';
@@ -9,11 +9,8 @@ import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import { ILoading, IPagination } from "../../../../App";
 import NotFound from "../../../Layout/NotFound/NotFound";
 import AlumnosImg from '../../../../img/alumnos.svg';
-import { Grid } from 'gridjs-react';
 import "./Alumnos.css"
 import "gridjs/dist/theme/mermaid.css";
-import {Cell, h} from "gridjs";
-import { ComponentChild } from "preact";
 
 export interface Props {
 
@@ -53,7 +50,7 @@ class Alumnos extends Component<Props, State> {
         }
         else {
             this.setState({
-                alumno: this.state.alumnos.filter(a => a.idAlumno.toString() == id)[0],
+                alumno: this.state.alumnos.filter(a => a.idAlumno.toString() === id)[0],
                 showEdit: true
             })
         }
@@ -84,7 +81,7 @@ class Alumnos extends Component<Props, State> {
             ? { startIndex: 0, endIndex: 6 }
             : { startIndex: this.state.paginaActual * 6, endIndex: this.state.paginaActual * 6 + 6 };
         for (let i = 0; i < this.state.totalPaginas; i++) {
-            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
+            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} activeLabel={" "} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
         }
         if (this.state.loading) {
             return (
@@ -121,7 +118,7 @@ class Alumnos extends Component<Props, State> {
                                         {
                                             this.state.alumnos.slice(startIndex, endIndex).map((alumno) => (
                                                 <tr key={alumno.idAlumno}>
-                                                    <td><FaUser></FaUser></td>
+                                                    <td><FaUser/></td>
                                                     <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
                                                     <td>{alumno.curp}</td>
                                                     <td>{alumno.aulaNavigation?.nombre}</td>

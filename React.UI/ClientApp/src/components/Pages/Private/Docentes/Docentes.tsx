@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Table, Pagination } from "react-bootstrap";
+import { Card, Button,  Pagination } from "react-bootstrap";
 import {RequestType, send} from "../../../../utils/RequestManager";
 import { IDocente } from '../../../../models/Docente';
 import Edit from './Modals/Edit';
@@ -84,7 +84,7 @@ class Docentes extends Component<Props, State> {
             ? { startIndex: 0, endIndex: 6 }
             : { startIndex: this.state.paginaActual * 6, endIndex: this.state.paginaActual * 6 + 6 };
         for (let i = 0; i < this.state.totalPaginas; i++) {
-            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
+            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} activeLabel={" "} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
         }
         if (this.state.loading) { return (<Spinning />) }
         if (this.state.docentes.length > 0) {} else {}

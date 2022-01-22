@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {ILoading, IPagination} from "../../../../App";
 import {RequestType, send} from "../../../../utils/RequestManager";
 import {IAula} from "../../../../models/Aula";
-import {Button, Card, Pagination, Table} from "react-bootstrap";
+import {Button, Card, Pagination} from "react-bootstrap";
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import {FaCube, FaEdit} from "react-icons/fa";
 import Edit from "./Modals/Edit";
@@ -73,7 +73,7 @@ class Aulas extends Component<Props, State> {
             ? { startIndex: 0, endIndex: 6 }
             : { startIndex: this.state.paginaActual * 6, endIndex: this.state.paginaActual * 6 + 6 };
         for (let i = 0; i < this.state.totalPaginas; i++) {
-            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
+            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} activeLabel={" "} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
         }
         if (this.state.loading) {
             return (

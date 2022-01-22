@@ -54,7 +54,7 @@ class Docentes extends Component<Props, State> {
             ? { startIndex: 0, endIndex: 6 }
             : { startIndex: this.state.paginaActual * 6, endIndex: this.state.paginaActual * 6 + 6 };
         for (let i = 0; i < this.state.totalPaginas; i++) {
-            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
+            items.push(<Pagination.Item key={i} active={i === this.state.paginaActual} activeLabel={" "} onClick={() => this.changePage(i)}>{i + 1}</Pagination.Item>);
         }
         if (this.state.loading) { return (<Spinning />) }
         let startDate = this.state.startDate ? this.state.startDate : new Date();

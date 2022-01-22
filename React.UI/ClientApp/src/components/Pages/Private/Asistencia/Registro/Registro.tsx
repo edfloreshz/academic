@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {IAula} from "../../../../../models/Aula";
-import {Button, Card, Col, Container, Form, Row, Table} from "react-bootstrap";
+import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import {RequestType, send} from "../../../../../utils/RequestManager";
 import ErrorMessage from "../../Error/ErrorMessage";
 import {ZodIssue} from "zod";

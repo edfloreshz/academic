@@ -30,7 +30,7 @@ class Constancias extends Component<Props, State> {
 
     render() {
         if (this.state.loading) {
-            return (<Spinning/>)
+            return (<Spinning />)
         }
         return (
             <div>
