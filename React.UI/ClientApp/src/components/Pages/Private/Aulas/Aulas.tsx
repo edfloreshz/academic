@@ -92,8 +92,8 @@ class Aulas extends Component<Props, State> {
                 <Card.Body>
                     {
                         (this.state.aulas.length > 0) ?
-                        <div className="table-responsive">
-                            <Table>
+                        <div className="table-wrapper">
+                            <table>
                                 <thead>
                                 <tr>
                                     <th> </th>
@@ -115,7 +115,7 @@ class Aulas extends Component<Props, State> {
                                 }
                                 </tbody>
                                 {this.state.showEdit && <Edit show={this.state.showEdit} aula={this.state.aula} handleClose={this.handleClose} />}
-                            </Table>
+                            </table>
                         </div>
                             : <NotFound
                                 title="Lista de aulas"

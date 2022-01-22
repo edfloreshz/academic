@@ -72,45 +72,48 @@ class Docentes extends Component<Props, State> {
                 <Card.Body>
                     {
                         (this.state.docentes.length > 0)
-                        ?
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Periodo trabajado</th>
-                                    <th>Recomendación</th>
-                                </tr>
-                                {this.state.docentes.slice(startIndex, endIndex).map((docente: IDocente) => {
-                                    return <tr>
-                                        <td>{docente.idDocente}</td>
-                                        <td>{docente.nombres} {docente.apellidoPaterno} {docente.apellidoMaterno}</td>
-                                        <td width="25%">
-                                            <DateRangePicker onEvent={this.handleDateEvent}
-                                                initialSettings={{ startDate: '1/1/2020', endDate: '3/1/2021' }}
-                                            >
-                                                <input id="datePicker" type="text" className="form-control" />
-                                            </DateRangePicker>
-                                        </td>
-                                        <td>
-                                            {
-                                                (this.state.startDate != null && this.state.endDate != null)
-                                                    ? <Button className="btn-info" onClick={() => generatePDFRecomendacion(docente, startDate, endDate)}><BsDownload /></Button>
-                                                    : <Button disabled={true} className="btn-info"><BsDownload /></Button>
-                                            }
-
-                                        </td>
+                        ? <div className="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Periodo trabajado</th>
+                                        <th>Recomendación</th>
                                     </tr>
-                                })}
-                            </tbody>
-                        </table>
-                            :
-                            <NotFound
-                                title="Lista de docentes"
-                                warning="No se encontraron docentes"
-                                recommendation="Agregue nuevos docentes con el boton amarillo"
-                                picture={TutoresImg}
-                            />
+                                </thead>
+                                <tbody>
+                                    {this.state.docentes.slice(startIndex, endIndex).map((docente: IDocente) => 
+                                        <tr>
+                                            <td>{docente.idDocente}</td>
+                                            <td>{docente.nombres} {docente.apellidoPaterno} {docente.apellidoMaterno}</td>
+                                            <td width="25%">
+                                                <DateRangePicker onEvent={this.handleDateEvent}
+                                                                 initialSettings={{ startDate: '1/1/2020', endDate: '3/1/2021' }}
+                                                >
+                                                    <input id="datePicker" type="text" className="form-control" />
+                                                </DateRangePicker>
+                                            </td>
+                                            <td>
+                                                {
+                                                    (this.state.startDate != null && this.state.endDate != null)
+                                                        ? <Button className="btn-info" onClick={() => generatePDFRecomendacion(docente, startDate, endDate)}><BsDownload /></Button>
+                                                        : <Button disabled={true} className="btn-info"><BsDownload /></Button>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                        :
+                        <NotFound
+                            title="Lista de docentes"
+                            warning="No se encontraron docentes"
+                            recommendation="Agregue nuevos docentes con el boton amarillo"
+                            picture={TutoresImg}
+                        />
                     }
                 </Card.Body>
                 <Card.Footer >

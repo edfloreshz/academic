@@ -26,6 +26,7 @@ code {
     --nav-text: white;
     --card-border-color: rgba(0,0,0,.125);
     --card-header: #f7f7f7;
+    --td-hover: #eeb2b2
 }
 
 [data-theme='dark'] {
@@ -40,5 +41,6 @@ code {
     --nav-text: wheat;
     --card-border-color: #30363d;
     --card-header: #0d1117;
+    --td-hover: #30363d
 }
 

@@ -219,7 +219,7 @@ class Edit extends Component<Props, State> {
                             <Form.Label>Tutores</Form.Label>
                             <MultiSelect options={this.state.remaining} onChange={this.setSelected} labelledBy="Select" value={this.state.selected} />
                             <Form.Text>
-                                <Table>
+                                <table>
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
@@ -238,7 +238,7 @@ class Edit extends Component<Props, State> {
                                             })
                                         }
                                     </tbody>
-                                </Table>
+                                </table>
                             </Form.Text>
                         </Form.Group>
                     </Modal.Body>

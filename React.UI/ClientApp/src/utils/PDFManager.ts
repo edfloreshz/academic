@@ -478,8 +478,8 @@ async function generateReceipt(pago: IPago) {
   const pdfDoc = await PDFDocument.create();
 
   // Embed the Times Roman font
-  const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
-
+    const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
   // Add a blank page to the document
   const page = pdfDoc.addPage();
 
@@ -540,6 +540,14 @@ async function generateReceipt(pago: IPago) {
     font: helvetica,
     color: rgb(0, 0, 0),
   });
+    // FOLIO
+    page.drawText(`FOLIO: ${('0000' + pago.idPago).slice(-4)}`, {
+        x: X*16.15,
+        y: (height / 21.25) * 17,
+        size: fontSize,
+        font: helveticaBold,
+        color: rgb(1, 0, 0),
+    });
 
     // CANTIDAD
     page.drawText(`$${pago.cantidad}`, {

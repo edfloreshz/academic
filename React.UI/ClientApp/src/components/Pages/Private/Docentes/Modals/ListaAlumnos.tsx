@@ -47,7 +47,7 @@ export default class ListaAlumnos extends Component<Props, State> {
                             !this.state.alumnos.length ? <Spinning /> :
                                 <div>
                                     <div className="table-responsive">
-                                        <Table>
+                                        <table>
                                             <thead>
                                                 <tr>
                                                     <th></th>
@@ -66,7 +66,7 @@ export default class ListaAlumnos extends Component<Props, State> {
                                                     ))
                                                 }
                                             </tbody>
-                                        </Table>
+                                        </table>
                                     </div>
                                 </div>
                         }

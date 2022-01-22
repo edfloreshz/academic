@@ -93,12 +93,14 @@ class Tutores extends Component<Props, State> {
                 <Card.Body>
                     {
                         (this.state.tutores.length > 0)
-                            ? <div className="table-responsive">
-                                <Table>
+                            ? <div className="table-wrapper">
+                                <table>
                                     <thead>
                                     <tr>
                                         <th></th>
                                         <th>Tutor</th>
+                                        <th>Email</th>
+                                        <th>Dirección</th>
                                         <th>Estatus</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -109,6 +111,8 @@ class Tutores extends Component<Props, State> {
                                             <tr key={tutor.idTutor}>
                                                 <td><FaUser></FaUser></td>
                                                 <td>{tutor.nombres} {tutor.apellidoPaterno} {tutor.apellidoMaterno}</td>
+                                                <td>{tutor.email}</td>
+                                                <td>{tutor.calle} #{tutor.numero} Col. {tutor.colonia}, CP. {tutor.cp}, {tutor.localidad}, {tutor.estado}, {tutor.pais}</td>
                                                 <td>{tutor.activo ? "Activo" : "Inactivo"}</td>
                                                 <td>
                                                     <Button className="btn-block" variant="warning" onClick={() => this.handleShow(tutor)}><FaEdit /></Button>
@@ -118,7 +122,7 @@ class Tutores extends Component<Props, State> {
                                     }
                                     </tbody>
                                     {this.state.showEdit && <Edit show={this.state.showEdit} tutor={this.state.tutor} handleClose={this.handleClose} />}
-                                </Table>
+                                </table>
                             </div>
                             : <NotFound
                                 title="Lista de tutores"

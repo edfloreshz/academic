@@ -63,32 +63,34 @@ class Alumnos extends Component<Props, State> {
                 <Card.Body>
                     {
                         (this.state.alumnos.length > 0) ?
-                        <table>
-                            <tbody>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>No adeudo</th>
-                                <th>Conducta</th>
-                            </tr>
-                            {this.state.alumnos.slice(startIndex, endIndex).map((alumno: IAlumno) => {
-                                return <tr>
-                                    <td>{alumno.idAlumno}</td>
-                                    <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
-                                    <td>
-                                        {
-                                            alumno.isDeudor
-                                                ? <Button variant="danger" disabled={true}><BsDownload /></Button>
-                                                : <Button variant="danger" onClick={() => generatePDFAdeudo(alumno)}><BsDownload /></Button>
-                                        }
-                                    </td>
-                                    <td>
-                                        <Button variant="warning" onClick={() => generatePDFConducta(alumno)}><BsDownload /></Button>
-                                    </td>
-                                </tr>
-                            })}
-                            </tbody>
-                        </table> 
+                            <div className="table-wrapper">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>No adeudo</th>
+                                        <th>Conducta</th>
+                                    </tr>
+                                    {this.state.alumnos.slice(startIndex, endIndex).map((alumno: IAlumno) => {
+                                        return <tr>
+                                            <td>{alumno.idAlumno}</td>
+                                            <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
+                                            <td>
+                                                {
+                                                    alumno.isDeudor
+                                                        ? <Button variant="danger" disabled={true}><BsDownload /></Button>
+                                                        : <Button variant="danger" onClick={() => generatePDFAdeudo(alumno)}><BsDownload /></Button>
+                                                }
+                                            </td>
+                                            <td>
+                                                <Button variant="warning" onClick={() => generatePDFConducta(alumno)}><BsDownload /></Button>
+                                            </td>
+                                        </tr>
+                                    })}
+                                    </tbody>
+                                </table>
+                            </div>
                             :
                             <NotFound
                                 title="Lista de alumnos"

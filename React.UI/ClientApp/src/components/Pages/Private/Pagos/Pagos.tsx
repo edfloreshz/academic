@@ -10,7 +10,6 @@ import {generateReceipt} from "../../../../utils/PDFManager";
 import NotFound from "../../../Layout/NotFound/NotFound";
 import PagosImg from '../../../../img/pagos.svg';
 
-
 export interface Props {
 
 }
@@ -86,11 +85,12 @@ export default class Pagos extends Component<Props, State> {
                     <Card.Body>
                         {
                             (this.state.pagos.length > 0) ?
-                            <div className="table-responsive table-responsive-sm">
-                                <Table>
+                            <div className="table-wrapper">
+                                <table>
                                     <thead>
                                         <tr>
                                             <th></th>
+                                            <th>Folio</th>
                                             <th>Fecha</th>
                                             <th>Tutor</th>
                                             <th>Alumno</th>
@@ -104,7 +104,8 @@ export default class Pagos extends Component<Props, State> {
                                         {
                                             this.state.pagos.slice(startIndex, endIndex).map((pago) => (
                                                 <tr key={pago.idPago}>
-                                                    <td><FaMoneyBill></FaMoneyBill></td>
+                                                    <td><FaMoneyBill/></td>
+                                                    <td>{pago.idPago}</td>
                                                     <td>{pago.fecha.toString().slice(0, 10)}</td>
                                                     <td>{pago.idTutorNavigation?.nombres} {pago.idTutorNavigation?.apellidoPaterno} {pago.idTutorNavigation?.apellidoMaterno}</td>
                                                     <td>{pago.idAlumnoNavigation?.nombres} {pago.idAlumnoNavigation?.apellidoPaterno} {pago.idAlumnoNavigation?.apellidoMaterno}</td>
@@ -120,7 +121,7 @@ export default class Pagos extends Component<Props, State> {
                                             ))
                                         }
                                     </tbody>
-                                </Table>
+                                </table>
                             </div>
                             : <NotFound
                                     title="Lista de pagos"

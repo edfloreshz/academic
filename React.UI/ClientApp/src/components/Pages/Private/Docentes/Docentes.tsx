@@ -99,13 +99,13 @@ class Docentes extends Component<Props, State> {
                 <Add show={this.state.showAdd} handleClose={this.handleClose} />
                 <Card.Body>
                     {
-                        <div className="table-responsive">
-                            <Table>
+                        <div className="table-wrapper">
+                            <table>
                                 <thead>
                                     <tr>
-                                        <th></th>
-                                        <th>ID</th>
+                                        <th/>
                                         <th>Docente</th>
+                                        <th>Email</th>
                                         <th>Estatus</th>
                                         <th>Editar</th>
                                         <th>Lista de alumnos</th>
@@ -115,9 +115,9 @@ class Docentes extends Component<Props, State> {
                                     {
                                         this.state.docentes.slice(startIndex, endIndex).map((docente) => (
                                             <tr key={docente.idDocente}>
-                                                <td><FaChalkboardTeacher></FaChalkboardTeacher></td>
-                                                <td>{docente.idDocente}</td>
+                                                <td><FaChalkboardTeacher/></td>
                                                 <td>{docente.nombres} {docente.apellidoPaterno} {docente.apellidoMaterno}</td>
+                                                <td>{docente.email}</td>
                                                 <td>{docente.activo ? "Activo" : "Inactivo"}</td>
                                                 <td width="20%">
                                                     <Button className="btn-block" variant="warning" onClick={() => this.handleShow(docente)}><FaEdit /></Button>
@@ -131,7 +131,7 @@ class Docentes extends Component<Props, State> {
                                 </tbody>
                                 {this.state.showEdit && <Edit show={this.state.showEdit} docente={this.state.docente} handleClose={this.handleClose} />}
                                 {this.state.showList && <ListaAlumnos idDocente={this.state.listId} show={this.state.showList} handleClose={this.handleClose} />}
-                            </Table>
+                            </table>
                         </div>
                     }
                 </Card.Body>

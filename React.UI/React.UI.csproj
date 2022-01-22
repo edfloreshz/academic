@@ -9,7 +9,7 @@
         <IsPackable>false</IsPackable>
         <SpaRoot>ClientApp\</SpaRoot>
         <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
-        <SpaProxyServerUrl>https://localhost:44498</SpaProxyServerUrl>
+        <SpaProxyServerUrl>https://localhost:3000</SpaProxyServerUrl>
         <SpaProxyLaunchCommand>yarn start</SpaProxyLaunchCommand>
     </PropertyGroup>
 
@@ -26,7 +26,6 @@
         <Content Remove="$(SpaRoot)**" />
         <Content Include="ClientApp\.vscode\launch.json" />
         <Content Include="ClientApp\.vscode\settings.json" />
-        <Content Include="ClientApp\package-lock.json" />
         <Content Include="ClientApp\package.json" />
         <Content Include="ClientApp\public\manifest.json" />
         <Content Include="ClientApp\tsconfig.json" />

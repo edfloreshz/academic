@@ -111,6 +111,44 @@
 
 /*Cards*/
 
+.table-wrapper {
+    position: relative;
+    z-index: 1;
+    overflow: auto;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 8px 8px 0 0;
+    display: block;
+    border-top-width: 1px;
+    border-color: var(--card-border-color); }
+
+.table-wrapper:nth-last-of-type(1) {
+    border-radius: 8px;
+    border-bottom-width: 1px; }
+
+table {
+    max-width: 100%;
+    border-collapse: collapse;
+    display: table;
+    margin: 0;
+    padding: 0;
+    overflow:auto;
+}
+
+td:hover {
+    background-color: var(--td-hover); 
+}
+
+tbody {
+    background-color: var(--background); }
+
+td {
+    border: 1px solid var(--card-border-color);
+    box-sizing: content-box; 
+}
+
 th {
     background-color: var(--accent) !important;
     color: var(--text-secondary) !important;
@@ -120,7 +158,8 @@ th {
 
 td {
     color: var(--text-primary);
-    border: unset!important;
+    border-top: 1px solid  var(--card-border-color) !important;
+    border-bottom: 1px solid  var(--card-border-color) !important;
 }
 
 /*Card*/

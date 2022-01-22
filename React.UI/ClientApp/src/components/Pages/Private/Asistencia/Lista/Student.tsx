@@ -27,7 +27,7 @@ export class Student extends Component<Props> {
     render() {
         const { idAlumno, nombres, apellidoMaterno, apellidoPaterno } = this.props.alumno;
         return (
-            <div style={this.getBackground()} className="contain">
+            <div style={this.getBackground()} className="contain table-wrapper">
                 <table>
                     <tr>
                         <td style={this.getColor()} className="">{idAlumno}</td>

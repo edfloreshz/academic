@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {IAula} from "../../../../../models/Aula";
-import {Button, Card, Col, Form, Row, Table} from "react-bootstrap";
+import {Button, Card, Col, Container, Form, Row, Table} from "react-bootstrap";
 import {RequestType, send} from "../../../../../utils/RequestManager";
 import ErrorMessage from "../../Error/ErrorMessage";
 import {ZodIssue} from "zod";
@@ -96,53 +96,57 @@ class Registro extends Component<Props, State> {
                                     </Form.Text>
                                 </Form.Group>
                             </Col>
-                            
+                        </Row>
+                        <Row>
+                            <Container>
+                                {this.state.asistencia.length > 0
+                                    ?
+                                        <div className="table-wrapper">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Aula</th>
+                                                    <th>Fecha</th>
+                                                    <th>Asistio</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {
+                                                    this.state.asistencia.map((asistencia) => {
+                                                        return (
+                                                            <tr key={asistencia.idAsistencia}>
+                                                                <td>{asistencia.idAlumnoNavigation?.nombres} {asistencia.idAlumnoNavigation?.apellidoPaterno} {asistencia.idAlumnoNavigation?.apellidoMaterno}</td>
+                                                                <td>{asistencia.idAlumnoNavigation?.aulaNavigation?.nombre}</td>
+                                                                <td>{
+                                                                    new Date(asistencia.fecha.toString()).toLocaleDateString("es-mx", {
+                                                                        weekday:"long",
+                                                                        year:"numeric",
+                                                                        month:"short",
+                                                                        day:"numeric"}
+                                                                    )
+                                                                }</td>
+                                                                <td>{asistencia.asistio ? "Si" : "No"}</td>
+                                                            </tr>
+                                                        )
+                                                    })
+                                                }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    : this.state.loaded ?
+                                        <NotFound
+                                            title="Registro de asistencia"
+                                            warning="No se encontraron registros"
+                                            recommendation="Trate cambiando la fecha"
+                                            picture={AsistenciaImg}
+                                        />
+                                        : null
+                                }
+                            </Container>
                         </Row>
                     </Card.Body>
-                    {this.state.asistencia.length > 0 
-                        ? 
-                        <Card>
-                            <Table>
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Aula</th>
-                                        <th>Fecha</th>
-                                        <th>Asistio</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        this.state.asistencia.map((asistencia) => {
-                                            return (
-                                                <tr key={asistencia.idAsistencia}>
-                                                    <td>{asistencia.idAlumnoNavigation?.nombres} {asistencia.idAlumnoNavigation?.apellidoPaterno} {asistencia.idAlumnoNavigation?.apellidoMaterno}</td>
-                                                    <td>{asistencia.idAlumnoNavigation?.aulaNavigation?.nombre}</td>
-                                                    <td>{
-                                                        new Date(asistencia.fecha.toString()).toLocaleDateString("es-mx", {
-                                                            weekday:"long",
-                                                            year:"numeric",
-                                                            month:"short",
-                                                            day:"numeric"}
-                                                        )
-                                                    }</td>
-                                                    <td>{asistencia.asistio ? "Si" : "No"}</td>
-                                                </tr>
-                                            )
-                                        })
-                                    }
-                                </tbody>
-                            </Table>
-                        </Card>
-                        : this.state.loaded ?
-                            <NotFound
-                                title="Registro de asistencia"
-                                warning="No se encontraron registros"
-                                recommendation="Trate cambiando la fecha"
-                                picture={AsistenciaImg}
-                            />
-                            : null
-                    }
+                    
                     <Card.Footer>
                         <div style={{height: '15px'}}></div>
                     </Card.Footer>

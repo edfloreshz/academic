@@ -4,12 +4,16 @@ import {send, RequestType} from "../../../../utils/RequestManager";
 import { IAlumno } from '../../../../models/Alumno';
 import Edit from './Modals/Edit';
 import Add from './Modals/Add';
-import "./Alumnos.css"
 import { FaEdit, FaUser } from "react-icons/fa";
 import Spinning from "../../../Layout/Navigation/Spinning/Spinning";
 import { ILoading, IPagination } from "../../../../App";
 import NotFound from "../../../Layout/NotFound/NotFound";
 import AlumnosImg from '../../../../img/alumnos.svg';
+import { Grid } from 'gridjs-react';
+import "./Alumnos.css"
+import "gridjs/dist/theme/mermaid.css";
+import {Cell, h} from "gridjs";
+import { ComponentChild } from "preact";
 
 export interface Props {
 
@@ -43,13 +47,15 @@ class Alumnos extends Component<Props, State> {
         this.setState({ paginaActual: index })
     }
 
-    handleShow(alumno?: IAlumno) {
-        if (typeof alumno === 'undefined') {
+    handleShow(id?: string) {
+        if (typeof id === 'undefined') {
             this.setState({ showAdd: true })
         }
         else {
-            this.setState({ alumno })
-            this.setState({ showEdit: true })
+            this.setState({
+                alumno: this.state.alumnos.filter(a => a.idAlumno.toString() == id)[0],
+                showEdit: true
+            })
         }
     }
 
@@ -67,7 +73,7 @@ class Alumnos extends Component<Props, State> {
         this.setState(
             { 
                 alumnos: await send<IAlumno[]>(RequestType.GET, "Alumno")
-                    .finally(() => this.setState({ loading: false })) 
+                    .finally(() => this.setState({ loading: false })),
             });
         this.setState({ totalPaginas: Math.ceil(this.state.alumnos.length / 6) })
     }
@@ -86,61 +92,67 @@ class Alumnos extends Component<Props, State> {
             )
         }
         return (
-            <Card>
-                <Card.Header as="h5">
-                    <div className="flex-titlebar">
-                        Alumnos
-                        <Button className="btn-sm" variant="warning" onClick={() => this.handleShow()}>Agregar</Button>
-                    </div>
-                </Card.Header>
-                {this.state.showAdd && <Add show={this.state.showAdd} handleClose={this.handleClose} />}
-                <Card.Body>
-                    {
-                        (this.state.alumnos.length > 0)
-                            ? <div className="table-responsive">
-                                <Table>
-                                    <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Alumno</th>
-                                        <th>Aula</th>
-                                        <th>Estatus</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {
-                                        this.state.alumnos.slice(startIndex, endIndex).map((alumno) => (
-                                            <tr key={alumno.idAlumno}>
-                                                <td><FaUser></FaUser></td>
-                                                <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
-                                                <td>{alumno.aulaNavigation?.nombre}</td>
-                                                <td>{alumno.activo ? "Activo" : "Inactivo"}</td>
-                                                <td>
-                                                    <Button className="btn-block" variant="warning" onClick={() => this.handleShow(alumno)}><FaEdit /></Button>
-                                                </td>
-                                            </tr>
-                                        ))
-                                    }
-                                    </tbody>
+            <div>
+                <Card>
+                    <Card.Header as="h5">
+                        <div className="flex-titlebar">
+                            Alumnos
+                            <Button className="btn-sm" variant="warning" onClick={() => this.handleShow()}>Agregar</Button>
+                        </div>
+                    </Card.Header>
+                    {this.state.showAdd && <Add show={this.state.showAdd} handleClose={this.handleClose} />}
+                    <Card.Body>
+                            
+                        {
+                            (this.state.alumnos.length > 0)
+                                ? <div className="table-wrapper">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Alumno</th>
+                                            <th>CURP</th>
+                                            <th>Aula</th>
+                                            <th>Estatus</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {
+                                            this.state.alumnos.slice(startIndex, endIndex).map((alumno) => (
+                                                <tr key={alumno.idAlumno}>
+                                                    <td><FaUser></FaUser></td>
+                                                    <td>{alumno.nombres} {alumno.apellidoPaterno} {alumno.apellidoMaterno}</td>
+                                                    <td>{alumno.curp}</td>
+                                                    <td>{alumno.aulaNavigation?.nombre}</td>
+                                                    <td>{alumno.activo ? "Activo" : "Inactivo"}</td>
+                                                    <td>
+                                                        <Button className="btn-block" variant="warning" onClick={() => this.handleShow(alumno.idAlumno.toString())}><FaEdit /></Button>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                        </tbody>
+                                    </table>
                                     {this.state.showEdit && <Edit show={this.state.showEdit} alumno={this.state.alumno} handleClose={this.handleClose} />}
-                                </Table>
-                            </div>
-                            : <NotFound
-                                title="Lista de alumnos"
-                                warning="No se encontraron alumnos"
-                                recommendation="Agregue nuevos alumnos con el boton amarillo"
-                                picture={AlumnosImg}
-                            />
-                        
-                    }
-                </Card.Body>
-                <Card.Footer >
-                    <Pagination className="center red" size="lg">
-                        {items}
-                    </Pagination>
-                </Card.Footer>
-            </Card >
+                                </div>
+                                : <NotFound
+                                    title="Lista de alumnos"
+                                    warning="No se encontraron alumnos"
+                                    recommendation="Agregue nuevos alumnos con el boton amarillo"
+                                    picture={AlumnosImg}
+                                />
+                        }                                        
+
+                    </Card.Body>
+                    <Card.Footer >
+                        <Pagination className="center red" size="lg">
+                            {items}
+                        </Pagination>
+                    </Card.Footer>
+                </Card>
+                
+            </div>
         )
     }
 }

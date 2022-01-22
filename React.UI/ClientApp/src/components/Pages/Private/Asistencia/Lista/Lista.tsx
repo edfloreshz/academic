@@ -93,7 +93,7 @@ class Lista extends Component<Props, State> {
                     {
                         (this.state.alumnos.length > 0) 
                         ?
-                            <>
+                            <div className="table-wrapper">
                                 <table>
                                     <tbody>
                                     <tr>
@@ -105,7 +105,7 @@ class Lista extends Component<Props, State> {
                                     </tbody>
                                 </table>
                                 <Class alumnos={this.state.alumnos} studentPresent={this.studentPresent} />
-                            </>
+                            </div>
                         :
                             <NotFound
                                 title="Lista de asistencia"
