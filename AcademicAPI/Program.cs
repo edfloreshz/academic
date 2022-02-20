@@ -7,8 +7,8 @@ var config = builder.Configuration;
 // Add services to the container.
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddDbContext<academicContext>(options =>
-    options.UseMySQL(env.IsDevelopment() 
-        ? builder.Configuration["ConnectionStrings:AcademicDevelopmentAPIConnection"] 
+    options.UseMySQL(env.IsDevelopment()
+        ? builder.Configuration["ConnectionStrings:AcademicDevelopmentAPIConnection"]
         : builder.Configuration["ConnectionStrings:AcademicProductionAPIConnection"]
     ));
 builder.Services.AddCors(options =>
@@ -54,7 +54,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Creciendo Juntos API", 
+        Title = "Creciendo Juntos API",
         Version = "v1",
         Contact = new OpenApiContact
         {
@@ -66,11 +66,15 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-
 config
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
     .AddEnvironmentVariables();
+
+// Kestrel
+var host = builder.WebHost;
+host.UseKestrel();
+host.UseUrls("http://*:44398", "https://*:55419");
 
 var app = builder.Build();
 
@@ -80,11 +84,6 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
-}
-else
-{
-    var host = builder.WebHost;
-    host.UseUrls("http://localhost:5000");
 }
 
 app.UseCors("CorsPolicy");

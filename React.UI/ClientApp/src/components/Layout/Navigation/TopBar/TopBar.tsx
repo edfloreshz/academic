@@ -1,4 +1,5 @@
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import {useHistory} from 'react-router-dom';
 import {Container, Navbar} from 'react-bootstrap';
 import LogoutButton from './LogoutButton';
 import DarkModeButton from "./DarkModeButton";

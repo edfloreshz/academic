@@ -4,3 +4,5 @@
 
 # Academic
 Academic is an administration system designed for schools.
+
+# Deploy

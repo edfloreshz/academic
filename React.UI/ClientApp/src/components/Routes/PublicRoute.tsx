@@ -1,5 +1,6 @@
-import { Route, Redirect } from 'react-router-dom';
-import { isLogin } from '../../utils/LoginManager';
+import React from 'react';
+import {Redirect, Route} from 'react-router-dom';
+import {isLogin} from '../../utils/LoginManager';
 
 const PublicRoute = ({ component: Component, restricted, ...rest }: any) => {
     return (
