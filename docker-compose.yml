@@ -1,0 +1,45 @@
+version: '3.4'
+
+volumes:
+  datafiles:
+
+services:
+  academic.database:
+    container_name: academic.database
+    image: mysql:8.0.22
+    cap_add:
+      - SYS_NICE
+    ports:
+      - "3306:3306"
+    volumes:
+      - datafiles:/var/lib/mysql
+      - "./Academic.API/Database/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./Academic.API/Database/schema.dev.sql:/docker-entrypoint-initdb.d/2.sql"
+      - "./Academic.API/Database/data.sql:/docker-entrypoint-initdb.d/3.sql"
+    restart: unless-stopped
+    environment: 
+      MYSQL_ROOT_PASSWORD: your_root_password
+      MYSQL_USER: your_username
+      MYSQL_PASSWORD: your_password
+      DB_HOST: Academic.Database
+  academic.api:
+    image: ${DOCKER_REGISTRY-}academicapi
+    build:
+        context: .
+        dockerfile: Academic.API/Dockerfile
+    depends_on: 
+        - academic.database
+    ports:
+        - "4000:80"
+        - "5000:443"
+    restart: unless-stopped
+    environment: 
+        - DBHOST=database
+        - ASPNETCORE_ENVIRONMENT=Development
+  react.ui:
+    image: ${DOCKER_REGISTRY-}reactui
+    ports:
+        - "80:3000"
+    build:
+      context: .
+      dockerfile: React.UI/ClientApp/Dockerfile

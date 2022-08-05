@@ -1,14 +1,8 @@
-﻿FROM node:13.12.0-alpine AS base
+﻿FROM node:16.16.0-alpine
+EXPOSE 3000
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json ./
-COPY yarn.lock ./
-COPY . .
-RUN npm install react-scripts@3.4.1 -g --silent
-RUN yarn build 
-
-# production environment
-FROM nginx:stable-alpine
-COPY --from=base /app/build/ /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY React.UI/ClientApp/package.json ./
+COPY React.UI/ClientApp/yarn.lock ./
+COPY ./React.UI/ClientApp ./
+RUN yarn install --silent
+CMD ["yarn", "run", "start"]

@@ -1,24 +1,32 @@
-﻿{
+{
   "profiles": {
     "React.UI": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5005;http://localhost:5006",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
-      }
+      },
+      "applicationUrl": "https://localhost:5005;http://localhost:5006",
+      "dotnetRunMessages": true
     },
     "React.UI Production": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:80;http://localhost:81",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
-      }
+        "ASPNETCORE_ENVIRONMENT": "Release",
+        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy",
+        "ASPNETCORE_URLS": "https://+:444;http://+:81"
+      },
+      "applicationUrl": "https://localhost:80;http://localhost:81",
+      "dotnetRunMessages": true
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": true
     }
   }
 }
