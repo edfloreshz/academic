@@ -1,18 +1,19 @@
 import 'package:academic/data.dart';
 import 'package:academic/pages/login.dart';
 import 'package:academic/providers/navigation.dart';
-import 'package:academic/widgets/navigation/navigationbar.dart';
-import 'package:academic/widgets/navigation/railnavigationbar.dart';
+import 'package:academic/widgets/navigation/navigation_bottom_bar.dart';
+import 'package:academic/widgets/navigation/navigation_sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 void main() async {
   if (isMobile) {
     FlutterNativeSplash.remove();
   }
-  runApp(const ProviderScope(child: Academic()));
+  runApp(const ProviderScope(child: OverlaySupport.global(child: Academic())));
 }
 
 class Academic extends ConsumerWidget {
@@ -43,6 +44,7 @@ class Main extends ConsumerStatefulWidget {
 class _MainState extends ConsumerState<Main> {
   final _storage = const FlutterSecureStorage();
   var isLoggedIn = false;
+  var isSidebarExtended = false;
 
   @override
   void initState() {
@@ -61,37 +63,54 @@ class _MainState extends ConsumerState<Main> {
     final selectedItem = ref.watch(navigationProvider);
     final pages = ref.watch(pagesProvider);
 
-    var isMobile = MediaQuery.of(context).size.width < 500;
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text(appName),
+        title: const Center(child: Text(appName)),
+        leading: Visibility(
+          visible: MediaQuery.of(context).size.width > 500 && isLoggedIn,
+          child: Tooltip(
+            message: "Expand or collapse the sidebar",
+            child: ElevatedButton(
+              onPressed: (() => {
+                    setState(() {
+                      isSidebarExtended = !isSidebarExtended;
+                    }),
+                  }),
+              child: const Icon(Icons.view_sidebar),
+            ),
+          ),
+        ),
         actions: [
-          ElevatedButton(
-            onPressed: () async => {
-              setState(() {
-                isLoggedIn = false;
-                _storage.deleteAll();
-              })
-            },
-            child: const Text("Salir"),
+          Visibility(
+            visible: isLoggedIn,
+            child: Tooltip(
+              message: "Logout",
+              child: ElevatedButton(
+                onPressed: () async => {
+                  setState(() {
+                    isLoggedIn = false;
+                    _storage.deleteAll();
+                  })
+                },
+                child: const Icon(Icons.logout),
+              ),
+            ),
           )
         ],
       ),
-      body: isMobile
-          ? isLoggedIn
-              ? pages[selectedItem.index]
-              : Login(notifyLogin: notifyLogin)
-          : isLoggedIn
-              ? Row(
-                  children: [
-                    DesktopSidebar(selectedItem: selectedItem, ref: ref),
-                    const VerticalDivider(thickness: 1, width: 1),
-                    pages[selectedItem.index]
-                  ],
-                )
-              : Login(notifyLogin: notifyLogin),
-      bottomNavigationBar: MobileBottomBar(
+      body: !isLoggedIn
+          ? Login(notifyLogin: notifyLogin)
+          : Row(
+              children: [
+                NavigationSidebar(
+                    selectedItem: selectedItem,
+                    ref: ref,
+                    isSidebarExtended: isSidebarExtended),
+                const VerticalDivider(thickness: 1, width: 1),
+                pages[selectedItem.index]
+              ],
+            ),
+      bottomNavigationBar: NavigationBottomBar(
           selectedItem: selectedItem, ref: ref, isLoggedIn: isLoggedIn),
     );
   }

@@ -24,9 +24,9 @@ final navigationProvider =
 final pagesProvider = StateProvider<List<Widget>>(
   (ref) => [
     const Alumnos(),
-    const Tutores(),
     const Docentes(),
     const Asistencia(),
+    const Tutores(),
     const Aulas(),
     const Pagos(),
     const Constancias(),

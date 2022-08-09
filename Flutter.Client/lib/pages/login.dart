@@ -4,6 +4,7 @@ import 'package:academic/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:overlay_support/overlay_support.dart';
 
 class Login extends StatefulWidget {
   final Function() notifyLogin;
@@ -93,7 +94,12 @@ class _LoginState extends State<Login> {
                   await _storage.write(key: 'token', value: body['token']);
                   widget.notifyLogin();
                 } else {
-                  throw Exception('Failed to login.');
+                  showSimpleNotification(
+                    Text(response.reasonPhrase.toString()),
+                    background: Colors.orange,
+                    position: NotificationPosition.bottom,
+                  );
+                  throw Exception(response.body);
                 }
               },
             )),

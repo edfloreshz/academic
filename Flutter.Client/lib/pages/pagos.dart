@@ -5,8 +5,10 @@ class Pagos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Pagos"),
+    return const Expanded(
+      child: Center(
+        child: Text("Pagos"),
+      ),
     );
   }
 }

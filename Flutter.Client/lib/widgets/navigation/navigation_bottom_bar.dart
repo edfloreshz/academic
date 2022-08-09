@@ -2,8 +2,8 @@ import 'package:academic/providers/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MobileBottomBar extends StatelessWidget {
-  const MobileBottomBar({
+class NavigationBottomBar extends StatelessWidget {
+  const NavigationBottomBar({
     Key? key,
     required this.selectedItem,
     required this.ref,
@@ -31,6 +31,7 @@ class MobileBottomBar extends StatelessWidget {
           NavigationDestination(icon: Icon(Icons.school), label: "Alumnos"),
           NavigationDestination(icon: Icon(Icons.work), label: "Docentes"),
           NavigationDestination(icon: Icon(Icons.list), label: "Asistencia"),
+          NavigationDestination(icon: Icon(Icons.person), label: "Tutores"),
           NavigationDestination(icon: Icon(Icons.class_), label: "Aulas"),
           NavigationDestination(
               icon: Icon(Icons.monetization_on), label: "Pagos"),

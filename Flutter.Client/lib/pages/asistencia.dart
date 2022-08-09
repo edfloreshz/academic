@@ -5,8 +5,10 @@ class Asistencia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Asistencia"),
+    return const Expanded(
+      child: Center(
+        child: Text("Asistencia"),
+      ),
     );
   }
 }

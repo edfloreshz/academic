@@ -18,9 +18,9 @@ services:
       - "./Academic.API/Database/data.sql:/docker-entrypoint-initdb.d/3.sql"
     restart: unless-stopped
     environment: 
-      MYSQL_ROOT_PASSWORD: Gely0102
-      MYSQL_USER: gely
-      MYSQL_PASSWORD: Gely0102
+      MYSQL_ROOT_PASSWORD: test_password
+      MYSQL_USER: test_user
+      MYSQL_PASSWORD: test_password
       DB_HOST: Academic.Database
   academic.api:
     image: ${DOCKER_REGISTRY-}academicapi
@@ -36,6 +36,8 @@ services:
     environment: 
         - DBHOST=database
         - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ${HOME}/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
   react.ui:
     image: ${DOCKER_REGISTRY-}reactui
     ports:

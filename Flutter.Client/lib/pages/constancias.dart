@@ -5,8 +5,10 @@ class Constancias extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Constancias"),
+    return const Expanded(
+      child: Center(
+        child: Text("Constancias"),
+      ),
     );
   }
 }
