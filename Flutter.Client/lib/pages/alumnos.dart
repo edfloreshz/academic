@@ -26,20 +26,49 @@ class _AlumnosState extends State<Alumnos> {
           if (snapshot.hasData) {
             var alumnos = snapshot.data!;
             return alumnos.isNotEmpty
-                ? ListView.builder(
-                    itemCount: alumnos.length,
-                    itemBuilder: (context, index) {
-                      var alumno = alumnos[index];
-                      return ListTile(
-                        title: Card(
-                          child: Row(children: [
-                            Text(
-                                '${alumno.nombres} ${alumno.apellidoPaterno} ${alumno.apellidoMaterno}'),
-                            Text(alumno.curp),
-                          ]),
-                        ),
-                      );
-                    },
+                ? Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: GridView.count(
+                      mainAxisSpacing: 4,
+                      crossAxisSpacing: 4,
+                      crossAxisCount: 4,
+                      children: alumnos
+                          .map(
+                            (alumno) => Card(
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  const Icon(
+                                    Icons.school,
+                                    size: 100,
+                                  ),
+                                  Text(
+                                    '${alumno.nombres} ${alumno.apellidoPaterno} ${alumno.apellidoMaterno}',
+                                  ),
+                                  Text(alumno.curp),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Colors.blue),
+                                        onPressed: () => {},
+                                        child: const Text("Edit"),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () => {},
+                                        child: const Text("Delete"),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ),
                   )
                 : const Center(child: Text('No items'));
           } else if (snapshot.hasError) {
