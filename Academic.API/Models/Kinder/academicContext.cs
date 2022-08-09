@@ -33,13 +33,11 @@ namespace Academic.API.Models.Kinder
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var connectionString = isDevelopment
-                    ? _configuration["ConnectionStrings:DevelopmentDatabase"]
-                    : _configuration["ConnectionStrings:ProductionDatabase"];
-                optionsBuilder.UseMySQL(connectionString);
-            }
+            if (optionsBuilder.IsConfigured) return;
+            var connectionString = isDevelopment
+                ? _configuration["ConnectionStrings:DevelopmentDatabase"]
+                : _configuration["ConnectionStrings:ProductionDatabase"];
+            optionsBuilder.UseMySQL(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -24,7 +24,7 @@ class Alumno {
     const storage = FlutterSecureStorage();
     var token = await storage.read(key: 'token');
     final response = await http.get(
-      Uri.parse('https://localhost:5000/api/alumno'),
+      Uri.parse('http://localhost:4000/api/alumno'),
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
     );
 
