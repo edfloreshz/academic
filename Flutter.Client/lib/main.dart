@@ -44,7 +44,6 @@ class Main extends ConsumerStatefulWidget {
 class _MainState extends ConsumerState<Main> {
   final _storage = const FlutterSecureStorage();
   var isLoggedIn = false;
-  var isSidebarExtended = false;
 
   @override
   void initState() {
@@ -66,20 +65,6 @@ class _MainState extends ConsumerState<Main> {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text(appName)),
-        leading: Visibility(
-          visible: MediaQuery.of(context).size.width > 500 && isLoggedIn,
-          child: Tooltip(
-            message: "Expand or collapse the sidebar",
-            child: ElevatedButton(
-              onPressed: (() => {
-                    setState(() {
-                      isSidebarExtended = !isSidebarExtended;
-                    }),
-                  }),
-              child: const Icon(Icons.view_sidebar),
-            ),
-          ),
-        ),
         actions: [
           Visibility(
             visible: isLoggedIn,
@@ -102,10 +87,18 @@ class _MainState extends ConsumerState<Main> {
           ? Login(notifyLogin: notifyLogin)
           : Row(
               children: [
-                NavigationSidebar(
-                    selectedItem: selectedItem,
-                    ref: ref,
-                    isSidebarExtended: isSidebarExtended),
+                LayoutBuilder(builder: (context, constraint) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints:
+                          BoxConstraints(minHeight: constraint.maxHeight),
+                      child: IntrinsicHeight(
+                        child: NavigationSidebar(
+                            selectedItem: selectedItem, ref: ref),
+                      ),
+                    ),
+                  );
+                }),
                 const VerticalDivider(thickness: 1, width: 1),
                 pages[selectedItem.index]
               ],

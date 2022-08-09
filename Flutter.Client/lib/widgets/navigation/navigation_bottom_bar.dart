@@ -38,6 +38,7 @@ class NavigationBottomBar extends StatelessWidget {
           NavigationDestination(
               icon: Icon(Icons.download), label: "Constancias"),
         ],
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
       ),
     );
   }

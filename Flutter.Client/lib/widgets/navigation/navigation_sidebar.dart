@@ -5,15 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NavigationSidebar extends StatefulWidget {
   const NavigationSidebar(
-      {Key? key,
-      required this.selectedItem,
-      required this.ref,
-      required this.isSidebarExtended})
+      {Key? key, required this.selectedItem, required this.ref})
       : super(key: key);
 
   final NavBarItem selectedItem;
   final WidgetRef ref;
-  final bool isSidebarExtended;
 
   @override
   State<NavigationSidebar> createState() => _NavigationSidebarState();
@@ -61,16 +57,16 @@ class _NavigationSidebarState extends State<NavigationSidebar> {
           )
         ],
         selectedIndex: widget.selectedItem.index,
-        labelType: widget.isSidebarExtended
-            ? NavigationRailLabelType.none
-            : NavigationRailLabelType.all,
         selectedIconTheme: const IconThemeData(color: primaryContrastColor),
         unselectedIconTheme: const IconThemeData(color: secondaryColor),
         selectedLabelTextStyle: const TextStyle(color: primaryColor),
         unselectedLabelTextStyle: const TextStyle(color: secondaryColor),
         useIndicator: true,
         indicatorColor: primaryColor,
-        extended: widget.isSidebarExtended,
+        labelType: MediaQuery.of(context).size.width > 700
+            ? NavigationRailLabelType.none
+            : NavigationRailLabelType.all,
+        extended: MediaQuery.of(context).size.width > 700,
       ),
     );
   }
