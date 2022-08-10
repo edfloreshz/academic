@@ -1,6 +1,7 @@
 import 'package:academic/data.dart';
 import 'package:academic/pages/login.dart';
 import 'package:academic/providers/navigation.dart';
+import 'package:academic/providers/theme.dart';
 import 'package:academic/widgets/navigation/navigation_bottom_bar.dart';
 import 'package:academic/widgets/navigation/navigation_sidebar.dart';
 import 'package:flutter/material.dart';
@@ -22,12 +23,19 @@ class Academic extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedColorScheme = ref.watch(colorSchemeProvider);
+    final selectedTheme = ref.watch(themeProvider);
+    final colors = ref.watch(colorsProvider);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: appName,
       theme: ThemeData(
-        primarySwatch: primaryColor,
-        secondaryHeaderColor: secondaryColor,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: colors[selectedColorScheme.index],
+          brightness: selectedTheme,
+        ),
       ),
       home: const Main(),
     );

@@ -25,15 +25,12 @@ class _LoginState extends State<Login> {
     final loginView = ListView(
       children: <Widget>[
         Container(
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(10),
-            child: const Text(
-              'Inicio de sesión',
-              style: TextStyle(
-                  color: primaryColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 30),
-            )),
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(10),
+          child: const Text(
+            'Inicio de sesión',
+          ),
+        ),
         Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.all(10),

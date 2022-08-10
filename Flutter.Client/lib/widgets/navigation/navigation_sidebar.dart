@@ -57,12 +57,7 @@ class _NavigationSidebarState extends State<NavigationSidebar> {
           )
         ],
         selectedIndex: widget.selectedItem.index,
-        selectedIconTheme: const IconThemeData(color: primaryContrastColor),
-        unselectedIconTheme: const IconThemeData(color: secondaryColor),
-        selectedLabelTextStyle: const TextStyle(color: primaryColor),
-        unselectedLabelTextStyle: const TextStyle(color: secondaryColor),
         useIndicator: true,
-        indicatorColor: primaryColor,
         labelType: MediaQuery.of(context).size.width > 700
             ? NavigationRailLabelType.none
             : NavigationRailLabelType.all,
