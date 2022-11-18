@@ -76,16 +76,27 @@ class _LoginState extends State<Login> {
             child: ElevatedButton(
               child: const Text('Iniciar Sesión'),
               onPressed: () async {
-                final response = await http.post(
-                  Uri.parse("http://localhost:4000/api/authenticate"),
+                var response = await http
+                    .post(
+                  Uri.parse("https://localhost:5000/api/authenticate"),
                   headers: <String, String>{
-                    'Content-Type': 'application/json; charset=UTF-8',
+                    'Content-Type':
+                        'application/json-patch+json; charset=UTF-8',
                   },
                   body: jsonEncode(<String, String>{
                     'email': nameController.text,
                     'password': passwordController.text,
                   }),
-                );
+                )
+                    .catchError((error) {
+                  showSimpleNotification(
+                    Text(error.toString()),
+                    background: Colors.orange,
+                    position: NotificationPosition.bottom,
+                  );
+                  throw Exception(error);
+                });
+
                 if (response.statusCode == 200) {
                   var body = jsonDecode(response.body);
                   await _storage.write(key: 'token', value: body['token']);

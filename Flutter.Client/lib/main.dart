@@ -108,7 +108,12 @@ class _MainState extends ConsumerState<Main> {
                   );
                 }),
                 const VerticalDivider(thickness: 1, width: 1),
-                pages[selectedItem.index]
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    child: pages[selectedItem.index],
+                  ),
+                )
               ],
             ),
       bottomNavigationBar: NavigationBottomBar(
