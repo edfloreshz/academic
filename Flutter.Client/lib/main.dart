@@ -109,10 +109,7 @@ class _MainState extends ConsumerState<Main> {
                 }),
                 const VerticalDivider(thickness: 1, width: 1),
                 Expanded(
-                  child: Container(
-                    alignment: Alignment.topCenter,
-                    child: pages[selectedItem.index],
-                  ),
+                  child: pages[selectedItem.index],
                 )
               ],
             ),

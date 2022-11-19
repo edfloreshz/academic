@@ -10,15 +10,26 @@ class Alumno {
   String apellidoPaterno;
   String apellidoMaterno;
   String curp;
+  int aula;
   bool activo;
 
   Alumno(this.idAlumno, this.nombres, this.apellidoPaterno,
-      this.apellidoMaterno, this.curp, this.activo);
+      this.apellidoMaterno, this.curp, this.aula, this.activo);
 
   factory Alumno.fromJson(Map<String, dynamic> json) {
     return Alumno(json['idAlumno'], json['nombres'], json['apellidoPaterno'],
-        json['apellidoMaterno'], json['curp'], json['activo']);
+        json['apellidoMaterno'], json['curp'], json['aula'], json['activo']);
   }
+
+  Map<String, dynamic> toJson() => {
+        'idAlumno': idAlumno.toString(),
+        'nombres': nombres,
+        'apellidoPaterno': apellidoPaterno,
+        'apellidoMaterno': apellidoMaterno,
+        'curp': curp,
+        'aula': aula.toString(),
+        'activo': activo.toString(),
+      };
 
   static Future<List<Alumno>> fetchAlumnos() async {
     const storage = FlutterSecureStorage();
@@ -39,6 +50,23 @@ class Alumno {
       // If the server did not return a 200 OK response,
       // then throw an exception.
       throw Exception('No se pudo obtener la lista de alumnos');
+    }
+  }
+
+  static Future updateAlumno(Alumno alumno) async {
+    const storage = FlutterSecureStorage();
+    var token = await storage.read(key: 'token');
+    final response = await http.put(
+      Uri.parse('https://localhost:5000/api/alumno/${alumno.idAlumno}'),
+      headers: <String, String>{
+        'Authorization': 'Bearer $token',
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(alumno.toJson()),
+    );
+
+    if (response.statusCode != 204) {
+      throw Exception('No fue posible actualizar al alumno.');
     }
   }
 }

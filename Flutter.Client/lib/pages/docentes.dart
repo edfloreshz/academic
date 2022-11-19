@@ -5,10 +5,8 @@ class Docentes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
-      child: Center(
-        child: Text("Docentes"),
-      ),
+    return const Center(
+      child: Text("Docentes"),
     );
   }
 }

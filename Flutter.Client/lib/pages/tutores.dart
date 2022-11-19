@@ -5,10 +5,8 @@ class Tutores extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
-      child: Center(
-        child: Text("Tutores"),
-      ),
+    return const Center(
+      child: Text("Tutores"),
     );
   }
 }

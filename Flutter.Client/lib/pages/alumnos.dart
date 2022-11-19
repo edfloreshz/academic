@@ -1,7 +1,6 @@
 import 'package:academic/models/alumno.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../data/alumnos_data_source.dart';
 
@@ -34,25 +33,21 @@ class _AlumnosState extends State<Alumnos> {
                   padding: const EdgeInsets.all(10),
                   child: SingleChildScrollView(
                     child: PaginatedDataTable(
-                      header: const Center(child: Text("Alumnos")),
-                      rowsPerPage: 10,
                       source: AlumnosDataSource(alumnos),
-                      sortAscending: true,
-                      sortColumnIndex: 1,
+                      header: const Center(child: Text("Alumnos")),
+                      sortColumnIndex: 2,
+                      rowsPerPage: 10,
+                      actions: [
+                        ElevatedButton(
+                            onPressed: () => {}, child: const Icon(Icons.add))
+                      ],
                       columns: const <DataColumn>[
-                        DataColumn(
-                            numeric: true,
-                            label: Expanded(
-                              child: Text("ID"),
-                            )),
-                        DataColumn(
-                            label: Expanded(
-                          child: Text("Nombre"),
-                        )),
-                        DataColumn(
-                            label: Expanded(
-                          child: Text("CURP"),
-                        ))
+                        DataColumn(label: Text("ID"), numeric: true),
+                        DataColumn(label: Text("Nombre")),
+                        DataColumn(label: Text("Apellido Paterno")),
+                        DataColumn(label: Text("Apellido Materno")),
+                        DataColumn(label: Text("CURP")),
+                        DataColumn(label: Text("Activo"))
                       ],
                     ),
                   ),

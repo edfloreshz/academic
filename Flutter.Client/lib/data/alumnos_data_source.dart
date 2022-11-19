@@ -12,9 +12,48 @@ class AlumnosDataSource extends DataTableSource {
   DataRow? getRow(int index) {
     return DataRow(cells: [
       DataCell(Text(data[index].idAlumno.toString())),
-      DataCell(Text(
-          "${data[index].nombres} ${data[index].apellidoPaterno} ${data[index].apellidoMaterno}")),
-      DataCell(Text(data[index].curp)),
+      DataCell(
+        TextFormField(
+          initialValue: data[index].nombres,
+          onChanged: (value) {
+            data[index].nombres = value;
+            Alumno.updateAlumno(data[index]);
+          },
+        ),
+      ),
+      DataCell(
+        TextFormField(
+          initialValue: data[index].apellidoPaterno,
+          onChanged: (value) {
+            data[index].apellidoPaterno = value;
+            Alumno.updateAlumno(data[index]);
+          },
+        ),
+      ),
+      DataCell(
+        TextFormField(
+            initialValue: data[index].apellidoMaterno,
+            onChanged: (value) {
+              data[index].apellidoMaterno = value;
+              Alumno.updateAlumno(data[index]);
+            }),
+      ),
+      DataCell(
+        TextFormField(
+          initialValue: data[index].curp,
+          onChanged: (value) {
+            data[index].curp = value;
+            Alumno.updateAlumno(data[index]);
+          },
+        ),
+      ),
+      DataCell(
+        Center(
+          child: Icon(data[index].activo
+              ? Icons.check_circle
+              : Icons.disabled_by_default),
+        ),
+      ),
     ]);
   }
 
