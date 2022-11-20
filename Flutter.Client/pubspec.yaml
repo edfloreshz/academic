@@ -41,6 +41,7 @@ dependencies:
   flutter_native_splash: ^2.2.7
   overlay_support: ^2.0.1
   stockholm: ^0.0.3
+  flex_color_picker: ^2.6.1
 
 dev_dependencies:
   flutter_test:

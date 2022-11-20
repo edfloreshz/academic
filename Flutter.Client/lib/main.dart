@@ -1,4 +1,5 @@
 import 'package:academic/data.dart';
+import 'package:academic/pages/dialogs/settings.dart';
 import 'package:academic/pages/login.dart';
 import 'package:academic/providers/navigation.dart';
 import 'package:academic/providers/theme.dart';
@@ -76,19 +77,29 @@ class _MainState extends ConsumerState<Main> {
         actions: [
           Visibility(
             visible: isLoggedIn,
-            child: Tooltip(
-              message: "Logout",
-              child: ElevatedButton(
-                onPressed: () async => {
-                  setState(() {
-                    isLoggedIn = false;
-                    _storage.deleteAll();
-                  })
-                },
-                child: const Icon(Icons.logout),
-              ),
+            child: TextButton(
+              child: const Icon(Icons.settings),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const Settings();
+                    });
+              },
             ),
-          )
+          ),
+          Visibility(
+            visible: isLoggedIn,
+            child: TextButton(
+              child: const Icon(Icons.logout),
+              onPressed: () async => {
+                setState(() {
+                  isLoggedIn = false;
+                  _storage.deleteAll();
+                })
+              },
+            ),
+          ),
         ],
       ),
       body: !isLoggedIn
@@ -107,7 +118,7 @@ class _MainState extends ConsumerState<Main> {
                     ),
                   );
                 }),
-                const VerticalDivider(thickness: 1, width: 1),
+                // const VerticalDivider(thickness: 1, width: 1),
                 Expanded(
                   child: pages[selectedItem.index],
                 )
