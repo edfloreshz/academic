@@ -19,12 +19,13 @@ public class AlumnoController : ControllerBase
         if (activo.HasValue)
         {
             return await _context.Alumnos
+                .OrderBy(a => a.IdAlumno)
                 .Include(a => a.AulaNavigation)
                 .Where(x => x.Activo == activo)
                 .ToListAsync();
         }
         return await _context.Alumnos
-            .OrderByDescending(a => a.Activo)
+            .OrderBy(a => a.IdAlumno)
             .Include(a => a.AulaNavigation)
             .ToListAsync();
     }

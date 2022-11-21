@@ -42,6 +42,7 @@ dependencies:
   overlay_support: ^2.0.1
   stockholm: ^0.0.3
   flex_color_picker: ^2.6.1
+  encrypt: ^5.0.1
 
 dev_dependencies:
   flutter_test:

@@ -53,6 +53,23 @@ class Alumno {
     }
   }
 
+  static Future createAlumno(Alumno alumno) async {
+    const storage = FlutterSecureStorage();
+    var token = await storage.read(key: 'token');
+    final response = await http.post(
+      Uri.parse('https://localhost:5000/api/alumno'),
+      headers: <String, String>{
+        'Authorization': 'Bearer $token',
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(alumno.toJson()),
+    );
+
+    if (response.statusCode != 201) {
+      throw Exception('No fue posible actualizar al alumno.');
+    }
+  }
+
   static Future updateAlumno(Alumno alumno) async {
     const storage = FlutterSecureStorage();
     var token = await storage.read(key: 'token');
@@ -63,6 +80,21 @@ class Alumno {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(alumno.toJson()),
+    );
+
+    if (response.statusCode != 204) {
+      throw Exception('No fue posible actualizar al alumno.');
+    }
+  }
+
+  static Future deleteAlumno(int id) async {
+    const storage = FlutterSecureStorage();
+    var token = await storage.read(key: 'token');
+    final response = await http.delete(
+      Uri.parse('https://localhost:5000/api/alumno/$id'),
+      headers: <String, String>{
+        'Authorization': 'Bearer $token',
+      },
     );
 
     if (response.statusCode != 204) {

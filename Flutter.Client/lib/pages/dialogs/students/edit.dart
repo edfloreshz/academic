@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:academic/models/alumno.dart';
 import 'package:overlay_support/overlay_support.dart';
 
-import '../../models/aula.dart';
+import '../../../models/aula.dart';
 
 typedef OnSubmit = void Function(Alumno alumno);
 

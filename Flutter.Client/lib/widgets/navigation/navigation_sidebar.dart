@@ -1,4 +1,3 @@
-import 'package:academic/data.dart';
 import 'package:academic/providers/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

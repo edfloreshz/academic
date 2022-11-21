@@ -1,10 +1,11 @@
 import 'package:academic/data.dart';
-import 'package:academic/pages/dialogs/settings.dart';
+import 'package:academic/pages/content.dart';
 import 'package:academic/pages/login.dart';
 import 'package:academic/providers/navigation.dart';
 import 'package:academic/providers/theme.dart';
+import 'package:academic/widgets/buttons/logout_button.dart';
+import 'package:academic/widgets/buttons/settings_button.dart';
 import 'package:academic/widgets/navigation/navigation_bottom_bar.dart';
-import 'package:academic/widgets/navigation/navigation_sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -66,6 +67,15 @@ class _MainState extends ConsumerState<Main> {
     });
   }
 
+  void logout() => {
+        setState(
+          () {
+            isLoggedIn = false;
+            _storage.deleteAll();
+          },
+        )
+      };
+
   @override
   Widget build(BuildContext context) {
     final selectedItem = ref.watch(navigationProvider);
@@ -75,55 +85,17 @@ class _MainState extends ConsumerState<Main> {
       appBar: AppBar(
         title: const Center(child: Text(appName)),
         actions: [
-          Visibility(
-            visible: isLoggedIn,
-            child: TextButton(
-              child: const Icon(Icons.settings),
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const Settings();
-                    });
-              },
-            ),
-          ),
-          Visibility(
-            visible: isLoggedIn,
-            child: TextButton(
-              child: const Icon(Icons.logout),
-              onPressed: () async => {
-                setState(() {
-                  isLoggedIn = false;
-                  _storage.deleteAll();
-                })
-              },
-            ),
+          SettingsButton(isLoggedIn: isLoggedIn),
+          LogoutButton(
+            isLoggedIn: isLoggedIn,
+            storage: _storage,
+            onPressed: logout,
           ),
         ],
       ),
       body: !isLoggedIn
           ? Login(notifyLogin: notifyLogin)
-          : Row(
-              children: [
-                LayoutBuilder(builder: (context, constraint) {
-                  return SingleChildScrollView(
-                    child: ConstrainedBox(
-                      constraints:
-                          BoxConstraints(minHeight: constraint.maxHeight),
-                      child: IntrinsicHeight(
-                        child: NavigationSidebar(
-                            selectedItem: selectedItem, ref: ref),
-                      ),
-                    ),
-                  );
-                }),
-                // const VerticalDivider(thickness: 1, width: 1),
-                Expanded(
-                  child: pages[selectedItem.index],
-                )
-              ],
-            ),
+          : Content(selectedItem: selectedItem, ref: ref, pages: pages),
       bottomNavigationBar: NavigationBottomBar(
           selectedItem: selectedItem, ref: ref, isLoggedIn: isLoggedIn),
     );

@@ -40,7 +40,7 @@ public class UserService : IUserService
         // authentication successfull so generate jwt token
         var token = JwtTokenBuilder(docente);
 
-        return new AuthenticateResponse(docente, token);
+        return new AuthenticateResponse(docente, token, _configuration);
     }
 
     public IEnumerable<Docente> GetAll()

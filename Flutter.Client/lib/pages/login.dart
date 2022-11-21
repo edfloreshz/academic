@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:academic/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
@@ -100,6 +99,7 @@ class _LoginState extends State<Login> {
                 if (response.statusCode == 200) {
                   var body = jsonDecode(response.body);
                   await _storage.write(key: 'token', value: body['token']);
+                  await _storage.write(key: 'jwt', value: body['jwt']);
                   widget.notifyLogin();
                 } else {
                   showSimpleNotification(

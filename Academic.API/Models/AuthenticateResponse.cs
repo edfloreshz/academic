@@ -10,8 +10,9 @@ public class AuthenticateResponse
     public bool? Activo { get; set; }
     public bool? Administrador { get; set; }
     public string Token { get; set; }
+    public string JWT { get; set; }
 
-    public AuthenticateResponse(Docente user, string token)
+    public AuthenticateResponse(Docente user, string token, IConfiguration _configuration)
     {
         IdDocente = user.IdDocente;
         Nombre = user.Nombres;
@@ -21,5 +22,6 @@ public class AuthenticateResponse
         Activo = user.Activo;
         Administrador = user.Administrador;
         Token = token;
+        JWT = _configuration["JWT:key"];
     }
 }

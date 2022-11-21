@@ -34,7 +34,7 @@ class Aula {
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
-      throw Exception('No se pudo obtener la lista de alumnos');
+      throw Exception('No se pudo obtener la lista de aulas');
     }
   }
 
