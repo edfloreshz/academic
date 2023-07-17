@@ -18,9 +18,9 @@ services:
       - "./Academic.API/Database/data.sql:/docker-entrypoint-initdb.d/3.sql"
     restart: unless-stopped
     environment: 
-      MYSQL_ROOT_PASSWORD: test_password
-      MYSQL_USER: test_user
-      MYSQL_PASSWORD: test_password
+      MYSQL_ROOT_PASSWORD: Edward0102
+      MYSQL_USER: eduardo
+      MYSQL_PASSWORD: Edward0102
       DB_HOST: Academic.Database
   academic.api:
     image: ${DOCKER_REGISTRY-}academicapi

@@ -8,9 +8,9 @@ public class LoginController : ControllerBase
 {
     private readonly IConfiguration _configuration;
     private IUserService _userService;
-    private readonly academicContext _context;
+    private readonly AcademicContext _context;
 
-    public LoginController(academicContext context, IConfiguration configuration, IUserService userService)
+    public LoginController(AcademicContext context, IConfiguration configuration, IUserService userService)
     {
         _context = context;
         _configuration = configuration;

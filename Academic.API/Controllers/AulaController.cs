@@ -5,9 +5,9 @@ namespace Academic.API.Controllers;
 [Authorize]
 public class AulaController : ControllerBase
 {
-    private readonly academicContext _context;
+    private readonly AcademicContext _context;
 
-    public AulaController(academicContext context)
+    public AulaController(AcademicContext context)
     {
         _context = context;
     }

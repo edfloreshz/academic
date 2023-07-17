@@ -5,9 +5,9 @@ namespace Academic.API.Controllers;
 [Authorize]
 public class AsistenciaController : ControllerBase
 {
-    private readonly academicContext _context;
+    private readonly AcademicContext _context;
 
-    public AsistenciaController(academicContext context)
+    public AsistenciaController(AcademicContext context)
     {
         _context = context;
     }

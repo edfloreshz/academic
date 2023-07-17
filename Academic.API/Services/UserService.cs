@@ -16,13 +16,13 @@ public interface IUserService
 public class UserService : IUserService
 {
 
-    private readonly academicContext _context;
+    private readonly AcademicContext _context;
 
     private List<Docente> _docentes;
 
     private readonly IConfiguration _configuration;
 
-    public UserService(academicContext context, IConfiguration configuration)
+    public UserService(AcademicContext context, IConfiguration configuration)
     {
         _context = context;
         _docentes = _context.Docentes.ToList();

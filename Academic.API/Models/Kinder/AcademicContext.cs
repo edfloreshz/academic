@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Academic.API.Models.Kinder
 {
-    public partial class academicContext : DbContext
+    public partial class AcademicContext : DbContext
     {
 
         private readonly IConfiguration _configuration;
-        readonly bool isDevelopment = string.Equals(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"), "development", StringComparison.InvariantCultureIgnoreCase);
+        private readonly bool _isDevelopment = string.Equals(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"), "development", StringComparison.InvariantCultureIgnoreCase);
 
-        public academicContext()
+        public AcademicContext()
         {
         }
 
-        public academicContext(DbContextOptions<academicContext> options, IConfiguration configuration)
+        public AcademicContext(DbContextOptions<AcademicContext> options, IConfiguration configuration)
             : base(options)
         {
             _configuration = configuration;
@@ -34,7 +34,7 @@ namespace Academic.API.Models.Kinder
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured) return;
-            var connectionString = isDevelopment
+            var connectionString = _isDevelopment
                 ? _configuration["ConnectionStrings:DevelopmentDatabase"]
                 : _configuration["ConnectionStrings:ProductionDatabase"];
             optionsBuilder.UseMySQL(connectionString);

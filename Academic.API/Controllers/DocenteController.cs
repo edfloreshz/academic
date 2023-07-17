@@ -4,9 +4,9 @@ namespace Academic.API.Controllers;
 [Authorize]
 public class DocenteController : ControllerBase
 {
-    private readonly academicContext _context;
+    private readonly AcademicContext _context;
 
-    public DocenteController(academicContext context)
+    public DocenteController(AcademicContext context)
     {
         _context = context;
     }

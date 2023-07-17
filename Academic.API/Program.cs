@@ -1,3 +1,6 @@
+using Academic.API.GraphQL;
+using GraphQL.Server.Ui.Voyager;
+
 var builder = WebApplication.CreateBuilder(args);
 var env = builder.Environment;
 var config = builder.Configuration;
@@ -6,12 +9,13 @@ var config = builder.Configuration;
 builder.Services.AddHealthChecks();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddDbContext<academicContext>(options => {
+builder.Services.AddDbContext<AcademicContext>(options => {
     var connectionString = env.IsDevelopment()
             ? config["ConnectionStrings:DevelopmentDatabase"]
             : config["ConnectionStrings:ProductionDatabase"];
     options.UseMySQL(connectionString);
     });
+builder.Services.AddGraphQLServer().AddQueryType<AcademicQuery>().AddProjections().AddSorting().AddFiltering();
 
 builder.Services.AddCors(options =>
 {
@@ -109,6 +113,11 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller}/{action=Index}/{id?}");
+    endpoints.MapGraphQL("/graph");
+    endpoints.MapGraphQLVoyager("ui/voyager", new VoyagerOptions()
+    {
+        GraphQLEndPoint = "/graph"
+    });
 });
 
 app.MapControllers();
