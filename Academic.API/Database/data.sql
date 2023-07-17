@@ -15,7 +15,7 @@ values  (1, 'Mensualidad'),
         (5, 'Inscripcion');
 
 insert into docente (idDocente, nombres, apellidoPaterno, apellidoMaterno, email, password, activo, administrador, aulaAsignada)
-values  (10, 'Angeles', 'Martinez', 'Campa', 'gely@gmail.com', 'RUlloPUXuAol4yDQ/oXdWy0jIkCmkQMDiEU52RfxYWs=', true, true, 1);
+values  (10, 'Angeles', 'Martinez', 'Campa', 'gely@gmail.com', 'WzW4S4vtBmj1ifgz5KZkbqpyQQ3wqIGoCWUQDUrVXz4=', true, true, 1);
 
 use CreciendoJuntosDev;
 
@@ -34,4 +34,4 @@ values  (1, 'Mensualidad'),
         (5, 'Inscripcion');
 
 insert into docente (idDocente, nombres, apellidoPaterno, apellidoMaterno, email, password, activo, administrador, aulaAsignada)
-values  (10, 'Angeles', 'Martinez', 'Campa', 'gely@gmail.com', 'RUlloPUXuAol4yDQ/oXdWy0jIkCmkQMDiEU52RfxYWs=', true, true, 1);
+values  (10, 'Angeles', 'Martinez', 'Campa', 'gely@gmail.com', 'WzW4S4vtBmj1ifgz5KZkbqpyQQ3wqIGoCWUQDUrVXz4=', true, true, 1);

@@ -37,7 +37,7 @@ public class UserService : IUserService
         docente.Password = Hasher.Decrypt(docente.Password, _configuration["JWT:key"], Rijndael256.KeySize.Aes256);
 
         if (docente.Password != model.Password) return null;
-        // authentication successfull so generate jwt token
+        // authentication successful so generate jwt token
         var token = JwtTokenBuilder(docente);
 
         return new AuthenticateResponse(docente, token, _configuration);

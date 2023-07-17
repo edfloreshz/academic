@@ -92,8 +92,12 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseCors("CorsPolicy");
-app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCookiePolicy();
 app.UseSession();
